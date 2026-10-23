@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Direct Democracy System — Homo Provincialis</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .dd-app{margin-top:24px;padding:14px;border:1px solid #777;background:#f3f3f3}.dd-app *{box-sizing:border-box}
+    .dd-app h3,.dd-app h4{font-family:"Courier New",monospace}.dd-app h3{margin:0 0 8px;font-size:20px}.dd-app h4{margin:0 0 8px}
+    .dd-note{padding:9px 11px;border:1px solid #aaa;background:#fff;line-height:1.5}.dd-small{font-size:11px;color:#666;line-height:1.45}
+    .dd-row{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin:9px 0}.dd-field{flex:1 1 180px}.dd-field label{display:block;margin-bottom:4px;font-size:12px;font-weight:bold}
+    .dd-field input,.dd-field select,.dd-field textarea{width:100%;padding:6px 7px;border:1px solid #777;background:#fff;font:inherit}.dd-field textarea{min-height:85px;resize:vertical}
+    .dd-btn,.dd-tabs button,.dd-votes button{padding:6px 10px;border:1px solid #555;background:#eee;color:#111;font:inherit;cursor:pointer}.dd-btn:hover,.dd-tabs button:hover,.dd-votes button:hover{background:#ffffcc}
+    .dd-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;padding:8px;border:1px solid #aaa;background:#ddd}.dd-tabs button.active{background:#fff;font-weight:bold}
+    .dd-panel{display:none;padding:12px;border:1px solid #999;background:#fff}.dd-panel.active{display:block}.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .dd-card{padding:11px;border:1px solid #aaa;background:#fafafa;margin-bottom:10px}.dd-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:12px 0}.dd-stat{padding:7px;border:1px solid #aaa;background:#fff;text-align:center}.dd-stat b{display:block;font-size:18px}
+    .dd-member,.dd-law{padding:7px 0;border-bottom:1px dotted #aaa}.dd-badge{display:inline-block;padding:1px 5px;margin-left:4px;border:1px solid #999;background:#eee;font-size:10px}
+    .dd-badge.autoritas{background:#fff3bf;font-weight:bold}
+    .dd-badge.mentor,.dd-badge.magister{background:#edf2ff}
+    .dd-badge.discipulus_maior,.dd-badge.discipulus{background:#eef8ee}
+    .dd-badge.off{color:#777;background:#ddd}
+    .dd-hierarchy{margin-top:12px;padding:9px 10px;border:1px solid #aaa;background:#fff;font-size:11px;line-height:1.65}
+    .dd-hierarchy b{font-family:"Courier New",monospace;font-size:12px}
+    .dd-case{padding:11px;margin-bottom:12px;border:1px solid #888;background:#fff}.dd-case-title{font-weight:bold;font-size:15px}.dd-meta{font-size:11px;color:#666;line-height:1.5}.dd-text{white-space:pre-wrap;line-height:1.45;margin:8px 0}
+    .dd-counts{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:8px 0;text-align:center;font-size:11px}.dd-counts div{padding:5px;border:1px solid #bbb;background:#f5f5f5}.dd-votes{display:flex;flex-wrap:wrap;gap:6px}
+    .dd-status{font-weight:bold}.dd-status.open{color:#0055aa}.dd-status.passed{color:#087a22}.dd-status.rejected{color:#a00000}.dd-warning{padding:8px 10px;border:1px solid #b6a25e;background:#fff9d9;line-height:1.5}
+    .dd-danger{border-color:#9d4d4d}.dd-book{border:1px solid #777;background:#fff}.dd-book-title{padding:9px 10px;border-bottom:1px solid #777;background:#ddd;font-family:"Courier New",monospace;font-weight:bold}.dd-book-body{padding:10px}.dd-empty{color:#777;font-style:italic}
+    @media(max-width:760px){.dd-grid,.dd-stats{grid-template-columns:1fr}.dd-counts{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<div class="site">
+  <header>
+    <h1>HOMO PROVINCIALIS</h1>
+    <div class="domain">homoprovincialis.com</div>
+    <div class="language-switch">[ <button type="button" onclick="ddLanguage('en')">English</button> ] [ <button type="button" onclick="ddLanguage('ru')">Русский</button> ]</div>
+  </header>
+  <hr>
+  <main>
+    <section class="lang lang-en">
+      <p><a href="index.html">← Home</a></p>
+      <h2>World Direct Democracy System</h2>
+      <p>An experimental application for proposals, disputes, accusations and collective decisions. Any member may initiate a case. Eligible members decide directly by vote.</p>
+      <div class="dd-note"><b>Principles:</b> justice, individual freedom, equality of persons, fraternity and solidarity, voluntary association, equal civic standing, the right to answer an accusation, and a public record of decisions.</div>
+    </section>
+    <section class="lang lang-ru">
+      <p><a href="index.html">← Главная</a></p>
+      <h2>Всемирная система прямой демократии</h2>
+      <p>Экспериментальное приложение для предложений, споров, обвинений и коллективных решений. Любой участник может инициировать дело. Участники с правом голоса решают напрямую голосованием.</p>
+      <div class="dd-note"><b>Принципы:</b> справедливость, свобода индивида, равенство людей, братство и солидарность, добровольное объединение, равный гражданский статус, право ответить на обвинение и открытая запись решений.</div>
+    </section>
+
+    <div class="dd-app">
+      <h3 id="app-title"></h3>
+      <div class="dd-small" id="storage-note"></div>
+
+      <div class="dd-row">
+        <div class="dd-field"><label id="community-label"></label><select id="community-select"></select></div>
+        <button class="dd-btn" id="new-community"></button>
+      </div>
+
+      <div class="dd-stats">
+        <div class="dd-stat"><b id="s-members">0</b><span id="s-members-label"></span></div>
+        <div class="dd-stat"><b id="s-open">0</b><span id="s-open-label"></span></div>
+        <div class="dd-stat"><b id="s-laws">0</b><span id="s-laws-label"></span></div>
+        <div class="dd-stat"><b id="s-threshold">0%</b><span id="s-threshold-label"></span></div>
+      </div>
+
+      <div class="dd-tabs">
+        <button class="active" data-tab="community"></button><button data-tab="case"></button><button data-tab="vote"></button><button data-tab="book"></button><button data-tab="code"></button><button data-tab="data"></button>
+      </div>
+
+      <section class="dd-panel active" id="p-community">
+        <div class="dd-grid">
+          <div class="dd-card">
+            <h4 id="settings-title"></h4>
+            <div class="dd-field"><label id="name-label"></label><input id="c-name"></div>
+            <div class="dd-field" style="margin-top:8px"><label id="desc-label"></label><textarea id="c-desc"></textarea></div>
+            <div class="dd-row">
+              <div class="dd-field"><label id="ordinary-label"></label><input id="c-ordinary" type="number" min="50" max="100"></div>
+              <div class="dd-field"><label id="law-label"></label><input id="c-law" type="number" min="50" max="100"></div>
+              <div class="dd-field"><label id="quorum-label"></label><input id="c-quorum" type="number" min="1" max="100"></div>
+            </div>
+            <button class="dd-btn" id="save-settings"></button>
+            <div class="dd-warning" id="equal-note" style="margin-top:10px"></div>
+          </div>
+          <div class="dd-card">
+            <h4 id="members-title"></h4><div id="members-list"></div>
+            <div class="dd-row">
+              <div class="dd-field"><label id="member-name-label"></label><input id="member-name"></div>
+              <div class="dd-field"><label id="member-role-label"></label><select id="member-role">
+  <option value="mentor"></option>
+  <option value="magister"></option>
+  <option value="discipulus_maior"></option>
+  <option value="discipulus"></option>
+  <option value="socius"></option>
+  <option value="participant"></option>
+  <option value="candidatus"></option>
+  <option value="observator"></option>
+  <option value="guest"></option>
+</select></div>
+              <button class="dd-btn" id="add-member"></button>
+            </div>
+            <div class="dd-small" id="member-note"></div>
+            <div class="dd-hierarchy" id="hierarchy-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dd-panel" id="p-case">
+        <div class="dd-card">
+          <h4 id="case-title-heading"></h4>
+          <div class="dd-row">
+            <div class="dd-field"><label id="type-label"></label><select id="case-type"><option value="proposal"></option><option value="law"></option><option value="dispute"></option><option value="accusation"></option><option value="exclusion"></option></select></div>
+            <div class="dd-field"><label id="initiator-label"></label><select id="case-initiator"></select></div>
+            <div class="dd-field" id="target-wrap"><label id="target-label"></label><select id="case-target"></select></div>
+          </div>
+          <div class="dd-field"><label id="title-label"></label><input id="case-title"></div>
+          <div class="dd-field" style="margin-top:8px"><label id="text-label"></label><textarea id="case-text"></textarea></div>
+          <div class="dd-warning" id="rule-preview" style="margin:10px 0"></div>
+          <button class="dd-btn" id="open-case"></button>
+        </div>
+      </section>
+
+      <section class="dd-panel" id="p-vote"><div id="cases"></div></section>
+
+      <section class="dd-panel" id="p-book">
+        <div class="dd-book"><div class="dd-book-title" id="book-title"></div><div class="dd-book-body">
+          <div class="dd-row"><div class="dd-field"><label id="search-label"></label><input id="book-search"></div><button class="dd-btn" id="download-book"></button></div>
+          <div id="book-list"></div>
+        </div></div>
+      </section>
+
+      <section class="dd-panel" id="p-code">
+        <div class="dd-grid">
+          <div class="dd-card"><h4 id="code-title"></h4><p id="code-text"></p><div class="dd-field"><label id="draft-label"></label><textarea id="code-draft"></textarea></div><div class="dd-row"><div class="dd-field"><label id="code-init-label"></label><select id="code-init"></select></div><button class="dd-btn" id="submit-code"></button></div></div>
+          <div class="dd-card"><h4 id="safeguards-title"></h4><div id="safeguards"></div></div>
+        </div>
+      </section>
+
+      <section class="dd-panel" id="p-data">
+        <div class="dd-card"><h4 id="data-title"></h4><p id="data-text"></p><div class="dd-row"><button class="dd-btn" id="export-json"></button><label class="dd-btn" for="import-json" id="import-label"></label><input id="import-json" type="file" accept=".json,application/json" style="display:none"><button class="dd-btn dd-danger" id="reset-data"></button></div><div class="dd-small" id="reset-note"></div></div>
+      </section>
+    </div>
+  </main>
+  <hr>
+  <footer><p>© 2026 Ramon Eyquem</p></footer>
+</div>
+
+<script>
+(function(){
+const K="hp_direct_democracy_v5_full_name";let lang="en",tab="community";
+const L={
+en:{app:"Direct Democracy Tool",storage:"Experimental browser version: data are stored only in this browser. A real shared system will later require a server, identity system and common database.",community:"Community",newCommunity:"New community",members:"Members",open:"Open cases",decisions:"Recorded decisions",ordinary:"Ordinary threshold",tabs:["Community","New case","Voting","Book of laws","Code & principles","Data"],settings:"Community settings",name:"Name",desc:"Description / founding values",ordinaryM:"Ordinary majority (%)",lawM:"Law / charter majority (%)",quorum:"Required participation (%)",save:"Save settings",equal:"Equality rule: the creator may propose and vote, but has one vote like every other eligible member. A creator's moral principles become binding only through the community's adopted procedure.",memberName:"New member",role:"Role",rAutoritas:"Creator — First AUCTORITAS",rMentor:"Mentor",rMagister:"Teacher",rDiscipulusMaior:"Senior Disciple",rDiscipulus:"Disciple",rSocius:"Associate",rParticipant:"Participant",rCandidatus:"Candidate",rObservator:"Observer",rGuest:"Guest",hierarchy:"Hierarchy levels",onlyOneCreator:"Creator — First AUCTORITAS is one unique position, permanently assigned to Ramon Eyquem in this version.",add:"Add",memberNote:"Ramon Eyquem is the Creator — First AUCTORITAS. This is one person and one highest position. Only the original Creator is called First AUCTORITAS. Later, the current AUCTORITAS may propose a Mentor as successor, or a new AUCTORITAS may be chosen when succession becomes necessary. In every case, the new AUCTORITAS receives the status only with 100% support of eligible voters.",initiate:"Initiate a case",type:"Type",initiator:"Initiator",target:"Person concerned",title:"Title",text:"Statement, reasons, evidence or proposed text",openVote:"Open voting",proposal:"Proposal",law:"Law / rule",dispute:"Dispute",accusation:"Accusation",exclusion:"Exclusion",ruleOrd:"Ordinary proposals, disputes and accusations use the community's ordinary threshold.",ruleLaw:"Laws and charter rules use the community's law threshold.",ruleEx:"Exclusion requires 100% YES from all other active members. The person concerned is not an eligible voter in their own exclusion case.",noMembers:"Add at least one active member first.",fill:"Please fill in the required fields.",none:"There are no open cases in this community.",by:"Initiated by",decisionRule:"Decision rule",yes:"YES",no:"NO",abstain:"ABSTAIN",turnout:"Participation",voter:"Voter",close:"Close voting and record decision",statusOpen:"OPEN",passed:"PASSED",rejected:"REJECTED",needQuorum:"Required participation has not been reached.",needAll:"For an exclusion, every eligible member must vote.",recorded:"Decision recorded in the Book of Laws and Decisions.",book:"Book of Laws and Decisions",search:"Search",download:"Download as TXT",noDecisions:"No finalized decisions yet.",created:"Created",finalized:"Finalized",eligible:"Eligible",threshold:"Threshold",code:"Universal Code of Laws",codeText:"The creator and any participant may draft a candidate universal rule. It becomes law only after the required direct vote. Over time, adopted rules can form a universal code aimed at justice, freedom, equality and fraternity.",draft:"Draft a universal rule",submit:"Submit for vote",safeguards:"Safeguards for justice and freedom",safeguardsHtml:"<p><b>1. Equal standing.</b> One eligible person = one vote.</p><p><b>2. Right to initiate.</b> Any active member may propose a rule, open a dispute or make an accusation.</p><p><b>3. Right to answer.</b> A person concerned by an accusation or exclusion must be able to read and answer the case before finalization.</p><p><b>4. No unilateral punishment.</b> An accusation is not a verdict.</p><p><b>5. Voluntary association.</b> A person may leave; communities may define their own values and thresholds.</p><p><b>6. Public precedent.</b> Every final decision is preserved in the common book.</p>",data:"Local data",dataText:"Export a backup before replacing the HTML file or clearing browser data.",export:"Export JSON backup",import:"Import JSON backup",reset:"Reset application data",resetNote:"Reset deletes communities, members, cases and the book stored by this page in this browser.",confirmReset:"Delete all stored Direct Democracy data?",confirmClose:"Close this voting and make the result final?",confirmImport:"Replace current data with the imported backup?",defaultCommunity:"World Direct Democracy",defaultDesc:"Experimental world community based on direct participation, justice, individual freedom, equality and fraternity.",defaultCreator:"Ramon Eyquem",promptCommunity:"Name of the new community:",codeProposal:"Universal Code proposal",inactive:"Excluded / inactive"},
+ru:{app:"Инструмент прямой демократии",storage:"Экспериментальная браузерная версия: данные хранятся только в этом браузере. Для настоящей общей системы позже понадобятся сервер, система идентификации и общая база данных.",community:"Сообщество",newCommunity:"Новое сообщество",members:"Участники",open:"Открытые дела",decisions:"Записанные решения",ordinary:"Обычный порог",tabs:["Сообщество","Новое дело","Голосование","Книга законов","Кодекс и принципы","Данные"],settings:"Настройки сообщества",name:"Название",desc:"Описание / основополагающие ценности",ordinaryM:"Обычное большинство (%)",lawM:"Большинство для закона / устава (%)",quorum:"Необходимое участие (%)",save:"Сохранить настройки",equal:"Правило равенства: создатель может предлагать и голосовать, но имеет один голос, как и любой другой участник с правом голоса. Моральные принципы создателя становятся обязательными только по принятой сообществом процедуре.",memberName:"Новый участник",role:"Роль",rAutoritas:"Создатель — Первый AUCTORITAS",rMentor:"Наставник",rMagister:"Учитель",rDiscipulusMaior:"Старший ученик",rDiscipulus:"Ученик",rSocius:"Соратник",rParticipant:"Участник",rCandidatus:"Кандидат",rObservator:"Наблюдатель",rGuest:"Гость",hierarchy:"Уровни иерархии",onlyOneCreator:"Создатель — Первый AUCTORITAS — одна-единственная позиция, закреплённая в этой версии за Ramon Eyquem.",add:"Добавить",memberNote:"Ramon Eyquem — Создатель — Первый AUCTORITAS. Это один человек и одна высшая позиция. Только первоначальный Создатель называется Первый AUCTORITAS. В дальнейшем действующий AUCTORITAS может предложить Наставника своим преемником, или новый AUCTORITAS может быть выбран, когда возникает необходимость преемственности. Во всех случаях новый AUCTORITAS получает статус только при поддержке 100% участников с правом голоса.",initiate:"Инициировать дело",type:"Тип",initiator:"Инициатор",target:"Человек, которого касается дело",title:"Название",text:"Заявление, причины, доказательства или текст предложения",openVote:"Открыть голосование",proposal:"Предложение",law:"Закон / правило",dispute:"Спор",accusation:"Обвинение",exclusion:"Исключение",ruleOrd:"Обычные предложения, споры и обвинения используют обычный порог сообщества.",ruleLaw:"Законы и правила устава используют порог сообщества для законов.",ruleEx:"Для исключения требуется 100% голосов «ЗА» всех остальных активных участников. Человек не голосует по вопросу собственного исключения.",noMembers:"Сначала добавьте хотя бы одного активного участника.",fill:"Заполните обязательные поля.",none:"В этом сообществе нет открытых дел.",by:"Инициатор",decisionRule:"Правило решения",yes:"ЗА",no:"ПРОТИВ",abstain:"ВОЗДЕРЖАЛСЯ",turnout:"Участие",voter:"Голосующий",close:"Закрыть голосование и записать решение",statusOpen:"ОТКРЫТО",passed:"ПРИНЯТО",rejected:"ОТКЛОНЕНО",needQuorum:"Не достигнут необходимый уровень участия.",needAll:"Для исключения каждый участник с правом голоса должен проголосовать.",recorded:"Решение записано в Книгу законов и решений.",book:"Книга законов и решений",search:"Поиск",download:"Скачать как TXT",noDecisions:"Окончательных решений пока нет.",created:"Создано",finalized:"Завершено",eligible:"Имеют право голоса",threshold:"Порог",code:"Универсальный кодекс законов",codeText:"Создатель и любой участник могут предложить проект универсального правила. Оно становится законом только после необходимого прямого голосования. Со временем принятые правила могут образовать универсальный кодекс, направленный на справедливость, свободу, равенство и братство.",draft:"Проект универсального правила",submit:"Отправить на голосование",safeguards:"Гарантии справедливости и свободы",safeguardsHtml:"<p><b>1. Равный статус.</b> Один участник с правом голоса = один голос.</p><p><b>2. Право инициативы.</b> Любой активный участник может предложить правило, открыть спор или выдвинуть обвинение.</p><p><b>3. Право ответить.</b> Человек, которого касается обвинение или исключение, должен иметь возможность прочитать дело и ответить до окончательного решения.</p><p><b>4. Нет единоличного наказания.</b> Обвинение само по себе не является приговором.</p><p><b>5. Добровольное объединение.</b> Человек может уйти; сообщества могут определять свои ценности и пороги.</p><p><b>6. Открытый прецедент.</b> Каждое окончательное решение сохраняется в общей книге.</p>",data:"Локальные данные",dataText:"Сделайте резервную копию перед заменой HTML-файла или очисткой данных браузера.",export:"Экспорт JSON",import:"Импорт JSON",reset:"Сбросить данные приложения",resetNote:"Сброс удалит сообщества, участников, дела и книгу решений, сохранённые этой страницей в данном браузере.",confirmReset:"Удалить все сохранённые данные приложения прямой демократии?",confirmClose:"Закрыть это голосование и сделать результат окончательным?",confirmImport:"Заменить текущие данные импортированной копией?",defaultCommunity:"Всемирная прямая демократия",defaultDesc:"Экспериментальное всемирное сообщество, основанное на прямом участии, справедливости, свободе индивида, равенстве и братстве.",defaultCreator:"Ramon Eyquem",promptCommunity:"Название нового сообщества:",codeProposal:"Предложение для универсального кодекса",inactive:"Исключён / неактивен"}
+};
+const t=k=>L[lang][k],id=x=>document.getElementById(x),uid=p=>p+"_"+Date.now().toString(36)+Math.random().toString(36).slice(2,7),esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+function fresh(){let c=uid("c"),m=uid("m");return{current:c,communities:[{id:c,name:L.en.defaultCommunity,nameRu:L.ru.defaultCommunity,desc:L.en.defaultDesc,descRu:L.ru.defaultDesc,ordinary:50,law:67,quorum:100,members:[{id:m,name:"Ramon Eyquem",nameRu:"Ramon Eyquem",role:"autoritas",active:true}]}],cases:[],laws:[]}}
+function load(){
+  try{
+    let x=JSON.parse(localStorage.getItem(K));
+    return x&&x.communities&&x.cases&&x.laws?x:fresh()
+  }catch(e){
+    return fresh()
+  }
+}
+
+/* One-time clean start for this version.
+   Only old Direct Democracy keys are removed; other site data are untouched. */
+const CLEAN_MARK="hp_direct_democracy_v5_full_name_initialized";
+if(!localStorage.getItem(CLEAN_MARK)){
+  [
+    "hp_direct_democracy_v1",
+    "hp_direct_democracy_v2_clean",
+    "hp_direct_democracy_v3_clean_start",
+    "hp_direct_democracy_v4_pristine",
+    "homoprovincialis_direct_democracy_v1"
+  ].forEach(k=>localStorage.removeItem(k));
+
+  const clean=fresh();
+  localStorage.setItem(K,JSON.stringify(clean));
+  localStorage.setItem(CLEAN_MARK,"1");
+}
+
+let S=load();
+(S.communities||[]).forEach(c=>{
+  (c.members||[]).forEach(m=>{
+    if(m.role==="autoritas"){
+      m.name="Ramon Eyquem";
+      m.nameRu="Ramon Eyquem";
+    }
+  });
+});
+localStorage.setItem(K,JSON.stringify(S));
+
+const save=()=>localStorage.setItem(K,JSON.stringify(S));const C=()=>S.communities.find(x=>x.id===S.current)||S.communities[0];
+const cname=c=>lang==="ru"&&c.nameRu?c.nameRu:c.name,mname=m=>lang==="ru"&&m.nameRu?m.nameRu:m.name,cdesc=c=>lang==="ru"&&c.descRu?c.descRu:c.desc;
+function active(c){return c.members.filter(m=>m.active)}function eligible(k,c){let a=active(c);return k.type==="exclusion"?a.filter(m=>m.id!==k.target):a}function counts(k,c){let e=eligible(k,c),y=0,n=0,a=0,cast=0;e.forEach(m=>{let v=k.votes[m.id];if(v==="yes"){y++;cast++}if(v==="no"){n++;cast++}if(v==="abstain"){a++;cast++}});return{e:e.length,y,n,a,cast,turn:e.length?cast/e.length*100:0}}
+function outcome(k,c){let q=counts(k,c);if(k.type==="exclusion")return{...q,ready:q.e>0&&q.cast===q.e,pass:q.e>0&&q.cast===q.e&&q.y===q.e};let ready=q.e>0&&q.turn>=k.quorum,dec=q.y+q.n,share=dec?q.y/dec*100:0;return{...q,ready,pass:ready&&share>=k.threshold}}
+function staticText(){id("app-title").textContent=t("app");id("storage-note").textContent=t("storage");id("community-label").textContent=t("community");id("new-community").textContent=t("newCommunity");id("s-members-label").textContent=t("members");id("s-open-label").textContent=t("open");id("s-laws-label").textContent=t("decisions");id("s-threshold-label").textContent=t("ordinary");document.querySelectorAll(".dd-tabs button").forEach((b,i)=>b.textContent=t("tabs")[i]);id("settings-title").textContent=t("settings");id("name-label").textContent=t("name");id("desc-label").textContent=t("desc");id("ordinary-label").textContent=t("ordinaryM");id("law-label").textContent=t("lawM");id("quorum-label").textContent=t("quorum");id("save-settings").textContent=t("save");id("equal-note").textContent=t("equal");id("members-title").textContent=t("members");id("member-name-label").textContent=t("memberName");id("member-role-label").textContent=t("role");document.querySelector('#member-role option[value="mentor"]').textContent=t("rMentor");
+document.querySelector('#member-role option[value="magister"]').textContent=t("rMagister");
+document.querySelector('#member-role option[value="discipulus_maior"]').textContent=t("rDiscipulusMaior");
+document.querySelector('#member-role option[value="discipulus"]').textContent=t("rDiscipulus");
+document.querySelector('#member-role option[value="socius"]').textContent=t("rSocius");
+document.querySelector('#member-role option[value="participant"]').textContent=t("rParticipant");
+document.querySelector('#member-role option[value="candidatus"]').textContent=t("rCandidatus");
+document.querySelector('#member-role option[value="observator"]').textContent=t("rObservator");
+document.querySelector('#member-role option[value="guest"]').textContent=t("rGuest");id("add-member").textContent=t("add");id("member-note").textContent=t("memberNote");id("case-title-heading").textContent=t("initiate");id("type-label").textContent=t("type");id("initiator-label").textContent=t("initiator");id("target-label").textContent=t("target");id("title-label").textContent=t("title");id("text-label").textContent=t("text");id("open-case").textContent=t("openVote");["proposal","law","dispute","accusation","exclusion"].forEach(x=>document.querySelector(`#case-type option[value="${x}"]`).textContent=t(x));id("book-title").textContent=t("book");id("search-label").textContent=t("search");id("download-book").textContent=t("download");id("code-title").textContent=t("code");id("code-text").textContent=t("codeText");id("draft-label").textContent=t("draft");id("code-init-label").textContent=t("initiator");id("submit-code").textContent=t("submit");id("safeguards-title").textContent=t("safeguards");id("safeguards").innerHTML=t("safeguardsHtml");id("data-title").textContent=t("data");id("data-text").textContent=t("dataText");id("export-json").textContent=t("export");id("import-label").textContent=t("import");id("reset-data").textContent=t("reset");id("reset-note").textContent=t("resetNote")}
+function selects(){let c=C(),cs=id("community-select");cs.innerHTML="";S.communities.forEach(x=>{let o=document.createElement("option");o.value=x.id;o.textContent=cname(x);if(x.id===S.current)o.selected=true;cs.appendChild(o)});let a=active(c);["case-initiator","case-target","code-init"].forEach(z=>{let s=id(z),old=s.value;s.innerHTML="";a.forEach(m=>{let o=document.createElement("option");o.value=m.id;o.textContent=fullMemberLabel(m);s.appendChild(o)});if(a.some(m=>m.id===old))s.value=old});id("target-wrap").style.display=["dispute","accusation","exclusion"].includes(id("case-type").value)?"block":"none"}
+const ROLE_ORDER=["autoritas","mentor","magister","discipulus_maior","discipulus","socius","participant","candidatus","observator","guest"];
+const ROLE_KEY={autoritas:"rAutoritas",mentor:"rMentor",magister:"rMagister",discipulus_maior:"rDiscipulusMaior",discipulus:"rDiscipulus",socius:"rSocius",participant:"rParticipant",candidatus:"rCandidatus",observator:"rObservator",guest:"rGuest"};
+function roleName(role){return t(ROLE_KEY[role]||"rParticipant")}
+function fullMemberLabel(member){
+  if(!member)return "—";
+  return `${mname(member)} — ${roleName(member.role)}`;
+}
+function renderHierarchy(){id("hierarchy-list").innerHTML=`<b>${esc(t("hierarchy"))}</b><br>`+ROLE_ORDER.map((r,i)=>`${i+1}. ${esc(roleName(r))}`).join("<br>")}
+function community(){let c=C();id("c-name").value=cname(c);id("c-desc").value=cdesc(c);id("c-ordinary").value=c.ordinary;id("c-law").value=c.law;id("c-quorum").value=c.quorum;let box=id("members-list");box.innerHTML="";[...c.members].sort((a,b)=>ROLE_ORDER.indexOf(a.role)-ROLE_ORDER.indexOf(b.role)).forEach(m=>{let d=document.createElement("div");d.className="dd-member";d.innerHTML=`<b>${esc(fullMemberLabel(m))}</b>${!m.active?` <span class="dd-badge off">${esc(t("inactive"))}</span>`:""}`;box.appendChild(d)});renderHierarchy();id("s-members").textContent=active(c).length;id("s-open").textContent=S.cases.filter(k=>k.communityId===c.id&&k.status==="open").length;id("s-laws").textContent=S.laws.filter(x=>x.communityId===c.id).length;id("s-threshold").textContent=c.ordinary+"%"}
+function rule(){let c=C(),x=id("case-type").value;id("rule-preview").textContent=x==="exclusion"?t("ruleEx"):(x==="law"?`${t("ruleLaw")} ${t("threshold")}: ${c.law}%. ${t("quorum")}: ${c.quorum}%.`:`${t("ruleOrd")} ${t("threshold")}: ${c.ordinary}%. ${t("quorum")}: ${c.quorum}%.`)}
+function cases(){let c=C(),box=id("cases"),list=S.cases.filter(k=>k.communityId===c.id&&k.status==="open").sort((a,b)=>b.createdAt.localeCompare(a.createdAt));box.innerHTML="";if(!list.length){box.innerHTML=`<div class="dd-empty">${esc(t("none"))}</div>`;return}list.forEach(k=>{let q=counts(k,c),init=c.members.find(m=>m.id===k.initiator),tar=c.members.find(m=>m.id===k.target),e=eligible(k,c),d=document.createElement("div");d.className="dd-case";d.innerHTML=`<div class="dd-case-title">${esc(k.title)}</div><div class="dd-meta"><span class="dd-status open">${esc(t("statusOpen"))}</span> · ${esc(t(k.type))}<br>${esc(t("by"))}: <b>${esc(mname(init))}</b>${tar?`<br>${esc(t("target"))}: <b>${esc(mname(tar))}</b>`:""}<br>${esc(t("decisionRule"))}: <b>${k.type==="exclusion"?100:k.threshold}%</b> · ${esc(t("quorum"))}: <b>${k.quorum}%</b></div><div class="dd-text">${esc(k.text)}</div><div class="dd-counts"><div>${esc(t("yes"))}<br><b>${q.y}</b></div><div>${esc(t("no"))}<br><b>${q.n}</b></div><div>${esc(t("abstain"))}<br><b>${q.a}</b></div><div>${esc(t("turnout"))}<br><b>${q.e?q.turn.toFixed(0):0}%</b></div><div class="dd-field" style="grid-column:1/-1"><label>${esc(t("voter"))}</label><select class="voter">${e.map(m=>`<option value="${m.id}">${esc(mname(m))}</option>`).join("")}</select></div></div><div class="dd-votes"><button data-v="yes">${esc(t("yes"))}</button><button data-v="no">${esc(t("no"))}</button><button data-v="abstain">${esc(t("abstain"))}</button><button class="close">${esc(t("close"))}</button></div>`;let voter=d.querySelector(".voter");d.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{if(voter.value){k.votes[voter.value]=b.dataset.v;save();render();show("vote")}});d.querySelector(".close").onclick=()=>finalize(k,c);box.appendChild(d)})}
+function finalize(k,c){let o=outcome(k,c);if(!o.ready){alert(k.type==="exclusion"?t("needAll"):t("needQuorum"));return}if(!confirm(t("confirmClose")))return;k.status=o.pass?"passed":"rejected";k.finalizedAt=new Date().toISOString();S.laws.push({id:uid("l"),communityId:c.id,type:k.type,title:k.title,text:k.text,status:k.status,finalizedAt:k.finalizedAt,threshold:k.type==="exclusion"?100:k.threshold,votes:{yes:o.y,no:o.n,abstain:o.a,eligible:o.e}});if(k.type==="exclusion"&&o.pass){let m=c.members.find(x=>x.id===k.target);if(m)m.active=false}save();alert(t("recorded"));render();show("book")}
+function book(){let c=C(),q=id("book-search").value.toLowerCase(),box=id("book-list"),list=S.laws.filter(x=>x.communityId===c.id&&(x.title+" "+x.text).toLowerCase().includes(q)).sort((a,b)=>b.finalizedAt.localeCompare(a.finalizedAt));box.innerHTML="";if(!list.length){box.innerHTML=`<div class="dd-empty">${esc(t("noDecisions"))}</div>`;return}list.forEach((x,i)=>{let d=document.createElement("div");d.className="dd-law";d.innerHTML=`<b>${list.length-i}. ${esc(x.title)}</b><div class="dd-meta"><span class="dd-status ${x.status}">${esc(t(x.status))}</span> · ${esc(t("finalized"))}: ${esc(new Date(x.finalizedAt).toLocaleString(lang==="ru"?"ru-RU":"en-GB"))}</div><div class="dd-text">${esc(x.text)}</div><div class="dd-small">${esc(t("yes"))}: ${x.votes.yes}; ${esc(t("no"))}: ${x.votes.no}; ${esc(t("abstain"))}: ${x.votes.abstain}; ${esc(t("eligible"))}: ${x.votes.eligible}; ${esc(t("threshold"))}: ${x.threshold}%</div>`;box.appendChild(d)})}
+function render(){staticText();selects();community();rule();cases();book()}
+function show(x){tab=x;document.querySelectorAll(".dd-panel").forEach(p=>p.classList.remove("active"));document.querySelectorAll(".dd-tabs button").forEach(b=>b.classList.remove("active"));id("p-"+x).classList.add("active");document.querySelector(`.dd-tabs button[data-tab="${x}"]`).classList.add("active")}
+window.ddLanguage=function(x){lang=x==="ru"?"ru":"en";document.documentElement.lang=lang;document.querySelectorAll(".lang-en").forEach(e=>e.style.display=lang==="en"?"block":"none");document.querySelectorAll(".lang-ru").forEach(e=>e.style.display=lang==="ru"?"block":"none");render();show(tab)};
+document.querySelectorAll(".dd-tabs button").forEach(b=>b.onclick=()=>show(b.dataset.tab));id("community-select").onchange=e=>{S.current=e.target.value;save();render()};id("new-community").onclick=()=>{let n=prompt(t("promptCommunity"));if(!n||!n.trim())return;let members=[{id:uid("m"),name:"Ramon Eyquem",nameRu:"Ramon Eyquem",role:"autoritas",active:true}];let c={id:uid("c"),name:n.trim(),nameRu:n.trim(),desc:"",descRu:"",ordinary:50,law:67,quorum:100,members};S.communities.push(c);S.current=c.id;save();render();show("community")};id("save-settings").onclick=()=>{let c=C(),n=id("c-name").value.trim(),d=id("c-desc").value.trim();if(lang==="ru"){c.nameRu=n||c.nameRu||c.name;c.descRu=d}else{c.name=n||c.name;c.desc=d}c.ordinary=Math.max(50,Math.min(100,+id("c-ordinary").value||50));c.law=Math.max(50,Math.min(100,+id("c-law").value||67));c.quorum=Math.max(1,Math.min(100,+id("c-quorum").value||100));save();render()};id("add-member").onclick=()=>{let c=C(),n=id("member-name").value.trim();if(!n)return alert(t("fill"));let role=id("member-role").value;c.members.push({id:uid("m"),name:n,nameRu:n,role,active:true});id("member-name").value="";save();render()};id("case-type").onchange=()=>{selects();rule()};id("open-case").onclick=()=>{let c=C(),a=active(c);if(!a.length)return alert(t("noMembers"));let type=id("case-type").value,title=id("case-title").value.trim(),text=id("case-text").value.trim(),init=id("case-initiator").value,target=id("case-target").value;if(!title||!text||!init||(["dispute","accusation","exclusion"].includes(type)&&!target))return alert(t("fill"));S.cases.push({id:uid("k"),communityId:c.id,type,initiator:init,target:["dispute","accusation","exclusion"].includes(type)?target:null,title,text,threshold:type==="law"?c.law:(type==="exclusion"?100:c.ordinary),quorum:type==="exclusion"?100:c.quorum,votes:{},status:"open",createdAt:new Date().toISOString()});id("case-title").value="";id("case-text").value="";save();render();show("vote")};id("submit-code").onclick=()=>{let c=C(),text=id("code-draft").value.trim(),init=id("code-init").value;if(!text||!init)return alert(t("fill"));S.cases.push({id:uid("k"),communityId:c.id,type:"law",initiator:init,target:null,title:t("codeProposal"),text,threshold:c.law,quorum:c.quorum,votes:{},status:"open",createdAt:new Date().toISOString()});id("code-draft").value="";save();render();show("vote")};id("book-search").oninput=book;
+function download(name,text,type){let b=new Blob([text],{type:type||"text/plain;charset=utf-8"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=name;a.click();URL.revokeObjectURL(u)}id("download-book").onclick=()=>{let c=C(),x=`${t("book")}\n${cname(c)}\n\n`;S.laws.filter(l=>l.communityId===c.id).forEach((l,i)=>x+=`${i+1}. ${l.title}\n${l.status.toUpperCase()}\n${l.text}\n\n`);download("direct-democracy-lawbook.txt",x)};id("export-json").onclick=()=>download("direct-democracy-backup.json",JSON.stringify(S,null,2),"application/json;charset=utf-8");id("import-json").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!x.communities||!x.cases||!x.laws)throw 0;if(confirm(t("confirmImport"))){S=x;save();render();show("community")}}catch(_){alert("Invalid JSON backup / Неверный JSON-файл")}e.target.value=""};id("reset-data").onclick=()=>{if(confirm(t("confirmReset"))){localStorage.removeItem(K);S=fresh();save();render();show("community")}};
+render();ddLanguage("en");
+})();
+</script>
+<script src="js/language.js"></script>
+</body>
+</html>

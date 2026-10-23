@@ -1,0 +1,515 @@
+/* Homo Provincialis — deliberately simple early-2000s style */
+
+html {
+  background: #cfcfcf;
+}
+
+body {
+  margin: 0;
+  padding: 18px 8px;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 14px;
+  color: #111;
+}
+
+.site {
+  width: 760px;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  padding: 18px 22px;
+  background: #fff;
+  border: 1px solid #666;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  margin: 4px 0;
+  font-family: "Courier New", monospace;
+  font-size: 31px;
+  letter-spacing: 2px;
+}
+
+.domain {
+  margin-bottom: 14px;
+  color: #555;
+  font-size: 12px;
+}
+
+.language-switch {
+  margin: 12px 0 8px;
+  font-size: 13px;
+}
+
+.language-switch button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #0000cc;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.language-switch button:hover {
+  background: #ffff99;
+}
+
+h2 {
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+a {
+  color: #0000cc;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #660099;
+}
+
+a:hover {
+  background: #ffff99;
+}
+
+.main-menu {
+  margin-top: 14px;
+  padding-left: 34px;
+}
+
+.main-menu li {
+  margin: 9px 0;
+}
+
+.note {
+  margin-top: 24px;
+  padding: 9px;
+  border: 1px solid #aaa;
+  background: #f3f3f3;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #999;
+  margin: 20px 0;
+}
+
+footer {
+  text-align: center;
+  color: #555;
+  font-size: 11px;
+}
+
+.lang-ru {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 6px;
+  }
+
+  .site {
+    max-width: calc(100% - 12px);
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+
+/* Expandable project documentation */
+.project-details {
+  margin: 22px 0;
+  border: 1px solid #999;
+  background: #f7f7f7;
+}
+
+.project-details summary {
+  padding: 11px 12px;
+  font-weight: bold;
+  color: #0000cc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.project-details summary:hover {
+  background: #ffff99;
+}
+
+.project-details-body {
+  padding: 0 12px 12px;
+  border-top: 1px solid #bbb;
+}
+
+.document-link {
+  margin: 12px 0;
+}
+
+.project-document {
+  margin: 0;
+  padding: 12px;
+  max-height: 70vh;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Ramon Calendar: full-width clickable documentation header and safe text wrapping */
+.project-details,
+.project-details-body,
+.project-document {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.project-details {
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-details summary {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 44px 14px 14px;
+  position: relative;
+  list-style: none;
+  user-select: none;
+}
+
+.project-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-details summary::after {
+  content: "▼";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #111;
+  text-decoration: none;
+}
+
+.project-details[open] summary::after {
+  content: "▲";
+}
+
+.project-details summary:hover,
+.project-details summary:focus {
+  background: #ffff99;
+  outline: none;
+}
+
+.project-details-body {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.project-document {
+  width: 100%;
+  min-width: 0;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* Ramon Calendar v6: infographic, full-button summary, book-like documentation */
+.ramon-infographic {
+  margin: 24px 0 26px;
+  width: 100%;
+}
+
+.ramon-infographic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border: 1px solid #bbb;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.project-details {
+  width: 100%;
+  max-width: 100%;
+  margin: 22px 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.project-details summary {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 15px 48px 15px 16px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  background: #f5f5f5;
+  color: #0000cc;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1.35;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.project-details summary * {
+  cursor: pointer;
+}
+
+.project-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-details summary::after {
+  content: "▼";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #111;
+  text-decoration: none;
+}
+
+.project-details[open] summary::after {
+  content: "▲";
+}
+
+.project-details summary:hover,
+.project-details summary:focus {
+  background: #ffffcc;
+  outline: none;
+}
+
+.project-details-body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin-top: 12px;
+  padding: 24px 28px 30px;
+  border: 1px solid #aaa;
+  background: #fff;
+  overflow: hidden;
+}
+
+.document-link {
+  margin: 0 0 20px;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+.project-document {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  overflow: visible;
+  max-height: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #111;
+}
+
+@media (max-width: 600px) {
+  .project-details-body {
+    padding: 18px 16px 22px;
+  }
+
+  .project-document {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+}
+
+
+/* Ramon Calendar v7: responsive layout for desktop, tablet, landscape and portrait screens */
+.ramon-page {
+  overflow-x: hidden;
+}
+
+.ramon-page .site {
+  box-sizing: border-box;
+  width: min(1440px, calc(100vw - 64px));
+  max-width: none;
+}
+
+.ramon-page main {
+  min-width: 0;
+}
+
+.ramon-page .ramon-infographic {
+  width: 100%;
+  max-width: 100%;
+  margin: 28px auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ramon-page .ramon-infographic img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Keep the long text comfortable to read like a document, even on wide monitors. */
+.ramon-page .project-details-body {
+  padding-left: clamp(16px, 4vw, 56px);
+  padding-right: clamp(16px, 4vw, 56px);
+}
+
+.ramon-page .project-document {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ramon-page .document-link {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+/* Medium screens and tablets. */
+@media (max-width: 1100px) {
+  .ramon-page {
+    padding: 12px 8px;
+  }
+
+  .ramon-page .site {
+    width: calc(100vw - 24px);
+    padding: 18px 20px;
+  }
+
+  .ramon-page .ramon-infographic {
+    margin: 22px auto;
+  }
+}
+
+/* Phones and narrow portrait screens. */
+@media (max-width: 700px) {
+  .ramon-page {
+    padding: 0;
+    background: #fff;
+  }
+
+  .ramon-page .site {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 12px 12px 18px;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .ramon-page h1 {
+    font-size: clamp(21px, 7vw, 28px);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .ramon-page h2 {
+    font-size: 19px;
+  }
+
+  .ramon-page p {
+    line-height: 1.5;
+  }
+
+  .ramon-page .ramon-infographic {
+    width: 100%;
+    margin: 18px auto 20px;
+  }
+
+  .ramon-page .ramon-infographic img {
+    width: 100%;
+    height: auto;
+  }
+
+  .ramon-page .project-details summary {
+    padding: 13px 42px 13px 13px;
+    font-size: 14px;
+  }
+
+  .ramon-page .project-details-body {
+    padding: 18px 14px 22px;
+  }
+
+  .ramon-page .project-document {
+    width: 100%;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.58;
+  }
+}
+
+/* Landscape phones: use almost all horizontal space while keeping the image inside the page. */
+@media (orientation: landscape) and (max-width: 1000px) and (max-height: 650px) {
+  .ramon-page {
+    padding: 6px;
+  }
+
+  .ramon-page .site {
+    width: calc(100vw - 12px);
+    max-width: none;
+    padding: 12px 16px 16px;
+  }
+
+  .ramon-page .ramon-infographic {
+    width: 100%;
+    margin: 16px auto 18px;
+  }
+
+  .ramon-page .ramon-infographic img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Portrait tablets and phones: keep a clean book-like vertical flow. */
+@media (orientation: portrait) and (max-width: 900px) {
+  .ramon-page .site {
+    width: min(100%, 760px);
+  }
+
+  .ramon-page .ramon-infographic img {
+    width: 100%;
+    height: auto;
+  }
+}

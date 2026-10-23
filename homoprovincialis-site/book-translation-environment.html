@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Book Translation Environment — Homo Provincialis</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root{--paper:#f6f2e9;--sheet:#fffdfa;--ink:#24332e;--soft:#69756d;--forest:#285347;--forest-d:#1d3c34;--line:#dad6c9;--amber:#ac8551;--wash:#edf1ed;--sans:Arial,Helvetica,sans-serif;--serif:Georgia,'Times New Roman',serif}
+    *{box-sizing:border-box}
+    body{margin:0;background:#ecece6;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55}
+    body .site.translation-site{width:min(1420px,calc(100% - 32px));max-width:none;margin:24px auto;padding:0;background:var(--sheet);border:1px solid #c6c7b9;box-shadow:0 7px 28px #19271b0c}
+    .translation-site button,.translation-site input,.translation-site select,.translation-site textarea{font:inherit}
+    .translation-site button{cursor:pointer}
+    .translation-site a{color:#1d6251;text-decoration:underline;text-underline-offset:3px}
+    .translation-site a:hover{color:#934d24}
+    .topbar{background:#faf9f4;padding:22px clamp(18px,4vw,58px) 19px;border-top:6px solid var(--forest);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .topbar h1{font:700 clamp(18px,2vw,27px)/1.1 var(--serif);letter-spacing:.12em;margin:0;color:#2b4239}
+    .domain{font:12px var(--sans);color:#68736a;margin-top:4px;letter-spacing:.045em}
+    .site-tools{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .site-tools a{font-size:13px}
+    .language-switch{display:flex;gap:3px;border:1px solid var(--line);background:#fff;padding:3px;border-radius:5px}
+    .language-switch button{border:0;border-radius:3px;background:transparent;color:#4e6056;font-size:13px;padding:6px 10px}
+    .language-switch button.active{background:var(--forest);color:white}
+    .hero{padding:44px clamp(20px,5vw,70px) 42px;display:flex;justify-content:space-between;align-items:center;gap:30px;background:linear-gradient(112deg,#f7f5ed,#e8eee9);border-bottom:1px solid var(--line)}
+    .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.19em;color:var(--forest);font-weight:700;margin-bottom:10px}
+    .hero h2{font:normal clamp(32px,4.4vw,55px)/1.06 var(--serif);letter-spacing:-.025em;margin:0 0 16px;max-width:650px}
+    .hero p{margin:0;color:#526258;max-width:665px;font-size:15px}
+    .book-mark{width:118px;height:150px;flex:none;position:relative;transform:rotate(8deg);border:2px solid #758b7d;border-left:13px solid var(--forest);box-shadow:7px 9px 0 #c1c7bb;background:#fdfcf5;display:flex;align-items:center;justify-content:center;color:var(--forest)}
+    .book-mark:after{content:"";position:absolute;inset:11px;border:1px solid #d4c7ac;pointer-events:none}
+    .book-mark span{font:italic 59px var(--serif)}
+    .mini-nav{display:flex;gap:28px;padding:14px clamp(20px,5vw,70px);background:#fff;border-bottom:1px solid var(--line);font-size:13px}
+    .mini-nav a{font-weight:700;text-decoration:none}
+    .translation-site main{padding:0}
+    .section{padding:36px clamp(18px,4vw,54px) 40px}
+    .section-head{display:flex;align-items:flex-end;gap:22px;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap}
+    .section-head h2{font:normal clamp(26px,3.2vw,37px)/1.15 var(--serif);margin:0 0 6px}
+    .section-head p{color:var(--soft);font-size:14px;margin:0;max-width:680px}
+    .section-kicker{display:block;text-transform:uppercase;font-size:10px;letter-spacing:.16em;font-weight:700;color:var(--forest);margin-bottom:8px}
+    .outline-pill{border:1px solid #b9c7be;color:var(--forest);padding:7px 12px;border-radius:20px;font-size:12px;background:#f5faf6}
+    .editor-shell{background:var(--sheet);border:1px solid #c7d0c8;box-shadow:0 2px 14px #1b33240a}
+    .app-bar{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:16px 20px;background:#edf3ee;border-bottom:1px solid #c7d0c8}
+    .app-bar .project-picker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex:1}
+    .app-bar label{font-size:12px;font-weight:bold;color:#42574b}
+    .app-bar select{width:min(350px,100%);max-width:100%;font-weight:700}
+    .app-bar .status{font-size:12px;color:#4b6154;white-space:nowrap;display:flex;align-items:center;gap:7px}
+    .status-dot{background:#508e65;border-radius:50%;width:7px;height:7px;display:inline-block}
+    .sub-bar{display:flex;justify-content:space-between;align-items:flex-start;gap:22px;flex-wrap:wrap;padding:20px 22px;border-bottom:1px solid var(--line)}
+    .book-info h3{font:normal 26px/1.2 var(--serif);margin:0 0 4px;overflow-wrap:anywhere}
+    .book-info .book-byline{font-size:13px;color:var(--soft);margin-bottom:8px}
+    .book-info .source{font-size:12px}
+    .sub-bar .controls{display:flex;flex-wrap:wrap;gap:8px;align-self:center}
+    .btn{border:1px solid #bbc8bd;background:white;color:#2b5647;border-radius:4px;padding:9px 13px;font-size:13px;font-weight:700;min-height:36px;transition:background .15s}
+    .btn:hover{background:#ebf3ed}
+    .btn:disabled{opacity:.4;cursor:default}
+    .btn.primary{background:var(--forest);color:white;border-color:var(--forest)}
+    .btn.primary:hover{background:var(--forest-d)}
+    .btn.light{background:transparent;border-color:#cbd5cc}
+    .btn.danger{color:#a14331;border-color:#ead1c9}
+    .btn.danger:hover{background:#fdf2ed}
+    .translation-site input:not([type=file]),.translation-site select,.translation-site textarea{border:1px solid #c8d0c6;border-radius:4px;background:white;color:#233a2d;padding:10px 11px;outline-offset:2px}
+    .translation-site input:focus,.translation-site select:focus,.translation-site textarea:focus{outline:2px solid #8ba89b;border-color:var(--forest)}
+    .collapsible{margin:0;border-bottom:1px solid var(--line);background:#fcfcf8}
+    .collapsible summary{cursor:pointer;padding:13px 22px;font-size:13px;font-weight:700;color:#355b4c;list-style-position:inside}
+    .collapsible summary:hover{background:#f1f5ee}
+    .detail-body{padding:0 22px 20px}
+    .meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .field label{display:block;font-size:12px;color:#58685b;margin:0 0 5px;font-weight:700}
+    .field input{width:100%;min-width:0}
+    .field-help{font-size:12px;color:var(--soft);margin:8px 0}
+    .meta-footer{display:flex;align-items:center;gap:11px;margin-top:13px;flex-wrap:wrap}
+    .fragment-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:15px 20px;border-bottom:1px solid var(--line);background:#f8f9f6}
+    .fragment-loc{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .fragment-counter{font-size:13px;color:#475d51;font-weight:700;padding-right:8px}
+    .fragment-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .fragment-title label{font-size:12px;color:#607064}
+    .fragment-title input{max-width:225px;width:225px;font-size:13px}
+    .writing-area{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;min-height:480px}
+    .language-panel{padding:0;border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+    .language-panel:last-child{border-right:0}
+    .panel-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:15px 15px 13px;background:#fff;border-bottom:1px solid #e6e6df}
+    .panel-name{display:flex;align-items:center;gap:9px;min-width:0}
+    .lang-code{width:34px;height:29px;border:1px solid #bed0c4;background:#eef4ef;border-radius:3px;color:#315d46;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .panel-name h4{margin:0;font-size:14px;font-weight:700}
+    .panel-sub{font-size:11px;color:#768074}
+    .panel-action{border:0;background:transparent;color:#2f6d56;font-size:12px;white-space:nowrap;padding:4px}
+    .panel-action:hover{text-decoration:underline}
+    .panel-body{flex:1;padding:12px;display:flex;min-height:380px}
+    .translation-site .panel-body textarea{resize:vertical;border:1px solid #e2e5db;background:#fffefa;width:100%;min-height:375px;padding:16px 15px;font:15px/1.7 var(--serif);outline-offset:0}
+    .panel-body textarea[lang=bn]{font-family:'Noto Serif Bengali','Nirmala UI',serif;font-size:16px;line-height:1.9}
+    .panel-foot{border-top:1px solid #e8e8e0;display:flex;justify-content:space-between;gap:8px;padding:9px 15px;background:#fcfcf8;font-size:11px;color:#788278}
+    .panel-foot .presence{color:#477858}
+    .actions-line{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;padding:16px 20px;border-top:1px solid var(--line);background:#f8faf7}
+    .actions-line .action-group{display:flex;gap:8px;flex-wrap:wrap}
+    .advice{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#667466;line-height:1.55;padding:13px 20px;background:#f3f5ef;border-top:1px solid #e0e5dc}
+    .advice strong{color:#3d5e4d}
+    .separating{height:1px;background:#ddd9cc;margin:0 clamp(18px,4vw,54px)}
+    .catalog{background:#f9f8f3}
+    .catalog .section-head{margin-bottom:27px}
+    .catalog-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+    .catalog-card{min-width:0;display:flex;gap:17px;background:#fff;border:1px solid #dedfd5;padding:21px 19px;box-shadow:0 2px 8px #183b2307}
+    .small-book{width:59px;height:83px;flex:none;background:linear-gradient(90deg,#234739 0 9px,#3b6956 9px 100%);box-shadow:3px 4px 0 #d9dfd3;border-radius:2px 5px 5px 2px;position:relative}
+    .small-book:after{content:'HP';position:absolute;left:16px;top:25px;color:#e7e2cd;letter-spacing:.08em;font:italic 17px var(--serif)}
+    .catalog-card h3{font:21px/1.15 var(--serif);margin:0 0 6px;overflow-wrap:anywhere}
+    .catalog-card p{margin:0 0 13px;color:#728073;font-size:12px}
+    .catalog-links{display:flex;flex-wrap:wrap;gap:9px}
+    .catalog-links a{font-size:12px;border:1px solid #c8d5cc;background:#f6faf7;text-decoration:none;padding:6px 10px;border-radius:3px;font-weight:700}
+    .catalog-links a:hover{background:#e6f0e9}
+    .empty-catalog{border:1px dashed #b8c7b9;padding:38px 24px;max-width:800px;margin:auto;text-align:center;background:#fffdfa}
+    .empty-catalog .empty-icon{font:40px var(--serif);color:#b7cbb9;line-height:1}
+    .empty-catalog h3{font:25px var(--serif);margin:13px 0 6px}
+    .empty-catalog p{font-size:13px;color:var(--soft);margin:0 auto;max-width:480px}
+    .catalog-manager{border:1px solid #d1d9d0;background:white;margin-top:22px}
+    .catalog-manager summary{cursor:pointer;padding:14px 18px;color:var(--forest);font-weight:700;font-size:13px}
+    .catalog-manager[open] summary{border-bottom:1px solid var(--line)}
+    .manager-body{padding:20px}
+    .manager-body h3{font:21px var(--serif);margin:0 0 15px}
+    .manager-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+    .manager-bottom{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;align-items:center}
+    .manager-note{padding:12px 14px;border-left:3px solid var(--amber);background:#fcf8ed;margin-top:18px;color:#6d644e;font-size:12px}
+    .remove-catalog{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;border-top:1px solid var(--line);padding-top:16px;align-items:center}
+    .remove-catalog select{min-width:210px;max-width:100%}
+    .foot{border-top:1px solid var(--line);background:#f3f2ec;padding:18px clamp(18px,4vw,54px);font-size:12px;color:#758076;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .foot a{font-size:12px}
+    .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+    #toast{position:fixed;bottom:20px;right:20px;padding:12px 18px;background:#234c3d;color:white;border-radius:5px;box-shadow:0 5px 24px #1118;max-width:min(330px,calc(100vw - 32px));font-size:13px;z-index:20;opacity:0;pointer-events:none;transition:opacity .2s}
+    #toast.visible{opacity:1}
+    @media(max-width:1100px){.meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.writing-area{grid-template-columns:1fr}.language-panel{border-right:0;border-bottom:1px solid var(--line)}.language-panel:last-child{border-bottom:0}.panel-body{min-height:240px}.translation-site .panel-body textarea{min-height:245px}.catalog-list{grid-template-columns:1fr}}
+    @media(max-width:650px){body .site.translation-site{width:100%;margin:0;border-left:0;border-right:0}.topbar{padding:18px}.hero{padding:30px 22px}.book-mark{display:none}.section{padding:27px 16px 32px}.mini-nav{padding:14px 18px}.section-head{align-items:flex-start}.sub-bar{padding:15px}.meta-grid,.manager-grid{grid-template-columns:1fr}.app-bar,.fragment-bar,.actions-line{padding:14px}.detail-body{padding:0 14px 18px}.collapsible summary{padding:13px 14px}.panel-head{padding:12px}.catalog-card{padding:14px}.site-tools{gap:12px}}
+  </style>
+</head>
+<body>
+<div class="site translation-site">
+  <header class="topbar">
+    <div><h1>HOMO PROVINCIALIS</h1><div class="domain">homoprovincialis.com</div></div>
+    <div class="site-tools">
+      <a href="index.html" data-i18n="home">← Главная</a>
+      <div class="language-switch" aria-label="Language / Язык">
+        <button id="switchRu" type="button" onclick="setLanguage('ru')">Русский</button>
+        <button id="switchEn" type="button" onclick="setLanguage('en')">English</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow" data-i18n="project">Проект Homo Provincialis</div>
+        <h2 data-i18n="title">Среда перевода книг</h2>
+        <p data-i18n="intro">Рабочее пространство для перевода литературы: оригинал и два независимых перевода — на русский и английский. Ниже находится каталог завершённых работ.</p>
+      </div>
+      <div class="book-mark" aria-hidden="true"><span>Ab</span></div>
+    </section>
+    <nav class="mini-nav" aria-label="Sections"><a href="#workshop" data-i18n="navEditor">Мастерская перевода</a><a href="#library" data-i18n="navCatalog">Каталог переводов</a></nav>
+
+    <section class="section" id="workshop">
+      <div class="section-head">
+        <div><span class="section-kicker">01 / WORKSPACE</span><h2 data-i18n="editorTitle">Рабочая среда</h2><p data-i18n="editorDesc">Работайте с одним отрывком сразу на трёх языках. Текст сохраняется в браузере; отдельная копия проекта поможет не потерять работу.</p></div>
+        <div class="outline-pill" data-i18n="localDraft">Локальные черновики</div>
+      </div>
+      <div class="editor-shell">
+        <div class="app-bar">
+          <div class="project-picker"><label for="projectSelect" data-i18n="bookLabel">Книга</label><select id="projectSelect" aria-label="Book / Книга"></select><button class="btn" id="showNewBook" type="button" data-i18n="newBook">+ Новая книга</button></div>
+          <div class="status" role="status"><span class="status-dot"></span><span id="saveStatus" data-i18n="savedLocal">Сохранено в этом браузере</span></div>
+        </div>
+        <details class="collapsible" id="newBookDetails">
+          <summary data-i18n="newBookDetails">Создать новый переводческий проект</summary>
+          <form class="detail-body" id="newBookForm">
+            <div class="meta-grid">
+              <div class="field"><label for="newBookTitle" data-i18n="bookName">Название оригинала</label><input id="newBookTitle" required maxlength="180" data-ph="newTitlePh" placeholder="Название книги"></div>
+              <div class="field"><label for="newBookAuthor" data-i18n="author">Автор</label><input id="newBookAuthor" maxlength="160"></div>
+              <div class="field"><label for="newBookLang" data-i18n="sourceLang">Язык оригинала</label><input id="newBookLang" maxlength="100" data-ph="langPh" placeholder="Например, Bengali"></div>
+              <div class="field"><label for="newBookUrl" data-i18n="sourceAddress">Ссылка на оригинал</label><input id="newBookUrl" type="url" data-ph="sourcePh" placeholder="https://..."></div>
+            </div>
+            <div class="meta-footer"><button class="btn primary" type="submit" data-i18n="create">Создать книгу</button></div>
+          </form>
+        </details>
+        <div class="sub-bar">
+          <div class="book-info">
+            <h3 id="activeBookTitle">বেদে (Bede)</h3>
+            <div class="book-byline" id="activeBookAuthor">Achintya Kumar Sengupta · বাংলা / Bengali</div>
+            <div class="source"><a href="https://archive.org/details/dli.bengal.10689.12235" id="sourceLink" target="_blank" rel="noopener noreferrer" data-i18n="viewSource">Открыть оригинал ↗</a></div>
+          </div>
+          <div class="controls"><button class="btn" id="toggleMeta" type="button" data-i18n="editMeta">Сведения о книге</button><button class="btn" id="saveNow" type="button" data-i18n="save">Сохранить</button></div>
+        </div>
+        <details class="collapsible" id="metadataDetails">
+          <summary data-i18n="editMeta">Сведения о книге</summary>
+          <form class="detail-body" id="metadataForm">
+            <div class="meta-grid">
+              <div class="field"><label for="metaTitle" data-i18n="bookName">Название оригинала</label><input id="metaTitle" required maxlength="180"></div>
+              <div class="field"><label for="metaAuthor" data-i18n="author">Автор</label><input id="metaAuthor" maxlength="160"></div>
+              <div class="field"><label for="metaLang" data-i18n="sourceLang">Язык оригинала</label><input id="metaLang" maxlength="100"></div>
+              <div class="field"><label for="metaURL" data-i18n="sourceAddress">Ссылка на оригинал</label><input id="metaURL" type="url"></div>
+            </div>
+            <div class="meta-footer"><button class="btn primary" type="submit" data-i18n="saveMeta">Сохранить сведения</button></div>
+          </form>
+        </details>
+        <div class="fragment-bar">
+          <div class="fragment-loc"><strong class="fragment-counter" id="fragCounter">Отрывок 1 из 1</strong><button class="btn light" id="prevFrag" type="button" data-i18n="previous">← Назад</button><button class="btn light" id="nextFrag" type="button" data-i18n="next">Далее →</button><button class="btn" id="addFrag" type="button" data-i18n="addFrag">+ Отрывок</button></div>
+          <div class="fragment-title"><label for="fragTitle" data-i18n="fragTitle">Название отрывка</label><input id="fragTitle" data-ph="fragTitlePh" placeholder="Глава 1 / стр. 14"></div>
+        </div>
+        <div class="writing-area">
+          <section class="language-panel" aria-label="Original text">
+            <div class="panel-head"><div class="panel-name"><span class="lang-code" id="origLangCode">BN</span><div><h4 data-i18n="origText">Оригинал</h4><div class="panel-sub" data-i18n="sourceText">Текст источника</div></div></div><button class="panel-action" type="button" data-copy="original" data-i18n="copy">Копировать</button></div>
+            <div class="panel-body"><textarea id="original" lang="bn" spellcheck="false" data-ph="origPh" placeholder="Вставьте текст с Internet Archive..."></textarea></div>
+            <div class="panel-foot"><span id="originalCount">0</span><span class="presence" data-i18n="editable">Редактируется</span></div>
+          </section>
+          <section class="language-panel" aria-label="Russian translation">
+            <div class="panel-head"><div class="panel-name"><span class="lang-code">RU</span><div><h4 data-i18n="ruText">Русский</h4><div class="panel-sub" data-i18n="russianTranslation">Перевод с оригинала</div></div></div><button class="panel-action" type="button" data-copy="ru" data-i18n="copy">Копировать</button></div>
+            <div class="panel-body"><textarea id="ru" lang="ru" spellcheck="true" data-ph="ruPh" placeholder="Напишите перевод на русский..."></textarea></div>
+            <div class="panel-foot"><span id="ruCount">0</span><span class="presence" data-i18n="editable">Редактируется</span></div>
+          </section>
+          <section class="language-panel" aria-label="English translation">
+            <div class="panel-head"><div class="panel-name"><span class="lang-code">EN</span><div><h4 data-i18n="enText">English</h4><div class="panel-sub" data-i18n="englishTranslation">Translation from the original</div></div></div><button class="panel-action" type="button" data-copy="en" data-i18n="copy">Копировать</button></div>
+            <div class="panel-body"><textarea id="en" lang="en" spellcheck="true" data-ph="enPh" placeholder="Write the English translation..."></textarea></div>
+            <div class="panel-foot"><span id="enCount">0</span><span class="presence" data-i18n="editable">Редактируется</span></div>
+          </section>
+        </div>
+        <div class="actions-line">
+          <div class="action-group"><button class="btn primary" id="saveBottom" type="button" data-i18n="saveProject">Сохранить черновик</button><button class="btn" id="importTxt" type="button" data-i18n="loadSource">Загрузить оригинал TXT</button><button class="btn danger" id="deleteFrag" type="button" data-i18n="deleteFrag">Удалить отрывок</button></div>
+          <div class="action-group"><button class="btn" id="backupBtn" type="button" data-i18n="backup">Скачать проект JSON</button><button class="btn" id="restoreBtn" type="button" data-i18n="restore">Открыть проект JSON</button></div>
+        </div>
+        <div class="actions-line" style="border-top:0;padding-top:0">
+          <div class="action-group"><button class="btn light" id="exportOriginal" type="button" data-i18n="downloadOrig">Скачать оригинал TXT</button><button class="btn light" id="exportRu" type="button" data-i18n="downloadRu">Скачать русский TXT</button><button class="btn light" id="exportEn" type="button" data-i18n="downloadEn">Download English TXT</button></div>
+          <span style="font-size:12px;color:#7a867b" id="projectProgress"></span>
+        </div>
+        <div class="advice"><span aria-hidden="true">ⓘ</span><div data-i18n="privacy">Черновики хранятся <strong>только в вашем браузере</strong>: они не публикуются на сайте и не передаются другим посетителям. Периодически скачивайте резервную копию JSON. Автоматического машинного перевода здесь пока нет.</div></div>
+      </div>
+    </section>
+    <div class="separating"></div>
+    <section class="section catalog" id="library">
+      <div class="section-head">
+        <div><span class="section-kicker">02 / TRANSLATIONS</span><h2 data-i18n="catalogTitle">Завершённые переводы</h2><p data-i18n="catalogDesc">Для каждой опубликованной книги — три самостоятельные версии: оригинал, русский и английский. Это каталог переводческого проекта, отдельно от Open Online Library.</p></div>
+        <div class="outline-pill" id="catalogCount">0 книг</div>
+      </div>
+      <div id="catalogList" class="catalog-list" aria-live="polite"></div>
+      <details class="catalog-manager" id="catalogManage">
+        <summary data-i18n="catalogManage">Управление каталогом завершённых книг</summary>
+        <div class="manager-body">
+          <h3 data-i18n="addPublished">Добавить опубликованную книгу</h3>
+          <form id="publishForm">
+            <div class="manager-grid">
+              <div class="field"><label for="pubTitle" data-i18n="bookName">Название оригинала</label><input id="pubTitle" required maxlength="180"></div>
+              <div class="field"><label for="pubAuthor" data-i18n="author">Автор</label><input id="pubAuthor" maxlength="160"></div>
+              <div class="field"><label for="pubLang" data-i18n="sourceLang">Язык оригинала</label><input id="pubLang" maxlength="100"></div>
+              <div class="field"><label for="pubOrig" data-i18n="originalURL">Ссылка на оригинал</label><input id="pubOrig" required data-ph="linkPh" placeholder="https://... или файл.html"></div>
+              <div class="field"><label for="pubRu" data-i18n="russianURL">Ссылка на русский перевод</label><input id="pubRu" required data-ph="linkPh" placeholder="https://... или файл.html"></div>
+              <div class="field"><label for="pubEn" data-i18n="englishURL">Ссылка на английский перевод</label><input id="pubEn" required data-ph="linkPh" placeholder="https://... или файл.html"></div>
+            </div>
+            <div class="manager-bottom"><button class="btn primary" type="submit" data-i18n="addToCatalog">Добавить в каталог</button><button class="btn" type="button" id="downloadHTML" data-i18n="downloadUpdated">Скачать HTML с каталогом</button></div>
+          </form>
+          <div class="remove-catalog"><label for="removeCatalogSelect" data-i18n="removeBook">Удалить запись</label><select id="removeCatalogSelect"></select><button type="button" class="btn danger" id="removeCatalogButton" data-i18n="deleteEntry">Удалить</button></div>
+          <div class="manager-note" data-i18n="catalogNote">Важно: добавленная запись появляется только в этом браузере. Чтобы она стала видна всем посетителям, нажмите «Скачать HTML с каталогом» и замените файл book-translation-environment.html на сайте. Ссылки на три версии книги должны уже работать.</div>
+        </div>
+      </details>
+    </section>
+  </main>
+  <footer class="foot"><span>© 2026 Ramon Eyquem · Homo Provincialis</span><a href="index.html" data-i18n="backHome">Вернуться на главную</a></footer>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<input id="fileText" type="file" accept=".txt,.md,text/plain,text/markdown" hidden>
+<input id="fileProject" type="file" accept=".json,application/json" hidden>
+<script type="application/json" id="published-books-data">[]</script>
+<script>
+(function(){
+'use strict';
+const dict={
+ru:{home:'← Главная',project:'Проект Homo Provincialis',title:'Среда перевода книг',intro:'Рабочее пространство для перевода литературы: оригинал и два независимых перевода — на русский и английский. Ниже находится каталог завершённых работ.',navEditor:'Мастерская перевода',navCatalog:'Каталог переводов',editorTitle:'Рабочая среда',editorDesc:'Работайте с одним отрывком сразу на трёх языках. Текст сохраняется в браузере; отдельная копия проекта поможет не потерять работу.',localDraft:'Локальные черновики',bookLabel:'Книга',newBook:'+ Новая книга',savedLocal:'Сохранено в этом браузере',newBookDetails:'Создать новый переводческий проект',bookName:'Название оригинала',author:'Автор',sourceLang:'Язык оригинала',sourceAddress:'Ссылка на оригинал',create:'Создать книгу',viewSource:'Открыть оригинал ↗',editMeta:'Сведения о книге',save:'Сохранить',saveMeta:'Сохранить сведения',previous:'← Назад',next:'Далее →',addFrag:'+ Отрывок',fragTitle:'Название отрывка',origText:'Оригинал',sourceText:'Текст источника',ruText:'Русский',russianTranslation:'Перевод с оригинала',enText:'Английский',englishTranslation:'Перевод с оригинала',copy:'Копировать',editable:'Редактируется',saveProject:'Сохранить черновик',loadSource:'Загрузить оригинал TXT',deleteFrag:'Удалить отрывок',backup:'Скачать проект JSON',restore:'Открыть проект JSON',downloadOrig:'Скачать оригинал TXT',downloadRu:'Скачать русский TXT',downloadEn:'Скачать английский TXT',privacy:'Черновики хранятся только в вашем браузере: они не публикуются на сайте и не передаются другим посетителям. Периодически скачивайте резервную копию JSON. Автоматического машинного перевода здесь пока нет.',catalogTitle:'Завершённые переводы',catalogDesc:'Для каждой опубликованной книги — три самостоятельные версии: оригинал, русский и английский. Это каталог переводческого проекта, отдельно от Open Online Library.',catalogManage:'Управление каталогом завершённых книг',addPublished:'Добавить опубликованную книгу',originalURL:'Ссылка на оригинал',russianURL:'Ссылка на русский перевод',englishURL:'Ссылка на английский перевод',addToCatalog:'Добавить в каталог',downloadUpdated:'Скачать HTML с каталогом',removeBook:'Удалить запись',deleteEntry:'Удалить',catalogNote:'Важно: добавленная запись появляется только в этом браузере. Чтобы она стала видна всем посетителям, нажмите «Скачать HTML с каталогом» и замените файл book-translation-environment.html на сайте. Ссылки на три версии книги должны уже работать.',backHome:'Вернуться на главную',newTitlePh:'Название книги',langPh:'Например, Bengali',sourcePh:'https://...',fragTitlePh:'Глава 1 / стр. 14',origPh:'Вставьте бенгальский текст с Internet Archive...',ruPh:'Напишите перевод на русский...',enPh:'Write the English translation...',linkPh:'https://... или файл.html',fragment:'Отрывок',of:'из',chars:'знаков',completed:'заполнено',parts:'отрывков',noBooksTitle:'Здесь пока нет завершённых переводов',noBooksText:'Каталог появится после публикации первой книги. Текущие черновики из мастерской не считаются завершёнными переводами.',originalLink:'Оригинал',russianLink:'Русский',englishLink:'English',books:'книг',saveSuccess:'Черновик сохранён',newProjectSuccess:'Книга добавлена',textLoaded:'Текст загружен',copied:'Скопировано',copyError:'Не удалось скопировать',fileError:'Не удалось прочитать файл',backupLoaded:'Проект восстановлен',backupError:'Неверный формат проекта JSON',entryAdded:'Запись добавлена. Скачайте HTML для публикации.',entryDeleted:'Запись удалена. Скачайте HTML для публикации.',allLinks:'Укажите три безопасные ссылки: http(s) или относительные пути к файлам.',confirmDelete:'Удалить текущий отрывок?',confirmCatalogDelete:'Удалить эту запись из каталога?',confirmReplace:'В текущем поле есть текст. Заменить его содержимым файла?',savedFail:'Хранилище браузера недоступно. Скачайте JSON.',removeDisabled:'Пока нечего удалять',newBookRequired:'Укажите название книги',originMissing:'Ссылка на оригинал не указана',countOne:'книга',bookWord:'книг'},
+en:{home:'← Home',project:'Homo Provincialis project',title:'Book Translation Environment',intro:'A dedicated workspace for literary translation: the original and two independent translations, into Russian and English. The catalog of completed work is below.',navEditor:'Translation workspace',navCatalog:'Translation catalog',editorTitle:'Translation workspace',editorDesc:'Work on one passage in three languages side by side. Text is saved in your browser; keep a separate backup to protect your work.',localDraft:'Local drafts',bookLabel:'Book',newBook:'+ New book',savedLocal:'Saved in this browser',newBookDetails:'Create a new translation project',bookName:'Original title',author:'Author',sourceLang:'Original language',sourceAddress:'Original source link',create:'Create book',viewSource:'Open original ↗',editMeta:'Book details',save:'Save',saveMeta:'Save details',previous:'← Previous',next:'Next →',addFrag:'+ Passage',fragTitle:'Passage label',origText:'Original',sourceText:'Source text',ruText:'Russian',russianTranslation:'Translated from the original',enText:'English',englishTranslation:'Translated from the original',copy:'Copy',editable:'Editable',saveProject:'Save draft',loadSource:'Load source TXT',deleteFrag:'Delete passage',backup:'Download project JSON',restore:'Open project JSON',downloadOrig:'Download original TXT',downloadRu:'Download Russian TXT',downloadEn:'Download English TXT',privacy:'Drafts are saved only in your browser: they are not published or shared with visitors. Download a JSON backup periodically. Automatic machine translation is not yet available.',catalogTitle:'Completed translations',catalogDesc:'Each published book has three separate versions: the original, Russian and English. This translation catalog is separate from the Open Online Library.',catalogManage:'Manage the completed-book catalog',addPublished:'Add a published book',originalURL:'Original version link',russianURL:'Russian translation link',englishURL:'English translation link',addToCatalog:'Add to catalog',downloadUpdated:'Download updated HTML',removeBook:'Remove a book',deleteEntry:'Remove',catalogNote:'Important: changes to the catalog initially appear only in this browser. To publish them for everyone, click “Download updated HTML” and replace book-translation-environment.html on your site. All three book links must already work.',backHome:'Return to home page',newTitlePh:'Book title',langPh:'For example, Bengali',sourcePh:'https://...',fragTitlePh:'Chapter 1 / page 14',origPh:'Paste Bengali source text from Internet Archive...',ruPh:'Напишите перевод на русский...',enPh:'Write the English translation...',linkPh:'https://... or filename.html',fragment:'Passage',of:'of',chars:'characters',completed:'filled',parts:'passages',noBooksTitle:'No completed translations yet',noBooksText:'The catalog will appear once the first book is published. Drafts in the workspace do not count as completed translations.',originalLink:'Original',russianLink:'Russian',englishLink:'English',books:'books',saveSuccess:'Draft saved',newProjectSuccess:'Book created',textLoaded:'Text imported',copied:'Copied',copyError:'Could not copy',fileError:'Could not read file',backupLoaded:'Project restored',backupError:'Invalid project JSON file',entryAdded:'Entry added. Download the HTML to publish it.',entryDeleted:'Entry deleted. Download the HTML to publish it.',allLinks:'Provide three safe links: http(s) or relative file paths.',confirmDelete:'Delete the current passage?',confirmCatalogDelete:'Remove this catalog entry?',confirmReplace:'This field already has text. Replace it with the uploaded file?',savedFail:'Browser storage is unavailable. Download a JSON backup.',removeDisabled:'Nothing to remove yet',newBookRequired:'Enter a book title',originMissing:'No original link provided',countOne:'book',bookWord:'books'}
+};
+const $=id=>document.getElementById(id);
+const KEY='hp_translation_projects_v1';
+const CATALOGKEY='hp_translation_catalog_working_v1';
+const LANGKEY='hp_translation_ui_lang_v1';
+let language='ru',currentFragment=0,store=null,catalog=[],toastTimer=0,saveTimer=0;
+const sample={id:'bede-original',title:'বেদে (Bede)',author:'Achintya Kumar Sengupta',originalLang:'বাংলা / Bengali',originalUrl:'https://archive.org/details/dli.bengal.10689.12235',fragments:[{title:'',original:'',ru:'',en:''}]};
+const deepCopy=x=>JSON.parse(JSON.stringify(x));
+function getLocal(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function setLocal(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+function t(k){return dict[language][k]||k}
+window.setLanguage=function(lang){language=lang==='en'?'en':'ru';document.documentElement.lang=language;setLocal(LANGKEY,language);
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;el.textContent=t(k)});
+ document.querySelectorAll('[data-ph]').forEach(el=>{el.placeholder=t(el.dataset.ph)});
+ $('switchRu').classList.toggle('active',language==='ru');$('switchEn').classList.toggle('active',language==='en');
+ $('switchRu').setAttribute('aria-pressed',String(language==='ru'));$('switchEn').setAttribute('aria-pressed',String(language==='en'));
+ renderProjectSummary();renderCatalog();renderFragmentNav();updateCounts();refreshStatus();
+};
+function notify(msg){const el=$('toast');el.textContent=msg;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3300)}
+function freshStore(){return {version:1,projects:[deepCopy(sample)],selectedId:sample.id}}
+function ensureProject(p){if(!p||typeof p!=='object'||typeof p.title!=='string'||!Array.isArray(p.fragments)||p.fragments.length>15000)throw new Error('Invalid project');return {id:String(p.id||makeId()),title:p.title.slice(0,180),author:String(p.author||'').slice(0,160),originalLang:String(p.originalLang||'').slice(0,100),originalUrl:String(p.originalUrl||''),fragments:p.fragments.length?p.fragments.map(f=>({title:String(f.title||''),original:String(f.original||''),ru:String(f.ru||''),en:String(f.en||'')})):[{title:'',original:'',ru:'',en:''}]}}
+function normalizeStore(st){if(!st||!Array.isArray(st.projects)||st.projects.length===0||st.projects.length>1000)throw new Error('Invalid backup');const arr=st.projects.map(ensureProject);return {version:1,projects:arr,selectedId:arr.find(p=>p.id===st.selectedId)?st.selectedId:arr[0].id}}
+function makeId(){return 'book-'+Date.now()+'-'+Math.random().toString(36).slice(2,8)}
+function active(){return store.projects.find(x=>x.id===store.selectedId)||store.projects[0]}
+function frag(){return active().fragments[currentFragment]}
+function persist(){if(!setLocal(KEY,JSON.stringify(store))){$('saveStatus').textContent=t('savedFail');return false}refreshStatus();return true}
+function refreshStatus(){$('saveStatus').textContent=t('savedLocal')}
+function renderProjectSelect(){const sel=$('projectSelect');sel.replaceChildren();store.projects.forEach(p=>{const opt=document.createElement('option');opt.value=p.id;opt.textContent=p.title;sel.appendChild(opt)});sel.value=store.selectedId}
+function safeLink(v){if(typeof v!=='string'||!v.trim())return false;const s=v.trim();if(/^[a-z][a-z\d+.-]*:/i.test(s))return /^https?:\/\//i.test(s);return !/^(\/\/|\\|#)/.test(s)&&!/[<>"'\s]/.test(s)&&!!s}
+function renderProjectSummary(){if(!store)return;const p=active();$('activeBookTitle').textContent=p.title;$('activeBookAuthor').textContent=[p.author,p.originalLang].filter(Boolean).join(' · ');
+ const a=$('sourceLink');if(safeLink(p.originalUrl)){a.style.display='';a.href=p.originalUrl;a.textContent=t('viewSource')}else{a.removeAttribute('href');a.style.display='none'}
+ $('metaTitle').value=p.title;$('metaAuthor').value=p.author;$('metaLang').value=p.originalLang;$('metaURL').value=p.originalUrl;
+ $('origLangCode').textContent=(p.originalLang.toLowerCase().includes('bengali')||p.originalLang.includes('বাংলা'))?'BN':'OR';
+}
+function loadFragment(){const f=frag();$('fragTitle').value=f.title;$('original').value=f.original;$('ru').value=f.ru;$('en').value=f.en;renderFragmentNav();updateCounts()}
+function syncFragment(){const f=frag();f.title=$('fragTitle').value;f.original=$('original').value;f.ru=$('ru').value;f.en=$('en').value}
+function renderFragmentNav(){const max=active().fragments.length;$('fragCounter').textContent=t('fragment')+' '+(currentFragment+1)+' '+t('of')+' '+max;$('prevFrag').disabled=currentFragment===0;$('nextFrag').disabled=currentFragment===max-1;$('deleteFrag').disabled=max<=1}
+function renderBook(){renderProjectSelect();renderProjectSummary();loadFragment()}
+function updateCounts(){if(!store)return;['original','ru','en'].forEach(id=>{$(id+'Count').textContent=$(id).value.length.toLocaleString(language==='ru'?'ru-RU':'en-US')+' '+t('chars')});
+ const pp=active().fragments,done=pp.filter(f=>f.original.trim()&&f.ru.trim()&&f.en.trim()).length;$('projectProgress').textContent=t('completed')+': '+done+' / '+pp.length+' '+t('parts')}
+function scheduleSave(){syncFragment();updateCounts();clearTimeout(saveTimer);saveTimer=setTimeout(()=>persist(),250)}
+function save(){clearTimeout(saveTimer);syncFragment();persist();notify(t('saveSuccess'))}
+function goFragment(n){syncFragment();persist();currentFragment=n;loadFragment()}
+function safeFileName(s){return (s||'book').normalize('NFKD').replace(/[^a-zA-Z0-9\u0400-\u04ff]+/g,'_').replace(/^_+|_+$/g,'').slice(0,60)||'book'}
+function download(name,content,mime){const blob=new Blob([content],{type:mime||'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+function exportText(key){syncFragment();const p=active();const text=p.fragments.map((f,i)=>[f.title||t('fragment')+' '+(i+1),f[key]].join('\n\n')).join('\n\n────────────\n\n');download(safeFileName(p.title)+'_'+(key==='original'?'original':key)+'.txt',text+'\n')}
+function validateCatalogEntries(raw){if(!Array.isArray(raw))return [];return raw.filter(c=>c&&typeof c.title==='string'&&['originalURL','ruURL','enURL'].every(k=>safeLink(c[k]))).map(c=>({id:String(c.id||makeId()),title:c.title.slice(0,180),author:String(c.author||'').slice(0,160),originalLang:String(c.originalLang||'').slice(0,100),originalURL:c.originalURL,ruURL:c.ruURL,enURL:c.enURL}))}
+function createCard(b){const card=document.createElement('article');card.className='catalog-card';const spine=document.createElement('div');spine.className='small-book';spine.setAttribute('aria-hidden','true');const body=document.createElement('div');body.style.minWidth='0';const title=document.createElement('h3');title.textContent=b.title;const author=document.createElement('p');author.textContent=[b.author,b.originalLang].filter(Boolean).join(' · ');
+ const row=document.createElement('div');row.className='catalog-links';[['originalURL','originalLink'],['ruURL','russianLink'],['enURL','englishLink']].forEach(([key,label])=>{const a=document.createElement('a');a.href=b[key];a.target='_blank';a.rel='noopener noreferrer';a.textContent=t(label)+' ↗';row.appendChild(a)});
+ body.append(title,author,row);card.append(spine,body);return card}
+function renderCatalog(){const parent=$('catalogList');parent.replaceChildren();if(catalog.length){catalog.forEach(b=>parent.appendChild(createCard(b)))}else{const box=document.createElement('div');box.className='empty-catalog';box.style.gridColumn='1/-1';const icon=document.createElement('div');icon.className='empty-icon';icon.textContent='▤';const name=document.createElement('h3');name.textContent=t('noBooksTitle');const txt=document.createElement('p');txt.textContent=t('noBooksText');box.append(icon,name,txt);parent.appendChild(box)}
+ $('catalogCount').textContent=catalog.length+' '+(catalog.length===1?t('countOne'):t('books'));
+ const sel=$('removeCatalogSelect'),last=sel.value;sel.replaceChildren();if(!catalog.length){const opt=document.createElement('option');opt.textContent=t('removeDisabled');opt.value='';sel.appendChild(opt)}else{catalog.forEach(b=>{const opt=document.createElement('option');opt.value=b.id;opt.textContent=b.title;sel.appendChild(opt)});if(catalog.some(b=>b.id===last))sel.value=last}
+ $('removeCatalogButton').disabled=!catalog.length;
+}
+function saveCatalog(){setLocal(CATALOGKEY,JSON.stringify(catalog));renderCatalog()}
+function prepareDownloadHTML(){const root=document.documentElement.cloneNode(true);const el=root.querySelector('#published-books-data');el.textContent=JSON.stringify(catalog).replace(/</g,'\\u003c');download('book-translation-environment.html','<!DOCTYPE html>\n'+root.outerHTML,'text/html;charset=utf-8');notify(language==='ru'?'HTML подготовлен. Разместите его на сайте.':'HTML downloaded. Upload it to your site.')}
+function wire(){
+ $('projectSelect').addEventListener('change',e=>{syncFragment();persist();store.selectedId=e.target.value;currentFragment=0;persist();renderBook()});
+ $('showNewBook').addEventListener('click',()=>{$('newBookDetails').open=!$('newBookDetails').open;if($('newBookDetails').open)$('newBookTitle').focus()});
+ $('newBookForm').addEventListener('submit',e=>{e.preventDefault();const title=$('newBookTitle').value.trim();if(!title)return notify(t('newBookRequired'));
+ syncFragment();const p={id:makeId(),title,author:$('newBookAuthor').value.trim(),originalLang:$('newBookLang').value.trim(),originalUrl:$('newBookUrl').value.trim(),fragments:[{title:'',original:'',ru:'',en:''}]};store.projects.push(p);store.selectedId=p.id;currentFragment=0;persist();renderBook();e.target.reset();$('newBookDetails').open=false;notify(t('newProjectSuccess'))});
+ $('toggleMeta').addEventListener('click',()=>{$('metadataDetails').open=!$('metadataDetails').open});
+ $('metadataForm').addEventListener('submit',e=>{e.preventDefault();syncFragment();const p=active();p.title=$('metaTitle').value.trim()||p.title;p.author=$('metaAuthor').value.trim();p.originalLang=$('metaLang').value.trim();p.originalUrl=$('metaURL').value.trim();persist();renderProjectSelect();renderProjectSummary();$('metadataDetails').open=false;notify(t('saveSuccess'))});
+ $('prevFrag').addEventListener('click',()=>{if(currentFragment>0)goFragment(currentFragment-1)});
+ $('nextFrag').addEventListener('click',()=>{if(currentFragment<active().fragments.length-1)goFragment(currentFragment+1)});
+ $('addFrag').addEventListener('click',()=>{syncFragment();active().fragments.push({title:'',original:'',ru:'',en:''});currentFragment=active().fragments.length-1;persist();loadFragment();$('fragTitle').focus()});
+ $('deleteFrag').addEventListener('click',()=>{if(active().fragments.length<=1||!confirm(t('confirmDelete')))return;active().fragments.splice(currentFragment,1);currentFragment=Math.min(currentFragment,active().fragments.length-1);persist();loadFragment()});
+ ['fragTitle','original','ru','en'].forEach(id=>$(id).addEventListener('input',scheduleSave));
+ $('saveNow').addEventListener('click',save);$('saveBottom').addEventListener('click',save);
+ document.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',async()=>{const val=$(btn.dataset.copy).value;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(val)}else{const el=$(btn.dataset.copy);el.focus();el.select();if(!document.execCommand('copy'))throw new Error('copy failed')}notify(t('copied'))}catch(e){notify(t('copyError'))}}));
+ $('exportOriginal').addEventListener('click',()=>exportText('original'));$('exportRu').addEventListener('click',()=>exportText('ru'));$('exportEn').addEventListener('click',()=>exportText('en'));
+ $('backupBtn').addEventListener('click',()=>{syncFragment();persist();download(safeFileName(active().title)+'_translation_project.json',JSON.stringify(store,null,2),'application/json;charset=utf-8')});
+ $('restoreBtn').addEventListener('click',()=>$('fileProject').click());
+ $('fileProject').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=normalizeStore(JSON.parse(await f.text()));store=data;currentFragment=0;persist();renderBook();notify(t('backupLoaded'))}catch(err){notify(t('backupError'))}e.target.value=''});
+ $('importTxt').addEventListener('click',()=>$('fileText').click());
+ $('fileText').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const result=await f.text();if($('original').value.trim()&&!confirm(t('confirmReplace')))return;$('original').value=result;scheduleSave();notify(t('textLoaded'))}catch(err){notify(t('fileError'))}finally{e.target.value=''}});
+ $('publishForm').addEventListener('submit',e=>{e.preventDefault();const b={id:makeId(),title:$('pubTitle').value.trim(),author:$('pubAuthor').value.trim(),originalLang:$('pubLang').value.trim(),originalURL:$('pubOrig').value.trim(),ruURL:$('pubRu').value.trim(),enURL:$('pubEn').value.trim()};if(!['originalURL','ruURL','enURL'].every(k=>safeLink(b[k])))return notify(t('allLinks'));catalog.push(b);saveCatalog();e.target.reset();notify(t('entryAdded'))});
+ $('removeCatalogButton').addEventListener('click',()=>{const id=$('removeCatalogSelect').value;if(!id||!confirm(t('confirmCatalogDelete')))return;catalog=catalog.filter(b=>b.id!==id);saveCatalog();notify(t('entryDeleted'))});
+ $('downloadHTML').addEventListener('click',prepareDownloadHTML);
+ window.addEventListener('beforeunload',()=>{if(store){syncFragment();persist()}});
+}
+function init(){try{const x=getLocal(KEY);store=x?normalizeStore(JSON.parse(x)):freshStore()}catch(e){store=freshStore()}
+ try{catalog=validateCatalogEntries(JSON.parse(getLocal(CATALOGKEY)||$('published-books-data').textContent||'[]'))}catch(e){catalog=[]}
+ wire();renderBook();setLanguage(getLocal(LANGKEY)||'ru')}
+init();
+})();
+</script>
+</body>
+</html>

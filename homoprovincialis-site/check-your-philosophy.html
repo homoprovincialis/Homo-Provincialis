@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Узнай свою философскую позицию и проверь свою мораль. Два будущих интерактивных приложения философского проекта Homo Provincialis.">
+  <meta name="theme-color" content="#17233b">
+  <title>Узнай свою философию — Homo Provincialis</title>
+  <style>
+    :root {
+      --ink: #1a2940;
+      --muted: #64718a;
+      --paper: #f8fafb;
+      --deep: #17233b;
+      --deep-2: #273456;
+      --blue: #5268df;
+      --sky: #81dfd6;
+      --copper: #e9ab68;
+      --line: #dfe6ee;
+      --radius: 24px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; line-height: 1.65; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #52c8d8; outline-offset: 4px; }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+    .shell { width: min(1140px, calc(100% - 48px)); margin: 0 auto; }
+    .masthead { position: relative; z-index: 3; background: var(--deep); border-bottom: 1px solid rgba(255,255,255,.12); color: #f5faff; }
+    .masthead-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 86px; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .115em; text-decoration: none; }
+    .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(255,255,255,.45); border-radius: 12px; font-family: Georgia, serif; font-size: 22px; color: #9aeee0; background: rgba(255,255,255,.065); }
+    .top-right { display: flex; align-items: center; gap: 24px; }
+    .header-home { display: inline-flex; align-items: center; gap: 7px; color: #d9e5f3; font-size: 13px; text-decoration: none; font-weight: 650; }
+    .header-home:hover, .footer-home:hover { text-decoration: underline; }
+    .langs { display: flex; padding: 4px; gap: 3px; border-radius: 99px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.12); }
+    .langs button { min-width: 47px; padding: 6px 12px; background: transparent; border: 0; border-radius: 99px; cursor: pointer; color: #bdcbe1; font-weight: 750; font-size: 12px; letter-spacing: .04em; transition: background .18s, color .18s; }
+    .langs button[aria-pressed="true"] { background: #f4fafc; color: #1e3052; box-shadow: 0 1px 6px rgba(0,0,0,.16); }
+    .hero { position: relative; overflow: hidden; min-height: 525px; color: #fff; background: radial-gradient(circle at 82% 15%, #3b527b 0, transparent 43%), radial-gradient(circle at 24% 97%, rgba(57,175,164,.18), transparent 45%), linear-gradient(116deg, #17233b, #24345a 58%, #212b4b); }
+    .hero::before { content: ""; position: absolute; inset: 0; opacity: .18; background-image: radial-gradient(circle, #dae9ff 1px, transparent 1.3px); background-size: 34px 34px; mask-image: linear-gradient(to right, transparent 22%, #000); pointer-events: none; }
+    .hero-layout { position: relative; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(270px,.8fr); gap: 48px; align-items: center; min-height: 525px; padding: 73px 0 92px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 21px; font-size: 12px; color: #94e9d9; text-transform: uppercase; letter-spacing: .21em; font-weight: 850; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: #94e9d9; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.16; }
+    h1 { max-width: 760px; margin: 0 0 24px; font-size: clamp(39px, 5vw, 66px); letter-spacing: -.045em; font-weight: 780; }
+    .hero h1 em { font-style: normal; color: #96ecdf; }
+    .hero-lead { max-width: 650px; margin: 0; font-size: clamp(16px,1.8vw,19px); color: #c9d9ed; line-height: 1.82; }
+    .hero-link { display: inline-flex; align-items: center; gap: 11px; margin-top: 31px; padding: 13px 21px; background: #8de8d8; color: #15304b; border-radius: 11px; font-size: 14px; font-weight: 800; text-decoration: none; box-shadow: 0 10px 30px rgba(16,30,50,.3); transition: transform .2s, background .2s; }
+    .hero-link:hover { transform: translateY(-2px); background: #aff8e9; }
+    .symbol { position: relative; height: 335px; isolation: isolate; }
+    .symbol::before { position: absolute; content: ""; inset: 17px 20px; border: 1px solid rgba(215,238,255,.22); border-radius: 50%; transform: rotate(-24deg) scaleX(.94); }
+    .symbol::after { position: absolute; content: ""; top: 18px; left: 25px; right: 25px; bottom: 12px; border: 1px solid rgba(215,238,255,.24); border-radius: 50%; transform: rotate(42deg) scaleX(.48); }
+    .orbit { position: absolute; inset: 5%; border-radius: 50%; border: 1px solid rgba(201,242,239,.25); transform: rotate(-35deg) scaleY(.55); }
+    .ring { position: absolute; width: 220px; height: 220px; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 1px solid rgba(209,236,245,.3); border-radius: 50%; box-shadow: 0 0 85px rgba(140,228,226,.13), inset 0 0 44px rgba(140,228,226,.09); }
+    .ring::before { content: ""; position: absolute; inset: 31px; border: 1px solid rgba(211,239,249,.32); border-radius: 50%; }
+    .ring::after { content: "✦"; position: absolute; inset: 0; display: grid; place-items: center; color: #b7f7ec; font-size: 92px; text-shadow: 0 0 35px rgba(138,238,227,.35); }
+    .dot { position: absolute; width: 12px; height: 12px; border-radius: 50%; box-shadow: 0 0 25px currentColor; }
+    .dot-a { top: 26px; left: 20%; background: #9cf1df; color: #9cf1df; }
+    .dot-b { top: 46%; right: 3%; background: #f4bb7a; color: #f4bb7a; }
+    .dot-c { bottom: 12%; left: 7%; width: 9px; height: 9px; background: #ccd1ff; color: #ccd1ff; }
+    .symbol-label { position: absolute; padding: 8px 12px; border-radius: 8px; color: #dce8fb; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); backdrop-filter: blur(5px); font-size: 12px; letter-spacing: .08em; }
+    .label-a { top: 15%; right: 0; } .label-b { bottom: 7%; left: 8%; }
+    .intro { padding: 78px 0 26px; text-align: center; }
+    .section-label { color: #5c6593; font-weight: 850; font-size: 12px; letter-spacing: .19em; text-transform: uppercase; margin-bottom: 14px; }
+    .intro h2 { font-size: clamp(29px,3.2vw,39px); letter-spacing: -.03em; margin-bottom: 18px; }
+    .intro p:not(.section-label) { max-width: 715px; margin: 0 auto; color: #56657d; font-size: 17px; line-height: 1.85; }
+    .projects { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 25px; padding: 36px 0 75px; }
+    .project-card { position: relative; isolation: isolate; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: 0 22px 60px rgba(40,65,97,.075); transition: transform .2s, box-shadow .2s; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 26px 68px rgba(40,65,97,.11); }
+    .card-head { position: relative; min-height: 225px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 29px 33px 25px; color: #fff; }
+    .project-card--ideas .card-head { background: linear-gradient(128deg,#3d4c9f,#516bdc); }
+    .project-card--moral .card-head { background: linear-gradient(125deg,#9c553a,#d98e59); }
+    .card-head::before { content: ""; position: absolute; width: 265px; height: 265px; right: -85px; top: -115px; border: 1px solid rgba(255,255,255,.4); border-radius: 50%; box-shadow: 0 0 0 34px rgba(255,255,255,.055),0 0 0 74px rgba(255,255,255,.035); }
+    .card-head::after { content: ""; position: absolute; width: 150px; height: 150px; right: 15%; bottom: -105px; border: 1px solid rgba(255,255,255,.27); border-radius: 50%; }
+    .card-number { position: relative; z-index: 1; font-size: 64px; line-height: 1; letter-spacing: -.06em; font-weight: 250; color: rgba(255,255,255,.8); }
+    .card-head h3 { position: relative; z-index: 1; max-width: 400px; font-size: clamp(25px,2.5vw,31px); letter-spacing: -.035em; margin: 18px 0 0; }
+    .card-content { flex: 1; display: flex; flex-direction: column; padding: 28px 33px 30px; }
+    .card-content p { color: #526076; font-size: 15.5px; line-height: 1.86; margin-bottom: 17px; }
+    .card-content strong { color: #24334c; }
+    .content-rule { height: 1px; width: 100%; background: var(--line); margin: 10px 0 18px; }
+    .card-content h4 { font-size: 13px; color: #31445e; text-transform: uppercase; letter-spacing: .11em; margin: 0 0 12px; }
+    .feature-list { padding: 0; margin: 0 0 24px; list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 12px; font-size: 14px; color: #536278; }
+    .feature-list li::before { content: "✓"; flex: 0 0 auto; display: grid; place-items: center; width: 20px; height: 20px; font-size: 12px; font-weight: 900; border-radius: 50%; color: #4255bd; background: #e6eafd; margin-top: 2px; }
+    .project-card--moral .feature-list li::before { background: #fff0e5; color: #b96c41; }
+    .status { display: inline-flex; align-items: center; gap: 9px; align-self: flex-start; margin-top: auto; background: #eef3f7; border-radius: 100px; padding: 9px 14px; font-size: 12px; font-weight: 750; color: #53647a; }
+    .moral-launch { margin: 0 0 16px; justify-content: center; text-align: center; background: #fff1e7; color: #87411f; box-shadow: none; border: 1px solid #efcfb5; }
+    .moral-launch:hover { background: #ffeadb; }
+    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #dfa35d; }
+    .method { margin-bottom: 82px; position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(260px,.75fr); gap: 50px; padding: 42px 48px; border: 1px solid #e2e7eb; border-radius: var(--radius); background: linear-gradient(110deg,#fff,#eef6f7); }
+    .method h2 { font-size: clamp(25px,2.8vw,35px); letter-spacing: -.03em; margin-bottom: 13px; }
+    .method p { font-size: 15px; color: #56677c; line-height: 1.9; margin: 0; }
+    .method aside { padding-left: 28px; border-left: 2px solid #8ecdc7; display: flex; flex-direction: column; justify-content: center; }
+    .method aside strong { display: block; font-size: 14px; color: #243b4f; margin-bottom: 10px; }
+    .method aside p { font-size: 14px; }
+    .footer { background: #17233b; color: #d4dfed; }
+    .footer-inner { min-height: 125px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding: 26px 0; }
+    .footer small { color: #afbdd3; font-size: 13px; }
+    .footer-home { font-size: 14px; color: #a5efe2; font-weight: 700; text-decoration: none; }
+    @media (max-width: 860px) { .hero-layout { grid-template-columns: 1fr; min-height: auto; padding: 85px 0 70px; } .symbol { display: none; } .hero { min-height: auto; } .projects { gap: 18px; } .method { grid-template-columns: 1fr; gap: 24px; } .method aside { padding-left: 19px; } }
+    @media (max-width: 650px) { .shell { width: min(100% - 32px,1140px); } .masthead-inner { min-height: 76px; } .brand { font-size: 12px; gap: 9px; letter-spacing: .06em; } .brand-mark { width: 32px; height: 32px; font-size: 18px; } .top-right { gap: 10px; } .header-home { display: none; } .hero-layout { padding: 65px 0 73px; } h1 { font-size: clamp(37px, 10vw, 49px); } .hero-lead { font-size: 16px; } .intro { padding-top: 55px; } .projects { grid-template-columns: 1fr; padding: 25px 0 48px; } .card-head { min-height: 195px; padding: 25px; } .card-head h3 { font-size: 29px; } .card-content { padding: 25px; } .method { padding: 27px 24px; margin-bottom: 50px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .project-card, .hero-link { transition: none; } }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="index.html" aria-label="Homo Provincialis — главная страница">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span>Homo Provincialis</span>
+      </a>
+      <div class="top-right">
+        <a class="header-home" href="index.html" data-i18n="homeTop">↖ На главную</a>
+        <div class="langs" role="group" aria-label="Language / Язык">
+          <button type="button" data-language="ru" aria-pressed="true">RU</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div lang="ru" data-page-lang="ru">
+      <section class="hero">
+        <div class="shell hero-layout">
+          <div>
+            <p class="eyebrow">Философский проект</p>
+            <h1>Узнай свою <em>философию</em></h1>
+            <p class="hero-lead">Что вы действительно думаете о мире — и как принимаете нравственные решения? Два самостоятельных направления помогают исследовать философские убеждения и моральные суждения. Второе приложение — «Проверь свою мораль» — уже доступно.</p>
+            <a class="hero-link" href="#directions-ru">Исследовать идею проекта <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="symbol" aria-hidden="true"><div class="orbit"></div><div class="ring"></div><span class="dot dot-a"></span><span class="dot dot-b"></span><span class="dot dot-c"></span><span class="symbol-label label-a">УБЕЖДЕНИЯ</span><span class="symbol-label label-b">МОРАЛЬ</span></div>
+        </div>
+      </section>
+      <section class="shell intro" id="directions-ru">
+        <p class="section-label">Два самостоятельных направления</p>
+        <h2>От вопросов — к ясности</h2>
+        <p>Проект <strong>Check Your Philosophy</strong> будет состоять из двух отдельных приложений. Каждое предложит последовательный интеррогаторий и индивидуальный результат. Первое приложение пока находится в разработке; второе уже можно открыть и пройти.</p>
+      </section>
+      <div class="shell projects">
+        <article class="project-card project-card--ideas" aria-labelledby="position-ru">
+          <div class="card-head"><span class="card-number">01</span><h3 id="position-ru">Узнай свою философскую позицию</h3></div>
+          <div class="card-content">
+            <p>Каких убеждений вы придерживаетесь? Каковы ваши взгляды на реальность, познание, сознание, причинность, свободу и общество?</p>
+            <p>В будущем приложении человек будет отвечать на вопросы и уточнения. Цель — не навязать ему название философской школы, а <strong>выявить и ясно описать его собственную позицию</strong>.</p>
+            <div class="content-rule"></div><h4>Что покажет результат</h4>
+            <ul class="feature-list"><li>Основные убеждения, взгляды и позиции</li><li>Смысл употребляемых понятий</li><li>Возможные противоречия между ответами</li><li>Индивидуальный философский профиль</li></ul>
+            <span class="status">Приложение будет создано позже</span>
+          </div>
+        </article>
+        <article class="project-card project-card--moral" aria-labelledby="morality-ru">
+          <div class="card-head"><span class="card-number">02</span><h3 id="morality-ru">Проверь свою мораль</h3></div>
+          <div class="card-content">
+            <p>Нравственные убеждения проявляются в конкретном выборе. Сказать «я честный» проще, чем объяснить своё решение в сложной жизненной ситуации.</p>
+            <p>Действующее приложение предлагает <strong>24 жизненные ситуации, выбор решений и вопросы «почему?»</strong> — чтобы исследовать справедливость, честность, ответственность, доверие и отношение к другим людям.</p>
+            <div class="content-rule"></div><h4>Что покажет результат</h4>
+            <ul class="feature-list"><li>Моральные принципы, выраженные в ответах</li><li>Обоснования выбранных поступков</li><li>Согласованность решений в разных ситуациях</li><li>Возможные противоречия в суждениях</li></ul>
+            <a class="hero-link moral-launch" href="check-your-morality.html">Открыть тест «Проверь свою мораль» →</a><span class="status">Тест доступен</span>
+          </div>
+        </article>
+      </div>
+      <section class="shell method" aria-labelledby="method-ru">
+        <div><p class="section-label">Идея и метод</p><h2>Не смешивать слова и поступки</h2><p>Философская позиция человека и его мораль связаны, но это не одинаковые предметы исследования. Поэтому для них предусмотрены разные интеррогатории и разные результаты. Особое внимание будет уделено ясности понятий, аргументам и последовательности ответов.</p></div>
+        <aside><strong>Важное ограничение</strong><p>Ответы о вымышленных ситуациях позволяют исследовать моральные суждения, но сами по себе не доказывают, как человек поступит в действительности. Реальные поступки требуют отдельного наблюдения.</p></aside>
+      </section>
+    </div>
+    <div lang="en" data-page-lang="en" hidden>
+      <section class="hero">
+        <div class="shell hero-layout">
+          <div>
+            <p class="eyebrow">A philosophical project</p>
+            <h1>Check Your <em>Philosophy</em></h1>
+            <p class="hero-lead">What do you truly believe about the world — and how do you make moral decisions? Two independent inquiries explore philosophical convictions and moral judgments. The second application, “Examine Your Morality,” is now available.</p>
+            <a class="hero-link" href="#directions-en">Explore the project <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="symbol" aria-hidden="true"><div class="orbit"></div><div class="ring"></div><span class="dot dot-a"></span><span class="dot dot-b"></span><span class="dot dot-c"></span><span class="symbol-label label-a">BELIEFS</span><span class="symbol-label label-b">MORALITY</span></div>
+        </div>
+      </section>
+      <section class="shell intro" id="directions-en">
+        <p class="section-label">Two independent directions</p>
+        <h2>From questions to clarity</h2>
+        <p><strong>Check Your Philosophy</strong> will contain two separate applications, each offering a structured questionnaire and an individual result. The first application is still planned; the second is ready to try.</p>
+      </section>
+      <div class="shell projects">
+        <article class="project-card project-card--ideas" aria-labelledby="position-en">
+          <div class="card-head"><span class="card-number">01</span><h3 id="position-en">Discover Your Philosophical Position</h3></div>
+          <div class="card-content">
+            <p>What convictions do you hold? What are your views on reality, knowledge, consciousness, causation, freedom and society?</p>
+            <p>The future application will guide participants through questions and clarifications. Its purpose is not to assign a philosophical school by default, but to <strong>identify and clearly describe each person's own position</strong>.</p>
+            <div class="content-rule"></div><h4>The proposed result</h4>
+            <ul class="feature-list"><li>Principal convictions, views and positions</li><li>Clarification of the concepts being used</li><li>Possible inconsistencies across answers</li><li>An individual philosophical profile</li></ul>
+            <span class="status">Application coming at a later stage</span>
+          </div>
+        </article>
+        <article class="project-card project-card--moral" aria-labelledby="morality-en">
+          <div class="card-head"><span class="card-number">02</span><h3 id="morality-en">Examine Your Morality</h3></div>
+          <div class="card-content">
+            <p>Moral convictions appear in particular choices. Declaring “I am honest” is easier than explaining what you would do in a difficult real-life situation.</p>
+            <p>The interactive application presents <strong>24 scenarios, choices and questions about reasons</strong> to explore fairness, honesty, responsibility, trust and our treatment of others.</p>
+            <div class="content-rule"></div><h4>The proposed result</h4>
+            <ul class="feature-list"><li>Moral principles expressed in the answers</li><li>Reasons given for chosen actions</li><li>Consistency across different situations</li><li>Possible contradictions in moral judgments</li></ul>
+            <a class="hero-link moral-launch" href="check-your-morality.html">Open “Examine Your Morality” →</a><span class="status">Test available</span>
+          </div>
+        </article>
+      </div>
+      <section class="shell method" aria-labelledby="method-en">
+        <div><p class="section-label">The idea and method</p><h2>Distinguishing words from deeds</h2><p>A person's philosophical position and morality are connected, but they are not identical objects of inquiry. They therefore call for separate questionnaires and separate results. Clarity of concepts, arguments and consistency of answers will be central to the project.</p></div>
+        <aside><strong>An important limitation</strong><p>Answers about hypothetical situations reveal stated moral judgments, but cannot by themselves establish how someone will act in reality. Actual behavior requires separate observation.</p></aside>
+      </section>
+    </div>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><small>© Homo Provincialis · <span data-footer-ru>Проект «Узнай свою философию»</span><span data-footer-en hidden>Check Your Philosophy project</span></small><a class="footer-home" href="index.html" data-i18n="homeFooter">← Главная страница</a></div></footer>
+  <script>
+    (function () {
+      'use strict';
+      var pages = document.querySelectorAll('[data-page-lang]');
+      var buttons = document.querySelectorAll('[data-language]');
+      var homeTop = document.querySelector('[data-i18n="homeTop"]');
+      var homeFooter = document.querySelector('[data-i18n="homeFooter"]');
+      var footerRu = document.querySelector('[data-footer-ru]');
+      var footerEn = document.querySelector('[data-footer-en]');
+      function changeLanguage(lang) {
+        if (lang !== 'ru' && lang !== 'en') { return; }
+        pages.forEach(function (page) { page.hidden = page.getAttribute('data-page-lang') !== lang; });
+        buttons.forEach(function (button) { button.setAttribute('aria-pressed', String(button.getAttribute('data-language') === lang)); });
+        document.documentElement.lang = lang;
+        document.title = lang === 'ru' ? 'Узнай свою философию — Homo Provincialis' : 'Check Your Philosophy — Homo Provincialis';
+        homeTop.textContent = lang === 'ru' ? '↖ На главную' : '↖ Home';
+        homeFooter.textContent = lang === 'ru' ? '← Главная страница' : '← Home page';
+        footerRu.hidden = lang !== 'ru';
+        footerEn.hidden = lang !== 'en';
+        try { localStorage.setItem('homoprovincialis-language', lang); } catch (e) {}
+      }
+      buttons.forEach(function (button) { button.addEventListener('click', function () { changeLanguage(button.getAttribute('data-language')); }); });
+      var saved = null;
+      try { saved = localStorage.getItem('homoprovincialis-language'); } catch (e) {}
+      changeLanguage(saved === 'en' ? 'en' : 'ru');
+    })();
+  </script>
+</body>
+</html>

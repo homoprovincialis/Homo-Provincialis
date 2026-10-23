@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#152e30">
+<title>Open Online Library — Homo Provincialis</title>
+<style>
+
+:root{color-scheme:light;--ink:#202d32;--muted:#67716f;--forest:#203c3c;--forest-dark:#152e30;--gold:#c5a06b;--paper:#f8f7f2;--cream:#f1eee5;--line:#dddcd4;--warm:#fbfaf6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0!important;padding:0!important;background:#e7e7e0!important;color:var(--ink)!important;font-family:Arial,Helvetica,sans-serif!important;font-size:15px;line-height:1.6}
+body .site{display:block;width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;background:var(--paper);border:0!important;box-shadow:none!important}
+.site [hidden]{display:none!important}
+/* Explicit bilingual visibility, independent from the main CSS. */
+.site .lang-en:not([hidden]),.site .lang-ru:not([hidden]){display:revert!important}
+.site .hero-content>.lang-en:not([hidden]),.site .hero-content>.lang-ru:not([hidden]){display:block!important}
+button,input,select{font:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #c59645;outline-offset:3px}
+a{color:inherit}
+.site-header{color:#f8f4e9;background:var(--forest-dark);position:relative;overflow:hidden}
+.masthead{min-height:87px;padding:17px clamp(20px,4.2vw,80px);display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid rgba(255,255,255,.14)}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand-mark{width:49px;height:49px;flex:none;color:#dfc08d;border:1px solid rgba(221,193,142,.6);border-radius:50%;display:grid;place-items:center}
+.brand-mark svg{width:28px;height:28px;stroke:currentColor}
+.brand-title{display:block;font-family:Georgia,'Times New Roman',serif;font-size:21px;font-weight:600;letter-spacing:.13em;line-height:1.25}
+.brand-domain{display:block;font-size:11px;letter-spacing:.16em;color:#c8d1ca;margin-top:4px}
+.header-tools{display:flex;align-items:center;gap:28px}
+.header-edition{font-size:10px;letter-spacing:.23em;color:#c8ccbe;text-transform:uppercase;white-space:nowrap}
+.language-switch{display:flex;gap:3px;align-items:center;padding:4px;border:1px solid rgba(255,255,255,.22);border-radius:6px}
+.lang-button{cursor:pointer;background:transparent;border:0;color:#d9e1d9;padding:7px 10px;font-size:12px;border-radius:3px;transition:.2s}
+.lang-button[aria-pressed=true]{background:#d4bd94;color:#253331;font-weight:bold}
+.lang-button:hover:not([aria-pressed=true]){background:rgba(255,255,255,.12)}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr);gap:32px;align-items:center;min-height:354px;padding:48px clamp(20px,6vw,116px) 54px;isolation:isolate}
+.hero:before{content:'';position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 69% 0%,rgba(161,157,113,.14),transparent 52%),linear-gradient(125deg,#183537,#234445 67%,#1b3638)}
+.hero:after{content:'';position:absolute;z-index:-1;top:-150px;right:10%;width:620px;height:620px;border-radius:50%;border:1px solid rgba(218,184,124,.12);box-shadow:0 0 0 48px rgba(218,184,124,.025),0 0 0 98px rgba(218,184,124,.02);pointer-events:none}
+.eyebrow{font-size:11px;letter-spacing:.23em;text-transform:uppercase;font-weight:bold;color:#d4b57f;margin:0 0 19px}
+.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(41px,4.5vw,78px);line-height:1.05;font-weight:normal;letter-spacing:-.035em;margin:0 0 22px!important;color:#fff9ed}
+.hero h1 em{font-style:normal;color:#d6b987}
+.hero-copy{color:#d7dfd8;max-width:610px;font-size:15px;line-height:1.85;margin:0 0 23px}
+.back-link{display:inline-flex;gap:10px;text-decoration:none;align-items:center;font-size:12px;letter-spacing:.065em;text-transform:uppercase;color:#ebd4aa;border-bottom:1px solid rgba(235,212,170,.5);padding-bottom:6px}
+.back-link:hover{color:#fff;border-color:#fff}
+.hero-books{justify-self:center;position:relative;width:min(100%,490px);height:255px;display:flex;align-items:end;justify-content:center;filter:drop-shadow(0 16px 13px rgba(1,12,15,.24))}
+.hero-books .arch{position:absolute;inset:0 40px 7px;border:1px solid rgba(211,186,136,.38);border-radius:200px 200px 4px 4px;background:linear-gradient(130deg,rgba(0,0,0,.22),rgba(255,255,255,.03));box-shadow:inset 0 0 0 8px rgba(212,185,124,.045)}
+.bookcase{position:relative;z-index:1;width:82%;height:165px;margin-bottom:7px;border-bottom:8px solid #b69b70;display:flex;justify-content:center;align-items:flex-end;gap:5px;padding:0 15px}
+.spine{display:block;width:var(--w);height:var(--h);background:var(--c);border-radius:2px 3px 0 0;box-shadow:inset 3px 0 rgba(255,255,255,.17),inset -3px 0 rgba(0,0,0,.2),0 2px 2px rgba(0,0,0,.15);position:relative}
+.spine:before{content:'';position:absolute;left:4px;right:4px;top:13%;border-top:2px solid rgba(244,219,158,.6);border-bottom:1px solid rgba(244,219,158,.4);height:7px}
+.spine:after{content:'';position:absolute;left:4px;right:4px;bottom:12%;height:1px;background:rgba(244,219,158,.55)}
+.spine.tilt{transform:rotate(-12deg);transform-origin:bottom left;margin-right:14px}
+.library-main{padding:0 clamp(16px,3.7vw,75px) 60px;max-width:none;width:100%;margin:0 auto}
+.catalog-intro{display:flex;justify-content:space-between;align-items:end;gap:28px;padding:43px 0 25px;border-bottom:1px solid #d8d6cc}
+.catalog-overline{font-size:11px;letter-spacing:.2em;color:#8b7250;font-weight:700;text-transform:uppercase;margin:0 0 6px}
+.catalog-intro h2{font:normal clamp(26px,2.3vw,37px)/1.2 Georgia,'Times New Roman',serif;margin:0 0 8px;color:#1c3535}
+.catalog-subtitle{color:#64716d;margin:0;line-height:1.7;font-size:14px}
+.catalog-tools{display:flex;align-items:stretch;justify-content:flex-end;gap:20px;flex-wrap:wrap}
+.stat{display:flex;min-width:122px;flex-direction:column;justify-content:center;align-items:center;padding-right:22px;border-right:1px solid #dad8ce}
+.stat strong{display:block;font:normal 34px/1.1 Georgia,'Times New Roman',serif;color:#254543}
+.stat small{display:block;font-size:9px;line-height:1.4;text-align:center;letter-spacing:.1em;text-transform:uppercase;color:#7a817c;max-width:115px;margin-top:5px;font-weight:bold}
+.search-wrap{align-self:center;display:flex;align-items:center;gap:10px;width:min(370px,29vw);min-width:250px;background:#fff;border:1px solid #cecec5;border-radius:5px;padding:0 14px;transition:box-shadow .15s}
+.search-wrap:focus-within{box-shadow:0 0 0 3px rgba(184,144,80,.15);border-color:var(--gold)}
+.search-wrap svg{flex:none;width:17px;height:17px;stroke:#7b8a84}
+.search-wrap input{border:0;outline:0;min-width:0;width:100%;height:48px;background:transparent;color:#203c3c;font-size:13px}
+.search-wrap input:focus-visible{outline:0}
+.library-app{width:100%;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+.random-note{display:flex;align-items:center;gap:9px;margin:18px 0 22px;padding:11px 14px;border-left:3px solid #ba9860;background:#eeebe1;color:#6a716a;font-size:12px;line-height:1.5}
+.random-icon{color:#9b7d47;flex:none;font-size:18px;line-height:1}
+.shelves{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.shelf{min-width:0;overflow:hidden;background:#fff;border:1px solid #dfded5;box-shadow:0 8px 24px rgba(33,45,40,.045)}
+.shelf-head{padding:28px clamp(18px,2vw,35px) 25px;border-bottom:1px solid #e3e2db;background:#f8f7f2}
+.shelf-label{font-size:10px;letter-spacing:.22em;font-weight:700;color:#94784c;text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:12px}
+.shelf-label:after{content:'';height:1px;background:#d6d0be;flex:1}
+.shelf-title-row{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.shelf-title{font:normal clamp(22px,2vw,31px)/1.25 Georgia,'Times New Roman',serif!important;color:#223d3b;margin:0!important}
+.count{flex:none;display:grid;place-items:center;min-width:37px;height:37px;background:#e3e7df;border:1px solid #c8d2c6;color:#36544a;font:normal 18px/1 Georgia,'Times New Roman',serif;border-radius:50%;padding:4px}
+.shelf-desc{font-size:13px;line-height:1.75;color:#6e7772;margin:10px 0 20px;min-height:45px}
+.btn{font-size:12px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid #cbd2cc;border-radius:4px;background:#fff;color:#36544d;padding:9px 14px;line-height:1.45;text-decoration:none;transition:background .15s,border-color .15s,transform .15s;max-width:100%;white-space:normal;text-align:center}
+.btn:hover{background:#eef3ed;border-color:#98ad9f}
+.btn.primary{background:#244743;color:white;border:1px solid #244743;font-weight:bold;letter-spacing:.015em;min-height:41px;padding:10px 17px}
+.btn.primary:hover{background:#37665d;border-color:#37665d}
+.btn.danger{color:#8c6055;border-color:transparent;background:transparent}
+.btn.danger:hover{background:#fff0ed;border-color:#f0d0c8}
+.book-form{display:none;background:#f3f4ed;border-bottom:1px solid #d8ded3;padding:25px clamp(18px,2vw,35px)}
+.book-form.open{display:block}
+.book-form h4{font:normal 23px Georgia,'Times New Roman',serif;color:#243f3c;margin:0 0 20px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field.full{grid-column:1/-1}
+.field label{display:block;font-size:11px;font-weight:bold;color:#5a6b61;letter-spacing:.035em;margin-bottom:5px}
+.field input,.field select{width:100%;min-width:0;background:white;padding:10px 12px;border:1px solid #cbd1c8;border-radius:3px;color:#243e3a;font:inherit;font-size:13px;height:44px}
+.form-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:21px}
+.book-list{min-height:180px;padding:8px clamp(14px,1.65vw,28px) 22px}
+.book{display:flex;align-items:flex-start;gap:20px;background:white;border:0;border-bottom:1px solid #e9e9e3;box-shadow:none;padding:23px 3px;margin:0;min-width:0}
+.book:last-child{border-bottom:0}
+.book-cover{flex:none;width:89px;height:124px;position:relative;border-radius:2px 5px 5px 2px;background:linear-gradient(90deg,rgba(7,21,16,.26),transparent 12%,transparent 89%,rgba(255,255,255,.1)),linear-gradient(145deg,#416156,#25473f);color:#ebddb4;border:1px solid #335849;box-shadow:4px 5px 0 #e9e5dc,5px 7px 8px rgba(0,0,0,.11);display:flex;flex-direction:column;align-items:center;justify-content:center;font:normal 38px Georgia,'Times New Roman',serif}
+.book:nth-child(4n+2) .book-cover{background:linear-gradient(90deg,rgba(0,0,0,.23),transparent 13%,rgba(255,255,255,.08)),linear-gradient(145deg,#8a675a,#60483e);border-color:#725449}
+.book:nth-child(4n+3) .book-cover{background:linear-gradient(90deg,rgba(0,0,0,.23),transparent 13%,rgba(255,255,255,.08)),linear-gradient(145deg,#455567,#2e3d4d);border-color:#374a5a}
+.book:nth-child(4n+4) .book-cover{background:linear-gradient(90deg,rgba(0,0,0,.23),transparent 13%,rgba(255,255,255,.08)),linear-gradient(145deg,#957c53,#725e3f);border-color:#766341}
+.cover-ornament{position:absolute;top:9px;font-size:13px;color:#d4c69f}
+.cover-line{position:absolute;bottom:13px;left:15px;right:15px;border-bottom:1px solid rgba(231,207,152,.65);border-top:1px solid rgba(231,207,152,.5);height:5px}
+.book-content{flex:1;min-width:0}
+.book-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.book-title{font:normal clamp(17px,1.35vw,22px)/1.35 Georgia,'Times New Roman',serif;margin:0;color:#223c38;overflow-wrap:anywhere}
+.book-original{font-size:12px;color:#7f8479;font-style:italic;margin:6px 0 8px}
+.book-meta{display:flex;flex-wrap:wrap;gap:4px 17px;color:#65736c;font-size:12px;line-height:1.6;margin:8px 0}
+.book-meta b{color:#43594e;font-weight:700}
+.rating,.queue-label{flex:none;display:inline-flex;align-items:center;gap:5px;margin:0;padding:4px 9px;font-size:10px;text-transform:uppercase;letter-spacing:.025em;background:#f2ead6;color:#7c6233;border:1px solid #e4d2a5;border-radius:3px;white-space:normal}
+.queue-label{background:#edf0ee;border-color:#dce4dd;color:#667b6e}
+.book-actions{margin-top:15px;display:flex;flex-wrap:wrap;gap:6px;border:0;padding:0}
+.book-actions .btn{padding:5px 9px;font-size:11px}
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:192px;color:#7e8981;text-align:center;padding:24px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:15px}
+.empty-symbol{color:#b6bba8;font:normal 45px/1 Georgia,'Times New Roman',serif}
+.empty p{margin:10px 0}
+.backup{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:24px;padding:26px clamp(20px,2.5vw,40px);background:#eeefe8;border:1px solid #dfe2d7}
+.backup-copy{max-width:670px}
+.backup h4{font:normal 24px Georgia,'Times New Roman',serif;margin:0 0 7px;color:#28433b}
+.backup p{margin:0;color:#6d7971;font-size:12px;line-height:1.65}
+.backup-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.backup-tools .btn{padding:10px 13px;font-size:11px;background:#fff}
+.backup-tools .btn:hover{background:#fcfaf2}
+.hidden{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;overflow:hidden!important;pointer-events:none!important}
+.site-footer{padding:22px clamp(20px,4vw,80px);display:flex;justify-content:space-between;gap:15px;align-items:center;border-top:1px solid #d8d9ce;color:#838980;font-size:12px}
+.site-footer p{margin:0}
+.footer-domain{letter-spacing:.12em;text-transform:uppercase;font-size:10px;color:#75837a}
+@media(min-width:1800px){.hero{min-height:410px}.shelves{gap:30px}.book-list{padding-inline:34px}}
+@media(max-width:1120px){.catalog-intro{align-items:start;flex-direction:column}.catalog-tools{width:100%;justify-content:space-between}.search-wrap{width:min(540px,75%)}.hero{padding-right:50px}.shelf-head{padding:22px}.book-list{padding:8px 17px 20px}.book{gap:12px}.book-cover{width:68px;height:98px;font-size:30px}}
+@media(max-width:800px){.header-edition{display:none}.hero{min-height:0;grid-template-columns:1fr;padding:39px 25px 45px}.hero-books{display:none}.shelves{grid-template-columns:1fr;gap:20px}.shelf-desc{min-height:0}.book-cover{width:85px;height:119px}.catalog-intro{padding-top:29px}.backup{flex-direction:column;align-items:stretch}.backup-tools{justify-content:flex-start}}
+@media(max-width:530px){.masthead{padding:15px 16px;gap:12px;flex-wrap:wrap}.brand-mark{width:39px;height:39px}.brand-title{font-size:16px;letter-spacing:.06em}.brand-domain{font-size:10px}.header-tools{margin-left:auto}.lang-button{font-size:11px;padding:6px 8px}.hero{padding:35px 19px 38px}.hero h1{font-size:42px}.hero-copy{font-size:14px}.library-main{padding-inline:12px;padding-bottom:35px}.catalog-tools{gap:13px}.stat{min-width:0;padding-right:13px}.stat strong{font-size:28px}.stat small{font-size:8px}.search-wrap{width:auto;min-width:0;flex:1}.search-wrap input{height:45px;font-size:12px}.shelf-head{padding:21px 17px}.shelf-title{font-size:23px!important}.book-list{padding:6px 14px 15px}.book{gap:12px;padding:18px 0}.book-cover{width:62px;height:89px;font-size:27px}.book-title{font-size:18px}.book-title-row{display:block}.rating,.queue-label{margin-top:7px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.backup{padding:22px 17px}.site-footer{padding:21px 18px;flex-wrap:wrap}.backup-tools .btn{flex:1}}
+</style>
+</head>
+<body>
+<div class="site">
+<header class="site-header">
+  <div class="masthead">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 23c-3-2-7-3-11-2V5c4-1 8 0 11 3m0 15c3-2 7-3 11-2V5c-4-1-8 0-11 3m0 0v15"/><path d="M6 9c2.4-.1 4 .2 5 1m6 0c1-1 3-1.2 5-1"/></svg></span>
+      <div><span class="brand-title">HOMO PROVINCIALIS</span><span class="brand-domain">homoprovincialis.com</span></div>
+    </div>
+    <div class="header-tools">
+      <span class="header-edition lang-en">DIGITAL READING ROOM</span>
+      <span class="header-edition lang-ru" hidden>ЭЛЕКТРОННЫЙ ЧИТАЛЬНЫЙ ЗАЛ</span>
+      <nav class="language-switch" aria-label="Language / Язык"><button class="lang-button" type="button" data-language="en" aria-pressed="true" onclick="setLibraryLanguage('en')">English</button><button class="lang-button" type="button" data-language="ru" aria-pressed="false" onclick="setLibraryLanguage('ru')">Русский</button></nav>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow lang-en">HOMO PROVINCIALIS · BOOK COLLECTION</div>
+      <div class="eyebrow lang-ru" hidden>HOMO PROVINCIALIS · КНИЖНОЕ СОБРАНИЕ</div>
+      <div class="lang-en"><h1>Open Online<br><em>Library</em></h1><p class="hero-copy">A personal catalogue of books already read or listened to, and works selected for future reading.</p><a class="back-link" href="index.html">← Return to the homepage</a></div>
+      <div class="lang-ru" hidden><h1>Открытая онлайн-<br><em>библиотека</em></h1><p class="hero-copy">Личный каталог прочитанных и прослушанных книг, а также произведений, намеченных для будущего чтения.</p><a class="back-link" href="index.html">← Вернуться на главную</a></div>
+    </div>
+    <div class="hero-books" aria-hidden="true"><div class="arch"></div><div class="bookcase">
+       <i class="spine" style="--w:25px;--h:112px;--c:#998269"></i><i class="spine" style="--w:29px;--h:137px;--c:#7a5140"></i><i class="spine" style="--w:34px;--h:153px;--c:#c4a875"></i><i class="spine" style="--w:25px;--h:123px;--c:#566764"></i><i class="spine" style="--w:36px;--h:160px;--c:#966e50"></i><i class="spine" style="--w:29px;--h:129px;--c:#d1b98b"></i><i class="spine" style="--w:24px;--h:143px;--c:#8e9b81"></i><i class="spine" style="--w:38px;--h:154px;--c:#8e5647"></i><i class="spine" style="--w:28px;--h:110px;--c:#bfa16e"></i><i class="spine tilt" style="--w:29px;--h:127px;--c:#657a71"></i>
+    </div></div>
+  </div>
+</header>
+<main class="library-main">
+  <div class="catalog-intro">
+    <div><div class="catalog-overline lang-en">EXPLORE THE COLLECTION</div><div class="catalog-overline lang-ru" hidden>ОБЗОР КАТАЛОГА</div><h2 id="app-title"></h2><p class="catalog-subtitle" id="app-subtitle"></p></div>
+    <div class="catalog-tools">
+      <div class="stat"><strong id="total-count">0</strong><small id="total-label"></small></div>
+      <label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke="currentColor" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5.2 5.2"/></svg><input id="catalog-search" type="search" aria-label="Search / Поиск" autocomplete="off"></label>
+    </div>
+  </div>
+  <div class="library-app">
+    <div class="random-note"><span class="random-icon" aria-hidden="true">⤨</span><span id="random-note"></span></div>
+    <div class="shelves">
+      <section class="shelf" aria-labelledby="read-title">
+        <div class="shelf-head"><div class="shelf-label"><span class="lang-en">SHELF 01 · COMPLETED</span><span class="lang-ru" hidden>ПОЛКА 01 · ПРОЧИТАНО</span></div><div class="shelf-title-row"><h3 class="shelf-title" id="read-title"></h3><span class="count" id="read-count">0</span></div><div class="shelf-desc" id="read-desc"></div><button class="btn primary" type="button" id="add-read"></button></div>
+        <div class="book-form" id="read-form"><h4 id="read-form-title"></h4><div class="form-grid"><div class="field full"><label for="read-original" id="read-original-label"></label><input id="read-original"></div><div class="field"><label for="read-ru" id="read-ru-label"></label><input id="read-ru"></div><div class="field"><label for="read-en" id="read-en-label"></label><input id="read-en"></div><div class="field"><label for="read-author" id="read-author-label"></label><input id="read-author"></div><div class="field"><label for="read-year" id="read-year-label"></label><input id="read-year"></div><div class="field full"><label for="read-rating" id="read-rating-label"></label><select id="read-rating"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div></div><div class="form-actions"><button class="btn primary" type="button" id="save-read"></button><button class="btn" type="button" id="cancel-read"></button></div></div>
+        <div class="book-list" id="read-list"></div>
+      </section>
+      <section class="shelf" aria-labelledby="queue-title">
+        <div class="shelf-head"><div class="shelf-label"><span class="lang-en">SHELF 02 · TO DISCOVER</span><span class="lang-ru" hidden>ПОЛКА 02 · В ПЛАНАХ</span></div><div class="shelf-title-row"><h3 class="shelf-title" id="queue-title"></h3><span class="count" id="queue-count">0</span></div><div class="shelf-desc" id="queue-desc"></div><button class="btn primary" type="button" id="add-queue"></button></div>
+        <div class="book-form" id="queue-form"><h4 id="queue-form-title"></h4><div class="form-grid"><div class="field full"><label for="queue-original" id="queue-original-label"></label><input id="queue-original"></div><div class="field"><label for="queue-ru" id="queue-ru-label"></label><input id="queue-ru"></div><div class="field"><label for="queue-en" id="queue-en-label"></label><input id="queue-en"></div><div class="field"><label for="queue-author" id="queue-author-label"></label><input id="queue-author"></div><div class="field"><label for="queue-year" id="queue-year-label"></label><input id="queue-year"></div></div><div class="form-actions"><button class="btn primary" type="button" id="save-queue"></button><button class="btn" type="button" id="cancel-queue"></button></div></div>
+        <div class="book-list" id="queue-list"></div>
+      </section>
+    </div>
+    <aside class="backup"><div class="backup-copy"><h4 id="backup-title"></h4><p id="backup-text"></p></div><div class="backup-tools"><button class="btn" type="button" id="export-json"></button><label class="btn" for="import-json" id="import-label"></label><input class="hidden" id="import-json" type="file" accept=".json,application/json"></div></aside>
+  </div>
+</main>
+<footer class="site-footer"><span class="footer-domain">HOMO PROVINCIALIS · ONLINE LIBRARY</span><p>© 2026 Ramon Eyquem</p></footer>
+</div>
+<script>
+
+(function(){"use strict";const KEY="hp_open_online_library_v1";const T={en:{appTitle:"Open Online Library",subtitle:"Two shelves: completed books and the future reading/listening queue.",random:"The order of books is randomized every time the page is opened.",readTitle:"Read or listened to",readDesc:"Books already read or listened to. Each book has a personal rating from 1 to 10.",queueTitle:"Reading / listening queue",queueDesc:"Books planned for future reading or listening.",add:"+ Add book",newBook:"Add book",editBook:"Edit book",original:"Original title",ru:"Russian title",en:"English title",author:"Author",year:"Publication year",rating:"My rating",save:"Save book",cancel:"Cancel",edit:"Edit",remove:"Delete",move:"Move to read/listened",rated:"Ramon's rating",queued:"IN QUEUE",originalWord:"Original",yearWord:"Year",emptyRead:"No books have been added yet.",emptyQueue:"The queue is empty.",needTitle:"Enter at least one title.",needRating:"Choose a rating from 1 to 10.",confirmDelete:"Delete this book?",movePrompt:"Rating from 1 to 10 after reading/listening:",backupTitle:"Catalog backup",backupText:"Books are saved in this browser. Export a JSON backup periodically.",export:"Export JSON",import:"Import JSON",badJson:"Invalid JSON file.",total:"BOOKS IN CATALOGUE",search:"Search by title, author or year",noMatches:"No books match your search."},ru:{appTitle:"Открытая онлайн-библиотека",subtitle:"Две полки: завершённые книги и очередь на будущее чтение / прослушивание.",random:"Порядок книг случайно перемешивается каждый раз при открытии страницы.",readTitle:"Прочитано или прослушано",readDesc:"Книги, которые уже прочитаны или прослушаны. Каждая получает личную оценку от 1 до 10.",queueTitle:"Очередь на чтение / прослушивание",queueDesc:"Книги, которые запланированы для чтения или прослушивания в будущем.",add:"+ Добавить книгу",newBook:"Добавить книгу",editBook:"Редактировать книгу",original:"Название оригинала",ru:"Название на русском",en:"Название на английском",author:"Автор",year:"Год публикации",rating:"Моя оценка",save:"Сохранить книгу",cancel:"Отмена",edit:"Изменить",remove:"Удалить",move:"Перенести в прочитанные / прослушанные",rated:"Оценка Рамона",queued:"В ОЧЕРЕДИ",originalWord:"Оригинал",yearWord:"Год",emptyRead:"На этой полке пока нет книг.",emptyQueue:"Очередь пока пуста.",needTitle:"Укажите хотя бы одно название.",needRating:"Выберите оценку от 1 до 10.",confirmDelete:"Удалить эту книгу?",movePrompt:"Оценка от 1 до 10 после чтения / прослушивания:",backupTitle:"Резервная копия каталога",backupText:"Книги сохраняются в этом браузере. Периодически экспортируйте резервную копию JSON.",export:"Экспорт JSON",import:"Импорт JSON",badJson:"Неверный JSON-файл.",total:"ВСЕГО В КАТАЛОГЕ",search:"Поиск по названию, автору или году",noMatches:"По вашему запросу книги не найдены."}};let lang="en",edit={read:null,queue:null},order={read:[],queue:[]};function t(k){return T[lang][k]}function id(x){return document.getElementById(x)}function uid(){return"b_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}function esc(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;")}function valid(s){return s&&Array.isArray(s.read)&&Array.isArray(s.queue)}function load(){try{let s=JSON.parse(localStorage.getItem(KEY));return valid(s)?s:{read:[],queue:[]}}catch(e){return{read:[],queue:[]}}}let state=load();function save(){localStorage.setItem(KEY,JSON.stringify(state))}function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}function resetOrder(){order.read=shuffle(state.read.map(b=>b.id));order.queue=shuffle(state.queue.map(b=>b.id))}function ordered(type){let ids=new Set(state[type].map(b=>b.id));order[type]=order[type].filter(x=>ids.has(x));state[type].forEach(b=>{if(!order[type].includes(b.id))order[type].push(b.id)});let map=new Map(state[type].map(b=>[b.id,b]));return order[type].map(x=>map.get(x)).filter(Boolean)}function title(b){return lang==="ru"?(b.ru||b.original||b.en||"—"):(b.en||b.original||b.ru||"—")}function card(b,type){let displayTitle=title(b);let first=Array.from(displayTitle.trim())[0]||"✦";let orig=b.original&&b.original!==displayTitle?`<div class="book-original">${esc(t("originalWord"))}: ${esc(b.original)}</div>`:"";let badge=type==="read"?`<span class="rating">${esc(t("rated"))}: <strong>${b.rating}/10</strong></span>`:`<span class="queue-label">${esc(t("queued"))}</span>`;let move=type==="queue"?`<button class="btn" data-a="move" data-id="${esc(b.id)}">${esc(t("move"))}</button>`:"";return`<article class="book"><div class="book-cover" aria-hidden="true"><span class="cover-ornament">✧</span><span class="cover-letter">${esc(first.toUpperCase())}</span><span class="cover-line"></span></div><div class="book-content"><div class="book-title-row"><h4 class="book-title">${esc(displayTitle)}</h4>${badge}</div>${orig}<div class="book-meta"><span><b>${esc(t("author"))}:</b> ${esc(b.author||"—")}</span><span><b>${esc(t("yearWord"))}:</b> ${esc(b.year||"—")}</span></div><div class="book-actions"><button class="btn" data-a="edit" data-id="${esc(b.id)}">${esc(t("edit"))}</button>${move}<button class="btn danger" data-a="del" data-id="${esc(b.id)}">${esc(t("remove"))}</button></div></div></article>`}let searchText="";function renderShelf(type){let all=ordered(type),books=searchText?all.filter(b=>[b.original,b.ru,b.en,b.author,b.year].some(v=>String(v||"").toLocaleLowerCase().includes(searchText))):all;id(type+"-count").textContent=all.length;let box=id(type+"-list");box.innerHTML=books.length?books.map(b=>card(b,type)).join(""):`<div class="empty"><div class="empty-symbol" aria-hidden="true">◇</div><p>${esc(searchText?t("noMatches"):(type==="read"?t("emptyRead"):t("emptyQueue")))}</p></div>`;box.querySelectorAll("[data-a]").forEach(btn=>btn.onclick=()=>{let a=btn.dataset.a,bid=btn.dataset.id;if(a==="edit")editBook(type,bid);if(a==="del")delBook(type,bid);if(a==="move")moveBook(bid)})}function labels(){id("app-title").textContent=t("appTitle");id("app-subtitle").textContent=t("subtitle");id("random-note").textContent=t("random");id("catalog-search").placeholder=t("search");id("total-label").textContent=t("total");id("read-title").textContent=t("readTitle");id("read-desc").textContent=t("readDesc");id("queue-title").textContent=t("queueTitle");id("queue-desc").textContent=t("queueDesc");["read","queue"].forEach(type=>{id("add-"+type).textContent=t("add");id(type+"-original-label").textContent=t("original");id(type+"-ru-label").textContent=t("ru");id(type+"-en-label").textContent=t("en");id(type+"-author-label").textContent=t("author");id(type+"-year-label").textContent=t("year");id("save-"+type).textContent=t("save");id("cancel-"+type).textContent=t("cancel");id(type+"-form-title").textContent=edit[type]?t("editBook"):t("newBook")});id("read-rating-label").textContent=t("rating");id("backup-title").textContent=t("backupTitle");id("backup-text").textContent=t("backupText");id("export-json").textContent=t("export");id("import-label").textContent=t("import");}function render(){labels();renderShelf("read");renderShelf("queue");id("total-count").textContent=state.read.length+state.queue.length}function clearForm(type){["original","ru","en","author","year"].forEach(f=>id(type+"-"+f).value="");if(type==="read")id("read-rating").value=""}function openForm(type){edit[type]=null;clearForm(type);id(type+"-form").classList.add("open");labels()}function closeForm(type){edit[type]=null;clearForm(type);id(type+"-form").classList.remove("open");labels()}function dataFrom(type){return{original:id(type+"-original").value.trim(),ru:id(type+"-ru").value.trim(),en:id(type+"-en").value.trim(),author:id(type+"-author").value.trim(),year:id(type+"-year").value.trim(),rating:type==="read"?Number(id("read-rating").value):null}}function saveBook(type){let b=dataFrom(type);if(!b.original&&!b.ru&&!b.en)return alert(t("needTitle"));if(type==="read"&&(!b.rating||b.rating<1||b.rating>10))return alert(t("needRating"));if(edit[type]){let i=state[type].findIndex(x=>x.id===edit[type]);if(i>=0)state[type][i]={...state[type][i],...b}}else{b.id=uid();state[type].push(b);order[type].push(b.id)}save();closeForm(type);render()}function editBook(type,bid){let b=state[type].find(x=>x.id===bid);if(!b)return;edit[type]=bid;["original","ru","en","author","year"].forEach(f=>id(type+"-"+f).value=b[f]||"");if(type==="read")id("read-rating").value=b.rating||"";id(type+"-form").classList.add("open");labels()}function delBook(type,bid){if(!confirm(t("confirmDelete")))return;state[type]=state[type].filter(b=>b.id!==bid);order[type]=order[type].filter(x=>x!==bid);save();render()}function moveBook(bid){let i=state.queue.findIndex(b=>b.id===bid);if(i<0)return;let r=Number(prompt(t("movePrompt"),"8"));if(!Number.isInteger(r)||r<1||r>10)return alert(t("needRating"));let b=state.queue.splice(i,1)[0];b.rating=r;state.read.push(b);order.queue=order.queue.filter(x=>x!==bid);order.read.push(bid);save();render()}function setLang(l){lang=l==="ru"?"ru":"en";document.documentElement.lang=lang;document.querySelectorAll(".lang-en").forEach(x=>x.hidden=lang!=="en");document.querySelectorAll(".lang-ru").forEach(x=>x.hidden=lang!=="ru");document.querySelectorAll(".lang-button").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.language===lang)));render()}window.setLibraryLanguage=setLang;id("catalog-search").oninput=e=>{searchText=e.target.value.trim().toLocaleLowerCase();renderShelf("read");renderShelf("queue")};id("add-read").onclick=()=>openForm("read");id("add-queue").onclick=()=>openForm("queue");id("cancel-read").onclick=()=>closeForm("read");id("cancel-queue").onclick=()=>closeForm("queue");id("save-read").onclick=()=>saveBook("read");id("save-queue").onclick=()=>saveBook("queue");id("export-json").onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json;charset=utf-8"}),u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="open-online-library-backup.json";a.click();URL.revokeObjectURL(u)};id("import-json").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let s=JSON.parse(await f.text());if(!valid(s))throw 0;state=s;save();resetOrder();render()}catch(x){alert(t("badJson"))}e.target.value=""};resetOrder();setLang("en");})();
+
+</script>
+</body>
+</html>

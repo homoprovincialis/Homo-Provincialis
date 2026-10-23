@@ -1,0 +1,772 @@
+RAMON CALENDAR
+Detailed description of the project, its philosophy, structure, and computational model
+
+INTRODUCTION
+
+The Ramon Calendar is a project for an alternative calendar system, designed not as a small correction to the Gregorian or Julian calendar, but as an independent system for measuring years, months, days, and time within a day.
+
+The main idea of the project is that the year should begin not at the conventionally chosen midnight of January 1, but at a real astronomical moment — the March equinox. One complete Ramon Calendar year runs from one March equinox to the next.
+
+This astronomical year is divided into 360 equal days. There are always 12 months in a year, and every month always contains 30 days. Therefore, the structure of the year never changes: there are no months with 28, 29, 30, or 31 days, no leap day, and no need to memorize different month lengths.
+
+Because the real interval between two March equinoxes is longer than 360 × 24 hours, Ramon Calendar days are slightly longer than 24 hours. The extra portion of the day has a separate name — “Human Time.”
+
+The project is intended not only as a technical calendar. It also has a philosophical purpose: to create a more understandable, symmetrical, and astronomically anchored system of time in which the calendar structure is directly connected to a natural event, while every person receives an additional symbolic segment of time each day, separated from the ordinary 24-hour rhythm.
+
+
+1. WHY THE IDEA OF A NEW CALENDAR APPEARED
+
+The Gregorian calendar performs its historical task very well: it keeps the calendar year close to the tropical year and serves as the international civil standard. But its structure is historically uneven.
+
+Months have different lengths: 28 or 29 days, 30 days, or 31 days. The beginning of the year — January 1 — is not directly connected to a major annual astronomical event. Leap years require a separate rule. Weeks do not align with months or years. A person must remember a system of exceptions that emerged through the historical development of the calendar.
+
+The Julian calendar is structurally similar to the Gregorian calendar, but its average calendar year is less accurate relative to the tropical year, so its calendar dates gradually drift relative to the seasons.
+
+The Ramon Calendar follows a different logic:
+
+— the year is defined directly by an astronomical event;
+— the structure of every year is identical;
+— every month has the same number of days;
+— the length of the day is derived from the real length of the specific year;
+— there is no leap day;
+— there are no short and long months;
+— the beginning of every year is physically defined by the moment of the March equinox.
+
+This makes the system not a “corrected version” of an old calendar, but an alternative way of dividing the natural year.
+
+
+2. PHILOSOPHICAL IDEA
+
+A calendar is not nature itself. It is a human way of dividing the continuous movement of the world into understandable segments.
+
+A Gregorian date does not exist in nature as an independent object. In nature there are the rotation of the Earth, the motion of the Earth around the Sun, changes in illumination, seasons, and astronomical positions of celestial bodies. Month names and day numbers are created by people.
+
+Therefore, the Ramon Calendar is based on the principle of connecting conventional human units, as far as possible, to a real physical process.
+
+The beginning of the year is defined by the spring equinox — a moment connected with the Earth’s motion around the Sun and the position of the Sun relative to the celestial equator.
+
+After that, people themselves divide the interval between two neighboring equinoxes into a convenient symmetrical structure: 12 months and 360 equal days.
+
+In this sense, the Ramon Calendar combines two things:
+
+1. an objective astronomical boundary of the year;
+2. a rational human division of that year.
+
+This approach does not claim that nature “contains” 12 months or 360 days. These quantities are human tools. But the beginning and end of the year are tied to an observable astronomical cycle.
+
+
+3. THE ERA OF THE RAMON CALENDAR
+
+The main anchor of the system:
+
+the March equinox of the year 2000 corresponds to the beginning of Ramon year 12000.
+
+Relationship between year numbers:
+
+Ramon year = astronomical Gregorian year + 10000.
+
+Examples:
+
+2000 → Ramon 12000;
+1700 → Ramon 11700;
+0 → Ramon 10000;
+-5000 → Ramon 5000;
+-10000 → Ramon 0.
+
+The program uses astronomical year numbering. It differs from the traditional historical BC/AD system in that it includes a year 0.
+
+Astronomical year 0 approximately corresponds to 1 BC, year -1 to 2 BC, and so on. This system is more convenient for calculations because the sequence of integers is continuous.
+
+
+4. BEGINNING OF THE YEAR
+
+Every Ramon Calendar year begins at the exact moment of the March equinox.
+
+For example, in the adopted database:
+
+March 20, 2000, 07:35 UT/UTC at the minute precision of the source
+becomes:
+1 Primember, Ramon year 12000, 00:00:00.000 in the Ramon Calendar.
+
+For the year 1700, USNO data gives:
+March 20, 1700, 14:26 UT.
+
+That moment becomes the beginning of Ramon year 11700.
+
+Therefore, a Ramon year is not the period “from January 1 to December 31.” It begins in March and ends at the next spring equinox.
+
+
+5. STRUCTURE OF THE YEAR
+
+Every year consists of:
+
+12 months;
+30 days in each month;
+360 days in the year.
+
+Formula:
+
+12 × 30 = 360.
+
+This structure never changes.
+
+There is no February with 28 or 29 days.
+There are no 31-day months.
+There is no leap day.
+
+Each month begins exactly 30 Ramon days after the beginning of the previous month.
+
+
+6. MONTH NAMES
+
+1. Primember
+2. Secundember
+3. Tertiember
+4. Quartember
+5. Quintember
+6. Sextember
+7. September
+8. October
+9. November
+10. December
+11. Undecember
+12. Duodecember
+
+The names are designed so that the sequence of months is logical and easy to read as a single system.
+
+
+7. RAMON CALENDAR DAYS
+
+The main mathematical feature of the calendar is that 360 days occupy the entire real interval between two March equinoxes.
+
+If the duration of a particular astronomical year is Y milliseconds, then the length of one Ramon day is:
+
+Y / 360.
+
+Therefore, Ramon days are usually slightly longer than 24 hours.
+
+In the program, the day is not determined by repeatedly adding a rounded day length. Instead, it is calculated as a fraction of the whole year. This reduces accumulated rounding error.
+
+If E milliseconds have elapsed since the beginning of the year, the day index is calculated as:
+
+floor(E × 360 / Y).
+
+This determines the position of the moment inside the 360-day year.
+
+
+8. HUMAN TIME
+
+The ordinary 24 hours form the main part of a Ramon day.
+
+Everything beyond those 24 hours is called:
+
+“Human Time.”
+
+If a particular Ramon day has a length, for example, of:
+
+24 hours 20 minutes 59 seconds,
+
+then:
+
+20 minutes 59 seconds
+
+are Human Time.
+
+The duration of Human Time may change slightly from year to year because the real interval between two equinoxes changes.
+
+The philosophical meaning of this part of the calendar is:
+
+— time for reflection;
+— time for solitude;
+— time for oneself;
+— time that reminds a person that life should not completely dissolve into production, schedules, and external obligations.
+
+The calendar cannot force a person to use this time in any particular way. It is not a legal or religious obligation. It is a philosophical proposal built into the structure of time.
+
+
+9. DAYS OF THE WEEK
+
+The project uses seven weekday names:
+
+1. Altruism
+2. Gratitude
+3. Courage
+4. Kindness
+5. Unity
+6. Philosophy
+7. Harmony
+
+The first day of every Ramon year is considered Altruism. After that, the sequence repeats every seven days.
+
+Because 360 is not divisible by 7 without a remainder:
+
+360 = 51 complete weeks + 3 days.
+
+In the current model, every new Ramon year begins again with Altruism, and the weekly cycle within the year is calculated from the first day of the year.
+
+
+10. TIME SYSTEM AND UTC
+
+The user enters:
+
+— a Gregorian date;
+— local time;
+— an offset from UTC.
+
+Examples of offsets:
+
+0
++3
+-5
++10
++5:30
+-3:30
+
+The program converts the entered local moment into a single Instant and then compares it with the equinox moments.
+
+No city needs to be entered.
+
+This is intentional: the calendar does not attempt to reconstruct historical daylight-saving rules or political changes in time zones. The user specifies the actual offset that should be applied.
+
+
+11. SOURCES OF EQUINOX DATA
+
+The project currently has three prepared databases.
+
+A. USNO
+
+File:
+
+usno_march_equinox_1700_2100.csv
+
+Range:
+
+1700–2100 inclusive.
+
+Number of values:
+
+401.
+
+Source: United States Naval Observatory (USNO).
+
+For this range, USNO values are used directly as the project’s reference database.
+
+The program automatically requested the value for each year once and saved the results locally. After the file was created, the working converter no longer requires an internet connection.
+
+Important: the public USNO table reports seasonal-event times to the nearest minute. Therefore, “00” seconds in these stored values are a formatting convention in our saved data, not a claim that the physical event was measured exactly at zero seconds.
+
+
+B. MEEUS
+
+File:
+
+meeus_march_equinox_0000_3000.csv
+
+It contains calculated values for the range 0–3000, excluding 1700–2100 because USNO data is used there.
+
+Number of recorded years:
+
+2600.
+
+The calculation is based on Jean Meeus’s equinox formula.
+
+First, an initial JDE0 approximation is calculated, after which periodic corrections consisting of 24 terms are applied.
+
+One polynomial branch is used for years before 1000, and another for later years.
+
+
+C. MEEUS2
+
+File:
+
+Meeus2_march_equinox_-10000_0000.csv
+
+Range:
+
+-10000…0.
+
+Number of records:
+
+10001.
+
+This is an experimental extension of the Meeus formula into very deep antiquity.
+
+This file differs fundamentally from USNO:
+
+— it is not a table of observations;
+— it is not an official guarantee of accuracy over the whole range;
+— a substantial part of the range lies far outside the normal interval for which the Meeus formula was intended.
+
+Therefore, Meeus2 should be regarded as a mathematical reconstruction and an experimental model.
+
+
+12. TESTING MEEUS2
+
+Before connecting the Meeus2 file, a separate test of the distribution of March equinox dates was performed.
+
+For -10000…0, the program obtained:
+
+March 20 — 234 years;
+March 21 — 1521 years;
+March 22 — 1963 years;
+March 23 — 2740 years;
+March 24 — 3077 years;
+March 25 — 466 years.
+
+The maximum calendar deviation from the conventional center of March 20 was 5 days.
+
+The nearest year to year 0 that falls outside the selected test range of March 18–22 was:
+
+-1693 → March 23.
+
+However, this test does not prove that March 23–25 must be errors. It only shows the behavior of the extrapolated model. In deep antiquity, the proleptic calendar date of an astronomical event may also shift systematically.
+
+
+13. ANALYSIS OVER 13,001 YEARS
+
+The three databases were combined for an experimental analysis of the period:
+
+astronomical Gregorian years -10000…3000.
+
+Total:
+
+13001 values.
+
+Missing years:
+
+0.
+
+The average March equinox moments in thousand-year blocks showed a broad smooth curve.
+
+Approximate average values:
+
+Ramon 0–999 → March 23, about 08:03.
+Ramon 1000–1999 → March 24, about 07:47.
+Ramon 2000–2999 → March 24, about 13:23.
+Ramon 3000–3999 → March 24, about 14:04.
+Ramon 4000–4999 → March 24, about 03:06.
+Ramon 5000–5999 → March 23, about 16:46.
+Ramon 6000–6999 → March 22, about 23:43.
+Ramon 7000–7999 → March 22, about 11:12.
+Ramon 8000–8999 → March 21, about 19:13.
+Ramon 9000–9999 → March 21, about 10:06.
+Ramon 10000–10999 → March 20, about 23:04.
+Ramon 11000–11999 → March 20, about 19:40.
+Ramon 12000–12999 → March 20, about 14:12.
+
+This pattern shows that the experimental extrapolation does not simply “run away” monotonically in one direction. It forms a broad arc with a maximum in deep antiquity.
+
+This is mathematically interesting, but it must not be confused with proven historical accuracy.
+
+
+14. HOW THE PROGRAM WORKS
+
+The project is currently divided into three main parts.
+
+main.scala
+
+This is the user-facing converter.
+
+It:
+
+1. asks for a Gregorian date;
+2. asks for a time;
+3. asks for the UTC offset;
+4. converts the input into a universal moment;
+5. determines the Ramon year;
+6. obtains the beginning and end of that year;
+7. calculates the day number;
+8. calculates the month;
+9. calculates the day of the month;
+10. calculates the weekday;
+11. calculates the exact time inside the Ramon day;
+12. calculates Human Time;
+13. outputs the result.
+
+
+EquinoxData.scala
+
+This is the data layer.
+
+It loads three CSV files:
+
+Meeus2;
+Meeus;
+USNO.
+
+It then automatically selects the source for the required astronomical year.
+
+Logic:
+
+-10000…-1 → Meeus2;
+0…1699 → Meeus;
+1700…2100 → USNO;
+2101…3000 → Meeus.
+
+It also converts between the astronomical year and the Ramon year number.
+
+
+EquinoxCalculator.scala
+
+This is the service astronomical calculator.
+
+It contains:
+
+— the Meeus formula;
+— periodic corrections;
+— JDE conversion;
+— a function for recreating the Meeus file;
+— a function for recreating Meeus2;
+— a function for re-downloading and saving USNO data.
+
+During ordinary calendar operation, this file should not recalculate all equinoxes again. The working converter reads the prepared databases through EquinoxData.
+
+
+15. CURRENT WORKING RANGE
+
+Fully defined Ramon years:
+
+0–12999.
+
+Beginning of the range:
+
+the March equinox of astronomical year -10000
+=
+the beginning of Ramon year 0.
+
+End of the complete working range:
+
+the moment of the March equinox of astronomical year 3000
+=
+the beginning of Ramon year 13000.
+
+Therefore, moments can be fully converted from the beginning of Ramon year 0 up to the instant immediately before the beginning of Ramon year 13000.
+
+The equinox of the year 3000 itself exists in the database as the upper boundary.
+
+
+16. EXAMPLES OF OPERATION
+
+Example 1.
+
+Gregorian moment:
+
+20.03.2000
+07:35 UTC
+
+Result:
+
+Year: 12000
+Month: Primember
+Day: 1
+Weekday: Altruism
+Day of year: 1 of 360
+Ramon time: 00:00:00.000
+
+
+Example 2.
+
+Gregorian moment:
+
+20.03.1700
+14:26 UT
+
+Result:
+
+Year: 11700
+Primember
+1
+Altruism
+first day of the year
+00:00:00.000
+
+
+Example 3.
+
+Astronomical Gregorian year 0:
+
+21.03.0000
+00:00 UTC
+
+Result:
+
+Ramon year: 10000
+Primember
+day 1.
+
+By the entered moment, several hours of the Ramon day have already passed since the equinox.
+
+
+Example 4.
+
+01.04.-5000
+12:00 UTC
+
+Result from the current experimental database:
+
+Ramon year: 5000
+Primember
+day 9.
+
+This example uses Meeus2.
+
+
+17. WHY THE RAMON CALENDAR MAY BE BETTER FOR SOME PURPOSES
+
+It is not scientifically meaningful to claim that one calendar is “better than all others” without defining the goal. The Gregorian calendar is extremely effective as an international civil standard.
+
+However, the Ramon Calendar has a number of advantages as a rational and astronomically anchored system.
+
+Advantage 1. Equal months.
+
+Every month always has 30 days.
+
+This simplifies date arithmetic, planning, month-to-month comparisons, statistical periods, and software calculations.
+
+Advantage 2. Constant 12 × 30 structure.
+
+The structure of the year is completely symmetrical:
+
+12 months;
+360 days.
+
+There is no need to memorize a list of month lengths.
+
+Advantage 3. Astronomical beginning of the year.
+
+The New Year is determined by a physical event rather than by a historically established date.
+
+Advantage 4. No leap days.
+
+The difference between 360 × 24 hours and the real length of the year is not transferred into a separate added calendar day.
+
+Instead, the entire real year is divided into 360 equal parts.
+
+Advantage 5. Every year corresponds to its real astronomical interval.
+
+If one interval between equinoxes differs slightly from another, that difference is reflected in the duration of the Ramon day.
+
+Advantage 6. Simple mathematical model.
+
+Once the beginning and end of the year are known, the month, day, fraction of the day, and Human Time are calculated directly.
+
+Advantage 7. Philosophical transparency.
+
+The system openly distinguishes between a real physical event and a human division of time.
+
+It does not try to present conventional months as natural objects.
+
+
+18. WHERE THE RAMON CALENDAR IS NOT BETTER
+
+An objective description must also include disadvantages.
+
+The first disadvantage is incompatibility with existing global infrastructure.
+
+Laws, banking systems, transportation, education, international standards, and computer protocols are built around the Gregorian calendar.
+
+Therefore, the Ramon Calendar cannot instantly replace the existing calendar without a massive transition period.
+
+The second disadvantage is variable day length.
+
+The modern world is accustomed to civil days of exactly 24 hours.
+
+In the Ramon Calendar, days are slightly longer and vary from year to year.
+
+This is mathematically natural for this model, but it would require a new clock system and a new social agreement.
+
+The third disadvantage is deep antiquity.
+
+For millennia where there are no modern precise ephemeris data or observations, every model contains uncertainty.
+
+Meeus2 is an experimental extrapolation, not a proven precise chronometer for the epoch around -10000.
+
+The fourth disadvantage is historical dates.
+
+For ancient events, the original date may have been recorded in the Julian, Roman, Chinese, Islamic, or another calendar.
+
+Therefore, the historical module should store not only the resulting Ramon date, but also the original calendar, source, and degree of precision.
+
+
+19. WHY THIS IS A REAL ALTERNATIVE, NOT JUST A FANTASY
+
+For a calendar to be a real alternative, it must answer at least several basic questions:
+
+When does the year begin?
+How many months are there?
+How many days are in a month?
+How is the date determined?
+How is time determined?
+How are dates converted from an existing calendar?
+How does the system behave over long periods?
+Can it be implemented in software?
+
+The Ramon Calendar already has answers to these questions.
+
+There is a formal beginning of the year — the March equinox.
+
+There is a fixed structure — 12 × 30.
+
+There is a mathematical rule for dividing the year into 360 equal days.
+
+There is a rule for determining the month, day, and time.
+
+There is an era and a year-numbering system.
+
+There is a working converter.
+
+There are stored astronomical databases.
+
+There is a program that automatically selects the data source.
+
+Therefore, this is no longer only a philosophical idea. It is a computable calendar algorithm.
+
+
+20. RELATIONSHIP TO THE GREGORIAN CALENDAR
+
+The Ramon Calendar does not have to destroy or deny the Gregorian calendar.
+
+The most realistic way for an alternative system to exist is parallel use.
+
+The Gregorian date can remain the international civil date.
+
+The Ramon date can be used as an alternative system, within a scientific-philosophical project, in software interfaces, for historical research, for personal use, or for future experimental communities.
+
+The converter allows the two systems to exist at the same time.
+
+
+21. RELATIONSHIP TO THE JULIAN CALENDAR
+
+The Julian calendar is historically important, but its leap-year rule creates an average year that is slightly longer than the tropical year.
+
+Because of this, its seasonal calendar dates gradually drift.
+
+The Ramon Calendar solves the problem differently: it does not attempt to create a fixed-length average calendar year that only approximately matches the natural cycle.
+
+Each individual year is directly bounded by two equinoxes.
+
+This is a fundamentally different approach.
+
+
+22. ACCURACY AND HONESTY OF THE MODEL
+
+It is very important not to present calculation as observation.
+
+The project should always distinguish between:
+
+— an official or reference ephemeris value;
+— a value calculated by formula;
+— an experimental extrapolation.
+
+USNO is used as the project reference for 1700–2100.
+
+Meeus is used as the computational model.
+
+Meeus2 is used as the experimental extension of the calculation.
+
+If more accurate or more fundamental astronomical data become available in the future, the files can be replaced without changing the basic structure of the Ramon Calendar.
+
+This is an important architectural advantage: the calendar logic is separated from the source of astronomical data.
+
+
+23. FURTHER DEVELOPMENT
+
+The development plan may include:
+
+1. Reverse converter: Ramon Calendar → Gregorian Calendar.
+2. Full calendar web interface: browsing years, months, and days.
+3. Separate date-conversion interface.
+4. Historical interface: selecting a Ramon date displays events from world history.
+5. Provenance database for every astronomical point: USNO, Meeus, Meeus2, and future sources.
+6. Indication of the reliability level of historical and astronomical data.
+7. Ability to connect new ephemerides without changing the main calendar algorithm.
+8. Verification of deep antiquity using more modern numerical astronomical models.
+9. Study of the behavior of the Ramon Calendar in the future.
+10. Creation of open project documentation.
+
+
+24. THE MAIN PRINCIPLE OF THE PROJECT
+
+The Ramon Calendar can be expressed as one sequence:
+
+real spring equinox
+→ beginning of the year
+→ next spring equinox
+→ end of the year
+→ the entire interval is divided into 360 equal days
+→ 12 months of 30 days each
+→ the extra portion of every day beyond 24 hours becomes Human Time.
+
+
+25. CONCLUSION
+
+The Ramon Calendar is an attempt to ask a simple question again:
+
+if a calendar had to be created today from the beginning, with knowledge of modern astronomy and without being required to reproduce the historical structure of the Roman calendar, what could it look like?
+
+One possible answer is:
+
+the year begins with a real astronomical event;
+all months are equal;
+every year has the same structural form;
+the variability of the natural year is not hidden behind a system of exceptions;
+a person receives a clear mathematical model of time;
+a part of each day is symbolically returned to the individual.
+
+The Gregorian calendar remains an extremely successful civil standard. The Ramon Calendar proposes a different set of values: symmetry, astronomical anchoring, mathematical transparency, and a philosophical relationship to time.
+
+That is why it can be regarded as a genuine alternative calendar system — not because it already replaces existing calendars, but because it has its own rules, a computable structure, a software implementation, and the ability to determine dates independently over a large time range.
+
+
+BRIEF TECHNICAL SUMMARY
+
+Name:
+Ramon Calendar
+
+Era:
+Ramon year 12000 begins at the March equinox of the year 2000.
+
+Year relationship:
+RamonYear = AstronomicalGregorianYear + 10000
+
+Year:
+from one March equinox to the next March equinox.
+
+Months:
+12.
+
+Days per month:
+30.
+
+Days per year:
+360.
+
+Day length:
+duration of the specific astronomical year / 360.
+
+Human Time:
+the part of a Ramon day beyond 24 hours.
+
+Primary time reference:
+UTC/UT according to the specific data source.
+
+Sources:
+USNO — 1700–2100;
+Meeus — calculation;
+Meeus2 — experimental extrapolation into deep antiquity.
+
+Working files:
+usno_march_equinox_1700_2100.csv
+meeus_march_equinox_0000_3000.csv
+Meeus2_march_equinox_-10000_0000.csv
+
+Main program files:
+main.scala
+EquinoxData.scala
+EquinoxCalculator.scala
+
+Current complete converter range:
+Ramon 0–12999.
+
+Main idea:
+astronomical year + symmetrical human division of time.

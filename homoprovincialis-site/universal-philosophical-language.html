@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A bilingual introduction to RAMON EYQUEM's Universal Philosophical Language project, its goals and historical predecessors.">
+<title>Universal Philosophical Language | Homo Provincialis</title>
+<style>
+:root{color-scheme:light;--ink:#172337;--muted:#56667a;--line:#dce4ee;--blue:#244e82;--bg:#f6f8fb}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.72 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}header{background:#172b47;color:#fff}header .inner{max-width:1040px;margin:auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-weight:700;letter-spacing:.07em;font-size:14px}.langs{display:flex;gap:8px}.langs a{color:white;text-decoration:none;border:1px solid #7188a5;border-radius:6px;padding:4px 12px;font-size:14px}.langs a[aria-current=page]{background:#fff;color:#172b47}main{max-width:1040px;margin:0 auto;padding:56px 24px 90px}.eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);font-weight:700}.hero{padding-bottom:28px;border-bottom:1px solid var(--line)}h1{font-size:clamp(32px,5vw,54px);line-height:1.15;letter-spacing:-.035em;margin:12px 0 10px}h2{font-size:clamp(23px,3vw,30px);line-height:1.25;margin:48px 0 18px}h3{font-size:18px;line-height:1.4;margin:0 0 5px}.subtitle{color:var(--muted);font-size:19px;margin:0 0 25px}.lead{font-size:19px;max-width:840px}p{margin:0 0 16px}section{max-width:880px}ol{padding-left:25px}li{padding-left:8px;margin-bottom:13px}.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.person{background:white;border:1px solid var(--line);border-radius:10px;padding:20px}.person p{margin:0;color:#425169;font-size:15.5px}footer{border-top:1px solid var(--line);padding:24px;text-align:center;color:var(--muted);font-size:14px}@media(max-width:650px){header .inner{padding:16px;align-items:flex-start}.brand{font-size:12px}main{padding:34px 18px 64px}.people{grid-template-columns:1fr}.person{padding:17px}.lead{font-size:17px}body{font-size:16px}}
+
+/* Site integration: one bilingual page, no external stylesheets required. */
+body{min-width:280px}
+.language-panel{display:none}
+html[data-lang="ru"] .language-panel.lang-ru,html[data-lang="en"] .language-panel.lang-en{display:block}
+header .inner{max-width:1040px}
+.brand a{color:inherit;text-decoration:none}
+.header-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.home-link{color:#e7edf8;text-decoration:none;font-size:14px;white-space:nowrap}
+.home-link:hover,.home-link:focus-visible{text-decoration:underline}
+.langs button{appearance:none;color:white;cursor:pointer;background:transparent;border:1px solid #7188a5;border-radius:6px;padding:5px 12px;font:600 14px/1.3 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.langs button:hover{border-color:white}
+html[data-lang="en"] .langs button[data-choice="en"],html[data-lang="ru"] .langs button[data-choice="ru"]{background:#fff;color:#172b47;border-color:white}
+.langs button:focus-visible,.home-link:focus-visible{outline:3px solid #aec7ee;outline-offset:3px}
+@media(max-width:650px){header .inner{flex-wrap:wrap;gap:10px}.header-actions{width:100%;justify-content:space-between}.home-link{font-size:13px}.langs button{padding:6px 12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script>
+(function() {
+  let preferred = 'en';
+  try {
+    const saved = localStorage.getItem('language') || localStorage.getItem('lang') || localStorage.getItem('siteLanguage');
+    if (saved === 'ru' || saved === 'en') preferred = saved;
+  } catch(e) { /* Local file privacy restrictions: retain English default. */ }
+  document.documentElement.setAttribute('data-lang', preferred);
+  document.documentElement.lang = preferred;
+})();
+function setLanguage(language) {
+  const choice = language === 'ru' ? 'ru' : 'en';
+  document.documentElement.setAttribute('data-lang', choice);
+  document.documentElement.lang = choice;
+  document.title = choice === 'ru' ? 'Универсальный философский язык | Homo Provincialis' : 'Universal Philosophical Language | Homo Provincialis';
+  document.querySelectorAll('.langs button').forEach(button => {
+    button.setAttribute('aria-pressed', button.dataset.choice === choice ? 'true' : 'false');
+  });
+  try {
+    localStorage.setItem('language', choice);
+    localStorage.setItem('lang', choice);
+    localStorage.setItem('siteLanguage', choice);
+  } catch(e) { /* The page still switches languages. */ }
+}
+window.addEventListener('DOMContentLoaded', () => setLanguage(document.documentElement.getAttribute('data-lang')));
+</script>
+</head>
+<body>
+<header><div class="inner">
+<div class="brand"><a href="index.html" aria-label="Homo Provincialis — home">HOMO PROVINCIALIS</a></div>
+<div class="header-actions">
+<a class="home-link language-panel lang-en" href="index.html">← Home</a>
+<a class="home-link language-panel lang-ru" href="index.html">← Главная</a>
+<nav class="langs" aria-label="Language / Язык">
+<button type="button" data-choice="en" onclick="setLanguage('en')" aria-pressed="true">EN</button>
+<button type="button" data-choice="ru" onclick="setLanguage('ru')" aria-pressed="false">RU</button>
+</nav></div></div></header>
+<main>
+<div class="language-panel lang-en"><div class="hero"><div class="eyebrow">RAMON EYQUEM</div><h1>Universal Philosophical Language</h1><p class="subtitle">Универсальный философский язык</p><p class="lead"><strong>Universal Philosophical Language</strong> is a long-term philosophical and scientific information project by <strong>RAMON EYQUEM</strong>. Its goal is to create a unified system of philosophical concepts, definitions, and logical relationships that is independent of natural languages.</p><p>The project addresses the ambiguity of philosophical terminology: different philosophers use the same words with different meanings, and sometimes express similar ideas using different words. This creates misunderstandings, contradictions, and disputes that arise not only from disagreements about reality but also from the limitations of human language.</p></div><section><h2>Main objectives</h2><ol><li>Build a historical database of philosophical concepts from antiquity to the present.</li><li>Record philosophers’ definitions, original meanings, sources, arguments, and criticisms.</li><li>Assign every distinct concept a permanent identifier independent of natural language and future system versions.</li><li>Classify concepts under the project’s two main categories: “Material World” and “Information”.</li><li>Compare philosophical positions, identify logical contradictions, and gradually develop precise universal definitions.</li><li>Create a multilingual digital system for philosophical research, programming, and the development of artificial intelligence.</li></ol></section><section><h2>Historical predecessors</h2><div class="people"><article class="person"><h3>Ramon Llull (c. 1232–1316)</h3><p>Sought to develop a universal art of reasoning that combined fundamental concepts and allowed conclusions to be derived systematically.</p></article>
+<article class="person"><h3>René Descartes (1596–1650)</h3><p>Considered the possibility of a universal language grounded in the orderly arrangement of human thoughts and clear distinctions between concepts.</p></article>
+<article class="person"><h3>Gottfried Wilhelm Leibniz (1646–1716)</h3><p>Developed the idea of characteristica universalis, a universal symbolic language in which reasoning could be expressed and checked through logical operations.</p></article>
+<article class="person"><h3>Gottlob Frege (1848–1925)</h3><p>Created a formal conceptual notation (Begriffsschrift) to express logical relationships precisely and reduce the ambiguities of ordinary language.</p></article>
+<article class="person"><h3>Bertrand Russell (1872–1970)</h3><p>Advanced the logical analysis of philosophical statements and sought to resolve problems arising from unclear logical structures in language.</p></article>
+<article class="person"><h3>Ludwig Wittgenstein (1889–1951)</h3><p>Argued that many philosophical problems arise from misunderstandings of logic and the use of language. Emphasized clarifying how language works in philosophical statements.</p></article></div><p style="margin-top:22px">These thinkers pursued different goals: not all of them proposed a universal philosophical language in the literal sense. Their work nevertheless illustrates a long-standing effort to make philosophical reasoning more precise.</p></section><section><h2>Long-term vision</h2><p>The Universal Philosophical Language is intended to become more than a dictionary of philosophical terms: an open, evolving system for analyzing human knowledge.</p><p>Using this system as a foundation, RAMON EYQUEM plans to gradually develop his own philosophical and metaphysical framework, publish the research on a dedicated website, and eventually present it in book form.</p></section></div>
+<div class="language-panel lang-ru"><div class="hero"><div class="eyebrow">RAMON EYQUEM</div><h1>Универсальный философский язык</h1><p class="subtitle">Universal Philosophical Language</p><p class="lead"><strong>Универсальный философский язык</strong> — долгосрочный философский и научно-информационный проект <strong>RAMON EYQUEM</strong>, целью которого является создание единой системы философских понятий, определений и логических отношений, независимой от естественных языков.</p><p>Проект исходит из проблемы многозначности философских терминов: разные философы используют одинаковые слова в различных значениях, а иногда обозначают одинаковые идеи разными словами. Это порождает недоразумения, противоречия и споры, связанные не столько с действительностью, сколько с несовершенством человеческого языка.</p></div><section><h2>Основные задачи проекта</h2><ol><li>Создать историческую базу философских понятий от античности до современности.</li><li>Зафиксировать определения философов, первоначальные значения терминов, источники, аргументы и критику.</li><li>Присвоить каждому отдельному понятию постоянный идентификатор, не зависящий от языка и последующих версий системы.</li><li>Классифицировать понятия по двум основным категориям проекта: «Материальный мир» и «Информация».</li><li>Сопоставлять философские позиции, выявлять логические противоречия и постепенно разрабатывать точные универсальные определения.</li><li>Создать многоязычную цифровую систему для философских исследований, программирования и развития искусственного интеллекта.</li></ol></section><section><h2>Исторические предшественники</h2><div class="people"><article class="person"><h3>Раймунд Луллий (Ramon Llull, ок. 1232–1316)</h3><p>Стремился создать универсальное искусство рассуждения, позволяющее комбинировать фундаментальные понятия и систематически выводить заключения.</p></article>
+<article class="person"><h3>Рене Декарт (René Descartes, 1596–1650)</h3><p>Рассматривал возможность универсального языка, основанного на упорядочении человеческих мыслей и ясном различении понятий.</p></article>
+<article class="person"><h3>Готфрид Вильгельм Лейбниц (Gottfried Wilhelm Leibniz, 1646–1716)</h3><p>Разрабатывал идею characteristica universalis — универсального символического языка, в котором рассуждения можно было бы выражать и проверять посредством логических операций.</p></article>
+<article class="person"><h3>Готлоб Фреге (Gottlob Frege, 1848–1925)</h3><p>Создал формальный язык понятий (Begriffsschrift), предназначенный для точного выражения логических отношений и устранения неоднозначностей обычного языка.</p></article>
+<article class="person"><h3>Бертран Рассел (Bertrand Russell, 1872–1970)</h3><p>Развивал логический анализ философских высказываний и стремился устранять проблемы, возникающие из-за неясной логической структуры языка.</p></article>
+<article class="person"><h3>Людвиг Витгенштейн (Ludwig Wittgenstein, 1889–1951)</h3><p>Считал, что многие философские проблемы возникают вследствие неправильного понимания логики и употребления языка. Подчёркивал необходимость прояснять язык философских утверждений.</p></article></div><p style="margin-top:22px">Эти мыслители преследовали различные цели: не все предлагали создать универсальный философский язык в буквальном смысле. Однако их работы показывают историческую преемственность стремления к точному философскому мышлению.</p></section><section><h2>Долгосрочная цель</h2><p>Универсальный философский язык должен стать не просто словарём философских терминов, а открытой, развивающейся системой анализа человеческого знания.</p><p>На основе этой системы RAMON EYQUEM планирует постепенно разработать собственную философскую и метафизическую концепцию, опубликовать результаты исследований на отдельном сайте и в дальнейшем представить их в виде книги.</p></section></div>
+</main>
+<footer>© 2026 RAMON EYQUEM · Homo Provincialis</footer>
+</body>
+</html>
