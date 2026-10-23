@@ -2,6 +2,7 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
+<script src="js/language.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A bilingual introduction to RAMON EYQUEM's Universal Philosophical Language project, its goals and historical predecessors.">
 <title>Universal Philosophical Language | Homo Provincialis</title>
@@ -25,16 +26,8 @@ html[data-lang="en"] .langs button[data-choice="en"],html[data-lang="ru"] .langs
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <script>
-(function() {
-  let preferred = 'en';
-  try {
-    const saved = localStorage.getItem('language') || localStorage.getItem('lang') || localStorage.getItem('siteLanguage');
-    if (saved === 'ru' || saved === 'en') preferred = saved;
-  } catch(e) { /* Local file privacy restrictions: retain English default. */ }
-  document.documentElement.setAttribute('data-lang', preferred);
-  document.documentElement.lang = preferred;
-})();
-function setLanguage(language) {
+document.documentElement.dataset.lang=HPLanguage.get();
+function applyLanguage(language) {
   const choice = language === 'ru' ? 'ru' : 'en';
   document.documentElement.setAttribute('data-lang', choice);
   document.documentElement.lang = choice;
@@ -42,13 +35,9 @@ function setLanguage(language) {
   document.querySelectorAll('.langs button').forEach(button => {
     button.setAttribute('aria-pressed', button.dataset.choice === choice ? 'true' : 'false');
   });
-  try {
-    localStorage.setItem('language', choice);
-    localStorage.setItem('lang', choice);
-    localStorage.setItem('siteLanguage', choice);
-  } catch(e) { /* The page still switches languages. */ }
+
 }
-window.addEventListener('DOMContentLoaded', () => setLanguage(document.documentElement.getAttribute('data-lang')));
+HPLanguage.register(applyLanguage);
 </script>
 </head>
 <body>
