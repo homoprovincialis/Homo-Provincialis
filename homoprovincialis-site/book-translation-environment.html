@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+<script src="js/language.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
   <title>Book Translation Environment — Homo Provincialis</title>
@@ -271,14 +272,13 @@ en:{home:'← Home',project:'Homo Provincialis project',title:'Book Translation 
 const $=id=>document.getElementById(id);
 const KEY='hp_translation_projects_v1';
 const CATALOGKEY='hp_translation_catalog_working_v1';
-const LANGKEY='hp_translation_ui_lang_v1';
 let language='ru',currentFragment=0,store=null,catalog=[],toastTimer=0,saveTimer=0;
 const sample={id:'bede-original',title:'বেদে (Bede)',author:'Achintya Kumar Sengupta',originalLang:'বাংলা / Bengali',originalUrl:'https://archive.org/details/dli.bengal.10689.12235',fragments:[{title:'',original:'',ru:'',en:''}]};
 const deepCopy=x=>JSON.parse(JSON.stringify(x));
 function getLocal(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function setLocal(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
 function t(k){return dict[language][k]||k}
-window.setLanguage=function(lang){language=lang==='en'?'en':'ru';document.documentElement.lang=language;setLocal(LANGKEY,language);
+function applyLanguage(lang){language=lang==='en'?'en':'ru';document.documentElement.lang=language;
  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;el.textContent=t(k)});
  document.querySelectorAll('[data-ph]').forEach(el=>{el.placeholder=t(el.dataset.ph)});
  $('switchRu').classList.toggle('active',language==='ru');$('switchEn').classList.toggle('active',language==='en');
@@ -351,7 +351,7 @@ function wire(){
 }
 function init(){try{const x=getLocal(KEY);store=x?normalizeStore(JSON.parse(x)):freshStore()}catch(e){store=freshStore()}
  try{catalog=validateCatalogEntries(JSON.parse(getLocal(CATALOGKEY)||$('published-books-data').textContent||'[]'))}catch(e){catalog=[]}
- wire();renderBook();setLanguage(getLocal(LANGKEY)||'ru')}
+ wire();renderBook();HPLanguage.register(applyLanguage)}
 init();
 })();
 </script>

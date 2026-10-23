@@ -27,7 +27,11 @@ for(const lang of ['en','ru']){
       if(dialog.type()==='confirm'&&!acceptReplacement)await dialog.dismiss();
       else await dialog.accept();
     });
-    await page.route('http://library.test/**',route=>route.fulfill({contentType:'text/html; charset=utf-8',body:html}));
+    await page.route('http://library.test/**',route=>{
+      const shared=new URL(route.request().url()).pathname==='/js/language.js';
+      return route.fulfill({contentType:shared?'text/javascript':'text/html; charset=utf-8',
+        body:shared?fs.readFileSync(path.join(__dirname,'../homoprovincialis-site/js/language.js'),'utf8'):html});
+    });
     await page.addInitScript(({key,value})=>{if(localStorage.getItem(key)===null)localStorage.setItem(key,value);},{key:KEY,value:JSON.stringify(sample)});
     await page.goto('http://library.test/open-online-library.html');
     await page.locator(`[data-language="${lang}"]`).click();

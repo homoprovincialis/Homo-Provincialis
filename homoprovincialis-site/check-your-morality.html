@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<script src="js/language.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#17233b">
 <meta name="description" content="Проверь свою мораль: философский тест с 40 этическими ситуациями. Homo Provincialis.">
@@ -98,7 +99,6 @@ function changeLanguage(next){
  $('intro-bullets').innerHTML=t('introBullets').map(s=>'<li>'+safe(s)+'</li>').join('');
  $('hierarchy').innerHTML=t('participationChain').map(x=>'<span>'+safe(x)+'</span>').join('<span aria-hidden="true">→</span>');
  $('reason').placeholder=t('reasonPlace');
- try{localStorage.setItem('homoprovincialis-language',lang)}catch(e){}
  render();
 }
 function render(){
@@ -167,7 +167,7 @@ function renderResults(){
  $('review-list').innerHTML=QUESTIONS.map((q,i)=>'<div class="review"><h4>'+(i+1)+'. '+safe(q.title[lang])+'</h4><p><b>'+safe(t('answerLabel'))+':</b></p><ol class="review-answers">'+answers[i].map(n=>'<li>'+safe(q.options[n][lang])+'</li>').join('')+'</ol><p><b>'+safe(t('explanationLabel'))+':</b> '+safe(reasons[i]||t('noExplanation'))+'</p><p><b>'+safe(t('reflectionLabel'))+':</b> '+safe(q.reflection[lang])+'</p><small>'+safe(CATEGORIES[q.category][lang])+'</small></div>').join('');
  $('review-toggle').textContent=$('review-list').hidden?t('reviewBtn'):t('hideReview');
 }
-langButtons.forEach(b=>b.addEventListener('click',()=>{snapshotReason();changeLanguage(b.dataset.lang)}));
+langButtons.forEach(b=>b.addEventListener('click',()=>HPLanguage.set(b.dataset.lang)));
 $('start-btn').addEventListener('click',start);$('prev-btn').addEventListener('click',previous);$('next-btn').addEventListener('click',next);
 $('reason').addEventListener('input',()=>{reasons[current]=$('reason').value.slice(0,1200);persist()});
 $('reset-btn').addEventListener('click',wipe);$('redo-btn').addEventListener('click',wipe);
@@ -184,7 +184,7 @@ const saved=getSaved();if(saved){
  current=Number.isInteger(saved.current)?Math.max(0,Math.min(QUESTIONS.length-1,saved.current)):0;
  view=saved.view==='results'&&completed(answers)?'results':'intro';
 }
-let selected='ru';try{selected=localStorage.getItem('homoprovincialis-language')||'ru';}catch(e){}changeLanguage(selected);
+HPLanguage.register(changeLanguage);
 })();
 </script>
 </body></html>

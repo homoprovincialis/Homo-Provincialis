@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+<script src="js/language.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Узнай свою философскую позицию и проверь свою мораль. Два будущих интерактивных приложения философского проекта Homo Provincialis.">
   <meta name="theme-color" content="#17233b">
@@ -231,12 +232,9 @@
         homeFooter.textContent = lang === 'ru' ? '← Главная страница' : '← Home page';
         footerRu.hidden = lang !== 'ru';
         footerEn.hidden = lang !== 'en';
-        try { localStorage.setItem('homoprovincialis-language', lang); } catch (e) {}
       }
-      buttons.forEach(function (button) { button.addEventListener('click', function () { changeLanguage(button.getAttribute('data-language')); }); });
-      var saved = null;
-      try { saved = localStorage.getItem('homoprovincialis-language'); } catch (e) {}
-      changeLanguage(saved === 'en' ? 'en' : 'ru');
+      buttons.forEach(function (button) { button.addEventListener('click', function () { HPLanguage.set(button.getAttribute('data-language')); }); });
+      HPLanguage.register(changeLanguage);
     })();
   </script>
 </body>

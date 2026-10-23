@@ -263,6 +263,6 @@ test('World Direct Democracy data safety in Chromium',async t=>{
     assert.equal(html.slice(html.indexOf('const L='),html.indexOf('const t=')),before.slice(before.indexOf('const L='),before.indexOf('const t=')));
     assert.equal(html.match(/const ROLE_ORDER=\[[^;]+;/)[0],before.match(/const ROLE_ORDER=\[[^;]+;/)[0]);
     assert.equal(html.match(/const ROLE_KEY=\{[^;]+;/)[0],before.match(/const ROLE_KEY=\{[^;]+;/)[0]);
-    assert.equal(html.split('<script')[0],before.split('<script')[0]);
+    assert.equal(html.replace(/<script src="js\/language\.js"><\/script>\n/g,'').split('<script')[0],before.split('<script')[0]);
   });
 });
