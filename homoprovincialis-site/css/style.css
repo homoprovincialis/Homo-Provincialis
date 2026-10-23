@@ -513,3 +513,11 @@ footer {
     height: auto;
   }
 }
+
+/* Include padding and borders in the sheet's available width on narrow screens. */
+@media (max-width: 820px) {
+  .site {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+}

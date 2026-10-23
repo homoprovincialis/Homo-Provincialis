@@ -129,6 +129,10 @@
     #toast.visible{opacity:1}
     @media(max-width:1100px){.meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.writing-area{grid-template-columns:1fr}.language-panel{border-right:0;border-bottom:1px solid var(--line)}.language-panel:last-child{border-bottom:0}.panel-body{min-height:240px}.translation-site .panel-body textarea{min-height:245px}.catalog-list{grid-template-columns:1fr}}
     @media(max-width:650px){body .site.translation-site{width:100%;margin:0;border-left:0;border-right:0}.topbar{padding:18px}.hero{padding:30px 22px}.book-mark{display:none}.section{padding:27px 16px 32px}.mini-nav{padding:14px 18px}.section-head{align-items:flex-start}.sub-bar{padding:15px}.meta-grid,.manager-grid{grid-template-columns:1fr}.app-bar,.fragment-bar,.actions-line{padding:14px}.detail-body{padding:0 14px 18px}.collapsible summary{padding:13px 14px}.panel-head{padding:12px}.catalog-card{padding:14px}.site-tools{gap:12px}}
+    /* Long project names and author metadata must shrink inside flex cards. */
+    @media(max-width:1120px){
+      .book-info,.catalog-card>div{min-width:0;max-width:100%;overflow-wrap:anywhere}
+    }
   </style>
 </head>
 <body>

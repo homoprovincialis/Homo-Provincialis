@@ -28,6 +28,11 @@
     .dd-status{font-weight:bold}.dd-status.open{color:#0055aa}.dd-status.passed{color:#087a22}.dd-status.rejected{color:#a00000}.dd-warning{padding:8px 10px;border:1px solid #b6a25e;background:#fff9d9;line-height:1.5}
     .dd-danger{border-color:#9d4d4d}.dd-book{border:1px solid #777;background:#fff}.dd-book-title{padding:9px 10px;border-bottom:1px solid #777;background:#ddd;font-family:"Courier New",monospace;font-weight:bold}.dd-book-body{padding:10px}.dd-empty{color:#777;font-style:italic}
     @media(max-width:760px){.dd-grid,.dd-stats{grid-template-columns:1fr}.dd-counts{grid-template-columns:1fr 1fr}}
+    /* User names must not enlarge grid tracks or flex fields on narrow screens. */
+    @media(max-width:1120px){
+      .dd-app{overflow-wrap:anywhere}
+      .dd-grid>*,.dd-field{min-width:0}
+    }
   </style>
 </head>
 <body>
