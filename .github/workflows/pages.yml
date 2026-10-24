@@ -8,6 +8,7 @@ on:
       - 'scripts/generate_readable_essays.py'
       - 'scripts/generate_love_essay_docx.py'
       - 'scripts/generate_new_essay_docx.py'
+      - 'scripts/sync_essay_articles.py'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -49,6 +50,9 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check beautifulsoup4==4.14.3
           python scripts/generate_new_essay_docx.py
+
+      - name: Synchronize all article formats and download links
+        run: python scripts/sync_essay_articles.py
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
