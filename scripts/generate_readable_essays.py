@@ -17,11 +17,11 @@ DOCUMENTS = (
     ("Apriori1_en.docx", "Apriori1 — The Prior in Relation to the Subsequent", "en"),
     ("Apriori1_ru.docx", "Apriori1 — Предыдущее по отношению к последующему", "ru"),
     ("Human_Morality_Plan_Introduction.docx", "Human Morality — Plan and Introduction", "en"),
-    ("Мораль_Человека_План_введение.docx", "Мораль человека — План и введение", "ru"),
+    ("Moral_Cheloveka_Plan_vvedenie.docx", "Мораль человека — План и введение", "ru"),
     ("International_Philosophical_Community.docx", "International Philosophical Community", "en"),
-    ("Международное_философское_сообщество.docx", "Международное философское сообщество", "ru"),
+    ("Mezhdunarodnoe_filosofskoe_soobshchestvo.docx", "Международное философское сообщество", "ru"),
     ("Philosophical_Clarity.docx", "Philosophical Clarity", "en"),
-    ("Философская_ясность.docx", "Философская ясность", "ru"),
+    ("Filosofskaya_yasnost.docx", "Философская ясность", "ru"),
 )
 
 CSS = """
