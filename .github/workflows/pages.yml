@@ -6,6 +6,7 @@ on:
     paths:
       - 'homoprovincialis-site/**'
       - 'scripts/generate_readable_essays.py'
+      - 'scripts/generate_love_essay_docx.py'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
