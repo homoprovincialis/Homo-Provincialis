@@ -9,6 +9,7 @@ on:
       - 'scripts/generate_love_essay_docx.py'
       - 'scripts/generate_new_essay_docx.py'
       - 'scripts/sync_essay_articles.py'
+      - 'scripts/sync_ool_backups.py'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -53,6 +54,9 @@ jobs:
 
       - name: Synchronize all article formats and download links
         run: python scripts/sync_essay_articles.py
+
+      - name: Include latest OOL backups in published site
+        run: python scripts/sync_ool_backups.py
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
