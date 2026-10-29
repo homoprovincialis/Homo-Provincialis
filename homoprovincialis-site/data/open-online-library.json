@@ -473,6 +473,26 @@
       "rating": null
     },
     {
+      "id": "ool-edition-08-20261029",
+      "original": "Автобиография нейросети",
+      "ru": "Автобиография нейросети",
+      "en": "Autobiography of a Neural Network",
+      "author": "ChatGPT-4 (текст); М. Р. Брослав и О. А. Яблокова (составители)",
+      "year": "2023",
+      "editionYear": "2023",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-09-20261029",
+      "original": "Philosophie der Kunst",
+      "ru": "Философия искусства",
+      "en": "Philosophy of Art",
+      "author": "Friedrich Wilhelm Joseph Schelling",
+      "year": "1859",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
       "id": "ool-edition-10-20261029",
       "original": "Die Grundlagen der Arithmetik",
       "ru": "Основоположения арифметики",
@@ -493,6 +513,16 @@
       "rating": null
     },
     {
+      "id": "ool-edition-13-20261029",
+      "original": "Kritik der reinen Vernunft",
+      "ru": "Критика чистого разума",
+      "en": "Critique of Pure Reason",
+      "author": "Immanuel Kant",
+      "year": "1781",
+      "editionYear": "1998",
+      "rating": null
+    },
+    {
       "id": "ool-edition-14-20261029",
       "original": "Этика. Происхождение и развитие нравственности",
       "ru": "Этика. Происхождение и развитие нравственности",
@@ -500,6 +530,36 @@
       "author": "Пётр Кропоткин",
       "year": "1922",
       "editionYear": "1991",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-15-20261029",
+      "original": "The Logic of Collective Action: Public Goods and the Theory of Groups",
+      "ru": "Логика коллективных действий. Общественные блага и теория групп",
+      "en": "The Logic of Collective Action: Public Goods and the Theory of Groups",
+      "author": "Mancur Olson",
+      "year": "1965",
+      "editionYear": "1995",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-17-20261029",
+      "original": "A Theory of Justice",
+      "ru": "Теория справедливости",
+      "en": "A Theory of Justice",
+      "author": "John Rawls",
+      "year": "1971",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-18-20261029",
+      "original": "Beyond Freedom and Dignity",
+      "ru": "По ту сторону свободы и достоинства",
+      "en": "Beyond Freedom and Dignity",
+      "author": "B. F. Skinner",
+      "year": "1971",
+      "editionYear": "2015",
       "rating": null
     },
     {
@@ -713,6 +773,16 @@
       "rating": null
     },
     {
+      "id": "ool-edition-40-20261029",
+      "original": "De iure belli ac pacis",
+      "ru": "О праве войны и мира",
+      "en": "On the Law of War and Peace",
+      "author": "Hugo Grotius",
+      "year": "1625",
+      "editionYear": "1994",
+      "rating": null
+    },
+    {
       "id": "ool-edition-41-20261029",
       "original": "Les grands systèmes de droit contemporains",
       "ru": "Основные правовые системы современности",
@@ -740,6 +810,26 @@
       "author": "Ямамото Цунэтомо",
       "year": "1906",
       "editionYear": "2004",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-44-20261029",
+      "original": "Some Problems of Philosophy",
+      "ru": "Введение в философию",
+      "en": "Some Problems of Philosophy",
+      "author": "William James",
+      "year": "1911",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-45-20261029",
+      "original": "The Problems of Philosophy",
+      "ru": "Проблемы философии",
+      "en": "The Problems of Philosophy",
+      "author": "Bertrand Russell",
+      "year": "1912",
+      "editionYear": "2000",
       "rating": null
     },
     {
