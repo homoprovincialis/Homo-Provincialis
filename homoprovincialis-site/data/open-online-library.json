@@ -911,6 +911,136 @@
       "year": "2004",
       "editionYear": "2006",
       "rating": null
+    },
+    {
+      "id": "ool-batch2-01-20261029",
+      "original": "Революцией устрашенные. Критический очерк буржуазных концепций социальной революции",
+      "ru": "Революцией устрашённые. Критический очерк буржуазных концепций социальной революции",
+      "en": "Frightened by Revolution: A Critical Essay on Bourgeois Concepts of Social Revolution",
+      "author": "Юрий Красин",
+      "year": "1975",
+      "editionYear": "1975",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-04-20261029",
+      "original": "Word and Object",
+      "ru": "Слово и объект",
+      "en": "Word and Object",
+      "author": "Willard Van Orman Quine",
+      "year": "1960",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-07-20261029",
+      "original": "Безмолвный террор. История политического преследования семьи в Соединенных Штатах",
+      "ru": "Безмолвный террор. История политического преследования семьи в Соединённых Штатах",
+      "en": "Silent Terror: The Political Persecution of a Family in the United States",
+      "author": "Арнольд Локшин, Лорен Локшина",
+      "year": "1989",
+      "editionYear": "1989",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-08-20261029",
+      "original": "Свобода воли",
+      "ru": "Свобода воли",
+      "en": "Freedom of the Will",
+      "author": "Николай Лосский",
+      "year": "1927",
+      "editionYear": "1927",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-09-20261029",
+      "original": "Argonauts of the Western Pacific",
+      "ru": "Аргонавты западной части Тихого океана",
+      "en": "Argonauts of the Western Pacific",
+      "author": "Bronisław Malinowski",
+      "year": "1922",
+      "editionYear": "2015",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-14-20261029",
+      "original": "Принцип сочувствия. Размышления об этике и научном познании",
+      "ru": "Принцип сочувствия. Размышления об этике и научном познании",
+      "en": "The Principle of Sympathy: Reflections on Ethics and Scientific Knowledge",
+      "author": "Сергей Мейен",
+      "year": "2006",
+      "editionYear": "2006",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-17-20261029",
+      "original": "Surveiller et punir : Naissance de la prison",
+      "ru": "Надзирать и наказывать. Рождение тюрьмы",
+      "en": "Discipline and Punish: The Birth of the Prison",
+      "author": "Michel Foucault",
+      "year": "1975",
+      "editionYear": "2018",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-18-20261029",
+      "original": "Storia delle dottrine politiche",
+      "ru": "История политических доктрин",
+      "en": "History of Political Doctrines",
+      "author": "Gaetano Mosca",
+      "year": "1933",
+      "editionYear": "2012",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-19-20261029",
+      "original": "Principia Ethica",
+      "ru": "Принципы этики",
+      "en": "Principia Ethica",
+      "author": "George Edward Moore",
+      "year": "1903",
+      "editionYear": "1984",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-20-20261029",
+      "original": "Social Origins of Dictatorship and Democracy: Lord and Peasant in the Making of the Modern World",
+      "ru": "Социальные истоки диктатуры и демократии. Роль помещика и крестьянина в создании современного мира",
+      "en": "Social Origins of Dictatorship and Democracy",
+      "author": "Barrington Moore Jr.",
+      "year": "1966",
+      "editionYear": "2016",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-23-20261029",
+      "original": "Compendio di sociologia generale",
+      "ru": "Компендиум по общей социологии",
+      "en": "Compendium of General Sociology",
+      "author": "Vilfredo Pareto",
+      "year": "1920",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-24-20261029",
+      "original": "Fools, Frauds and Firebrands: Thinkers of the New Left",
+      "ru": "Дураки, мошенники и поджигатели. Мыслители новых левых",
+      "en": "Fools, Frauds and Firebrands: Thinkers of the New Left",
+      "author": "Roger Scruton",
+      "year": "2015",
+      "editionYear": "2021",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-28-20261029",
+      "original": "Derviš i smrt",
+      "ru": "Дервиш и смерть",
+      "en": "Death and the Dervish",
+      "author": "Meša Selimović",
+      "year": "1966",
+      "editionYear": "1969",
+      "rating": null
     }
   ]
 }
