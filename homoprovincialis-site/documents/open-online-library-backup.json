@@ -1,16 +1,6 @@
 {
   "read": [
     {
-      "id": "ool-edition-43-20261029",
-      "original": "葉隠 (Hagakure)",
-      "ru": "Хагакурэ. Сокрытое в листве",
-      "en": "Hagakure",
-      "author": "Ямамото Цунэтомо",
-      "year": "1716",
-      "editionYear": "2004",
-      "rating": 8
-    },
-    {
       "id": "b_mvgzwgm9_279um",
       "original": "Maitreyi.",
       "ru": "Майтрейи",
@@ -399,6 +389,16 @@
       "year": "1985",
       "editionYear": "2004",
       "rating": 10
+    },
+    {
+      "id": "ool-edition-43-20261029",
+      "original": "葉隠 (Hagakure)",
+      "ru": "Хагакурэ. Сокрытое в листве",
+      "en": "Hagakure",
+      "author": "Ямамото Цунэтомо",
+      "year": "1716",
+      "editionYear": "2004",
+      "rating": 8
     }
   ],
   "queue": [
@@ -678,7 +678,7 @@
       "ru": "Сочинения",
       "en": "Collected Works",
       "author": "Боэций Дакийский",
-      "year": "Нет единого года",
+      "year": "1260–1277",
       "editionYear": "2010",
       "rating": null
     },
@@ -788,7 +788,7 @@
       "ru": "Кодекс бусидо",
       "en": "The Warrior's Primer",
       "author": "Дайдодзи Юдзан",
-      "year": "1834",
+      "year": "1725",
       "editionYear": "2004",
       "rating": null
     },
