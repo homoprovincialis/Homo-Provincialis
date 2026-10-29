@@ -154,6 +154,9 @@ a{color:inherit}
 .admin-mode .admin-panel{border-color:#9eb6a6}
 .admin-busy .book-actions button,.admin-busy .shelf-head .btn,.admin-busy .book-form .btn{pointer-events:none;opacity:.5}
 @media(max-width:530px){.admin-login input{min-width:0;width:100%;flex-basis:100%}}
+#library-load-error{padding:14px 18px;margin:12px 0;border:1px solid #d3a18b;background:#fff4ed;color:#873c22;font-size:14px}
+.backup-tools label[for="import-json"]{display:none}
+.admin-mode .backup-tools label[for="import-json"]{display:inline-flex}
 </style>
 </head>
 <body>
@@ -192,6 +195,7 @@ a{color:inherit}
   </div>
   <div class="library-app">
     <div class="random-note"><span class="random-icon" aria-hidden="true">⤨</span><span id="random-note"></span></div>
+    <p id="library-load-error" role="alert" hidden></p>
     <div class="shelves">
       <section class="shelf" aria-labelledby="read-title">
         <div class="shelf-head"><div class="shelf-label"><span class="lang-en">SHELF 01 · COMPLETED</span><span class="lang-ru" hidden>ПОЛКА 01 · ПРОЧИТАНО</span></div><div class="shelf-title-row"><h3 class="shelf-title" id="read-title"></h3><span class="count" id="read-count">0</span></div><div class="shelf-desc" id="read-desc"></div><button class="btn primary" type="button" id="add-read"></button></div>
@@ -216,8 +220,8 @@ a{color:inherit}
           <button class="btn" type="button" id="admin-sign-out" hidden><span class="lang-en">Sign out</span><span class="lang-ru" hidden>Выйти</span></button>
         </div>
         <p class="admin-message" id="admin-message" role="status" aria-live="polite"></p>
-        <p class="lang-en">After authorization, Add, Edit, Move and Delete create a GitHub Pull Request to change the shared JSON. Merge it manually to publish. Import JSON affects this browser only.</p>
-        <p class="lang-ru" hidden>После авторизации добавление, изменение, перенос и удаление книг создают Pull Request с правками общего JSON. Ты публикуешь изменения вручную через Merge. Импорт JSON меняет только этот браузер.</p>
+        <p class="lang-en">Add, Edit, Move, Delete and manual backup restoration create a GitHub Pull Request. The public catalogue remains unchanged until you merge it.</p>
+        <p class="lang-ru" hidden>Добавление, изменение, перенос, удаление и ручное восстановление из резервного JSON создают Pull Request. До твоего Merge общий каталог не изменяется.</p>
       </div>
     </details>
   </div>
@@ -226,7 +230,7 @@ a{color:inherit}
 </div>
 <script>
 
-(function(){"use strict";const KEY="hp_open_online_library_v1";
+(function(){"use strict";/* Published GitHub catalogue is the only automatic source of books. */
 const ADMIN_API="https://api.github.com/repos/homoprovincialis/Homo-Provincialis/contents/homoprovincialis-site/data/open-online-library.json";
 const ADMIN_OWNER="homoprovincialis";
 let adminToken="",adminBusy=false;
@@ -289,8 +293,8 @@ async function publishChange(label,modifier){
     const proposal=await adminRequest(root+"/pulls",{method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({title:"OOL: "+label,head:newBranch,base:"main",
         body:"Изменение каталога OOL через защищённую панель владельца. Публикация только после ручного слияния."})});
-    // Preview changes in this tab. Public changes await manual merge of the PR.
-    state=updated;resetOrder();render();
+    // The site continues showing the published main catalogue until Merge.
+    // A pending Pull Request must never masquerade as a published change.
     const target=id("admin-message");
     target.textContent=lang==="ru"?"Изменение отправлено на проверку. ":"Change submitted for review. ";
     const link=document.createElement("a");link.href=proposal.html_url;link.target="_blank";
@@ -299,7 +303,7 @@ async function publishChange(label,modifier){
   }catch(error){adminMessage(error.message||adminText("failed"),true);return false}
   finally{adminBusy=false;adminInterface()}
 }
-const T={en:{appTitle:"Open Online Library",subtitle:"Two shelves: completed books and the future reading/listening queue.",random:"The order of books is randomized every time the page is opened.",readTitle:"Read or listened to",readDesc:"Books already read or listened to. Each book has a personal rating from 1 to 10.",queueTitle:"Reading / listening queue",queueDesc:"Books planned for future reading or listening.",add:"+ Add book",newBook:"Add book",editBook:"Edit book",original:"Original title",ru:"Russian title",en:"English title",author:"Author",year:"First publication year",editionYear:"Edition year",rating:"My rating",save:"Save book",cancel:"Cancel",edit:"Edit",remove:"Delete",move:"Move to read/listened",rated:"Ramon's rating",queued:"IN QUEUE",originalWord:"Original",yearWord:"First publication year",editionYearWord:"Edition year",emptyRead:"No books have been added yet.",emptyQueue:"The queue is empty.",needTitle:"Enter at least one title.",needRating:"Choose a rating from 1 to 10.",confirmDelete:"Delete this book?",movePrompt:"Rating from 1 to 10 after reading/listening:",backupTitle:"Catalog backup",backupText:"Published books are loaded from the shared catalogue. Your edits stay in this browser; export JSON to back them up.",export:"Export JSON",import:"Import JSON",badJson:"Invalid library JSON file. The existing library has not been changed.",importTooLarge:"The JSON file is too large (maximum 10 MiB). The existing library has not been changed.",importReadError:"Could not read the JSON file. The existing library has not been changed.",importSaveError:"Could not save the imported library. The existing library has not been changed. Export a backup and check browser storage.",confirmImport:"Replace the current library with this backup? Export the current library first if you want to keep both.",total:"BOOKS IN CATALOGUE",search:"Search by title, author or year",noMatches:"No books match your search."},ru:{appTitle:"Открытая онлайн-библиотека",subtitle:"Две полки: завершённые книги и очередь на будущее чтение / прослушивание.",random:"Порядок книг случайно перемешивается каждый раз при открытии страницы.",readTitle:"Прочитано или прослушано",readDesc:"Книги, которые уже прочитаны или прослушаны. Каждая получает личную оценку от 1 до 10.",queueTitle:"Очередь на чтение / прослушивание",queueDesc:"Книги, которые запланированы для чтения или прослушивания в будущем.",add:"+ Добавить книгу",newBook:"Добавить книгу",editBook:"Редактировать книгу",original:"Название оригинала",ru:"Название на русском",en:"Название на английском",author:"Автор",year:"Год первой публикации",editionYear:"Год издания",rating:"Моя оценка",save:"Сохранить книгу",cancel:"Отмена",edit:"Изменить",remove:"Удалить",move:"Перенести в прочитанные / прослушанные",rated:"Оценка Рамона",queued:"В ОЧЕРЕДИ",originalWord:"Оригинал",yearWord:"Год первой публикации",editionYearWord:"Год издания",emptyRead:"На этой полке пока нет книг.",emptyQueue:"Очередь пока пуста.",needTitle:"Укажите хотя бы одно название.",needRating:"Выберите оценку от 1 до 10.",confirmDelete:"Удалить эту книгу?",movePrompt:"Оценка от 1 до 10 после чтения / прослушивания:",backupTitle:"Резервная копия каталога",backupText:"Опубликованные книги загружаются из общего каталога. Ваши изменения сохраняются в этом браузере; для резервной копии используйте экспорт JSON.",export:"Экспорт JSON",import:"Импорт JSON",badJson:"Неверный JSON-файл библиотеки. Существующая библиотека не изменена.",importTooLarge:"JSON-файл слишком большой (максимум 10 МиБ). Существующая библиотека не изменена.",importReadError:"Не удалось прочитать JSON-файл. Существующая библиотека не изменена.",importSaveError:"Не удалось сохранить импортированную библиотеку. Существующая библиотека не изменена. Экспортируйте резервную копию и проверьте хранилище браузера.",confirmImport:"Заменить текущую библиотеку этой резервной копией? Сначала экспортируйте текущую библиотеку, если хотите сохранить обе.",total:"ВСЕГО В КАТАЛОГЕ",search:"Поиск по названию, автору или году",noMatches:"По вашему запросу книги не найдены."}};let lang="en",edit={read:null,queue:null},order={read:[],queue:[]};function t(k){return T[lang][k]}function id(x){return document.getElementById(x)}function uid(){return"b_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}function esc(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;")}function valid(s){return s&&Array.isArray(s.read)&&Array.isArray(s.queue)}
+const T={en:{appTitle:"Open Online Library",subtitle:"Two shelves: completed books and the future reading/listening queue.",random:"The order of books is randomized every time the page is opened.",readTitle:"Read or listened to",readDesc:"Books already read or listened to. Each book has a personal rating from 1 to 10.",queueTitle:"Reading / listening queue",queueDesc:"Books planned for future reading or listening.",add:"+ Add book",newBook:"Add book",editBook:"Edit book",original:"Original title",ru:"Russian title",en:"English title",author:"Author",year:"First publication year",editionYear:"Edition year",rating:"My rating",save:"Save book",cancel:"Cancel",edit:"Edit",remove:"Delete",move:"Move to read/listened",rated:"Ramon's rating",queued:"IN QUEUE",originalWord:"Original",yearWord:"First publication year",editionYearWord:"Edition year",emptyRead:"No books have been added yet.",emptyQueue:"The queue is empty.",needTitle:"Enter at least one title.",needRating:"Choose a rating from 1 to 10.",confirmDelete:"Delete this book?",movePrompt:"Rating from 1 to 10 after reading/listening:",backupTitle:"Catalog backup",backupText:"The published GitHub JSON is the only live catalogue. Export a backup for safekeeping; an administrator can restore it manually via Pull Request.",export:"Export JSON",import:"Import JSON",badJson:"Invalid library JSON file. The existing library has not been changed.",importTooLarge:"The JSON file is too large (maximum 10 MiB). The existing library has not been changed.",importReadError:"Could not read the JSON file. The existing library has not been changed.",importSaveError:"Could not save the imported library. The existing library has not been changed. Export a backup and check browser storage.",confirmImport:"Create a Pull Request to replace the entire published catalogue with this backup? Nothing will change until Merge.",loadError:"Cannot load the published catalogue from GitHub. Reload the page; no backup has been used automatically.",total:"BOOKS IN CATALOGUE",search:"Search by title, author or year",noMatches:"No books match your search."},ru:{appTitle:"Открытая онлайн-библиотека",subtitle:"Две полки: завершённые книги и очередь на будущее чтение / прослушивание.",random:"Порядок книг случайно перемешивается каждый раз при открытии страницы.",readTitle:"Прочитано или прослушано",readDesc:"Книги, которые уже прочитаны или прослушаны. Каждая получает личную оценку от 1 до 10.",queueTitle:"Очередь на чтение / прослушивание",queueDesc:"Книги, которые запланированы для чтения или прослушивания в будущем.",add:"+ Добавить книгу",newBook:"Добавить книгу",editBook:"Редактировать книгу",original:"Название оригинала",ru:"Название на русском",en:"Название на английском",author:"Автор",year:"Год первой публикации",editionYear:"Год издания",rating:"Моя оценка",save:"Сохранить книгу",cancel:"Отмена",edit:"Изменить",remove:"Удалить",move:"Перенести в прочитанные / прослушанные",rated:"Оценка Рамона",queued:"В ОЧЕРЕДИ",originalWord:"Оригинал",yearWord:"Год первой публикации",editionYearWord:"Год издания",emptyRead:"На этой полке пока нет книг.",emptyQueue:"Очередь пока пуста.",needTitle:"Укажите хотя бы одно название.",needRating:"Выберите оценку от 1 до 10.",confirmDelete:"Удалить эту книгу?",movePrompt:"Оценка от 1 до 10 после чтения / прослушивания:",backupTitle:"Резервная копия каталога",backupText:"Сайт работает только с основным каталогом JSON на GitHub. Резервная копия не загружается автоматически. Восстановление — вручную через Pull Request.",export:"Экспорт JSON",import:"Импорт JSON",badJson:"Неверный JSON-файл библиотеки. Существующая библиотека не изменена.",importTooLarge:"JSON-файл слишком большой (максимум 10 МиБ). Существующая библиотека не изменена.",importReadError:"Не удалось прочитать JSON-файл. Существующая библиотека не изменена.",importSaveError:"Не удалось сохранить импортированную библиотеку. Существующая библиотека не изменена. Экспортируйте резервную копию и проверьте хранилище браузера.",confirmImport:"Создать Pull Request для замены всего опубликованного каталога этим резервным файлом? До Merge ничего не изменится.",loadError:"Не удалось загрузить основной каталог с GitHub. Обнови страницу. Резервная копия автоматически не подставляется.",total:"ВСЕГО В КАТАЛОГЕ",search:"Поиск по названию, автору или году",noMatches:"По вашему запросу книги не найдены."}};let lang="en",edit={read:null,queue:null},order={read:[],queue:[]};function t(k){return T[lang][k]}function id(x){return document.getElementById(x)}function uid(){return"b_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}function esc(v){return String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;")}function valid(s){return s&&Array.isArray(s.read)&&Array.isArray(s.queue)}
 // Imported text stays text: do not strip or interpret HTML in book metadata.
 const MAX_IMPORT_BYTES=10*1024*1024;
 const MAX_IMPORT_BOOKS=10000;
@@ -338,24 +342,7 @@ function validateImport(value){
   }
   return result;
 }
-const DELETED_KEY="hp_open_online_library_deleted_v1";
-const PUBLISHED_KEY="hp_open_online_library_published_ids_v1";
-function storedIds(key){
-  try{
-    const value=JSON.parse(localStorage.getItem(key));
-    return new Set(Array.isArray(value)?value.filter(x=>typeof x==="string"&&x.length<=256):[]);
-  }catch(e){return new Set()}
-}
-let deletedIds=storedIds(DELETED_KEY);
-function load(){
-  try{
-    const data=JSON.parse(localStorage.getItem(KEY));
-    if(!valid(data))return{read:[],queue:[]};
-    // Keep existing browser records; old records gain an empty edition year.
-    const normalize=book=>({...book,editionYear:typeof book.editionYear==="string"?book.editionYear:""});
-    return{read:data.read.map(normalize),queue:data.queue.map(normalize)};
-  }catch(e){return{read:[],queue:[]}}
-}let state=load();function save(){localStorage.setItem(KEY,JSON.stringify(state))}function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}function resetOrder(){order.read=shuffle(state.read.map(b=>b.id));order.queue=shuffle(state.queue.map(b=>b.id))}function ordered(type){let ids=new Set(state[type].map(b=>b.id));order[type]=order[type].filter(x=>ids.has(x));state[type].forEach(b=>{if(!order[type].includes(b.id))order[type].push(b.id)});let map=new Map(state[type].map(b=>[b.id,b]));return order[type].map(x=>map.get(x)).filter(Boolean)}function title(b){return lang==="ru"?(b.ru||b.original||b.en||"—"):(b.en||b.original||b.ru||"—")}function card(b,type){let displayTitle=title(b);let first=Array.from(displayTitle.trim())[0]||"✦";let orig=b.original&&b.original!==displayTitle?`<div class="book-original">${esc(t("originalWord"))}: ${esc(b.original)}</div>`:"";let badge=type==="read"?`<span class="rating">${esc(t("rated"))}: <strong>${esc(b.rating)}/10</strong></span>`:`<span class="queue-label">${esc(t("queued"))}</span>`;let move=type==="queue"?`<button class="btn" data-a="move" data-id="${esc(b.id)}">${esc(t("move"))}</button>`:"";return`<article class="book"><div class="book-cover" aria-hidden="true"><span class="cover-ornament">✧</span><span class="cover-letter">${esc(first.toUpperCase())}</span><span class="cover-line"></span></div><div class="book-content"><div class="book-title-row"><h4 class="book-title">${esc(displayTitle)}</h4>${badge}</div>${orig}<div class="book-meta"><span><b>${esc(t("author"))}:</b> ${esc(b.author||"—")}</span><span><b>${esc(t("yearWord"))}:</b> ${esc(b.year||"—")}</span><span><b>${esc(t("editionYearWord"))}:</b> ${esc(b.editionYear||"—")}</span></div><div class="book-actions"><button class="btn" data-a="edit" data-id="${esc(b.id)}">${esc(t("edit"))}</button>${move}<button class="btn danger" data-a="del" data-id="${esc(b.id)}">${esc(t("remove"))}</button></div></div></article>`}let searchText="";function renderShelf(type){let all=ordered(type),books=searchText?all.filter(b=>[b.original,b.ru,b.en,b.author,b.year,b.editionYear].some(v=>String(v||"").toLocaleLowerCase().includes(searchText))):all;id(type+"-count").textContent=all.length;let box=id(type+"-list");box.innerHTML=books.length?books.map(b=>card(b,type)).join(""):`<div class="empty"><div class="empty-symbol" aria-hidden="true">◇</div><p>${esc(searchText?t("noMatches"):(type==="read"?t("emptyRead"):t("emptyQueue")))}</p></div>`;box.querySelectorAll("[data-a]").forEach(btn=>btn.onclick=()=>{let a=btn.dataset.a,bid=btn.dataset.id;if(a==="edit")editBook(type,bid);if(a==="del")delBook(type,bid);if(a==="move")moveBook(bid)})}function labels(){id("app-title").textContent=t("appTitle");id("app-subtitle").textContent=t("subtitle");id("random-note").textContent=t("random");id("catalog-search").placeholder=t("search");id("total-label").textContent=t("total");id("read-title").textContent=t("readTitle");id("read-desc").textContent=t("readDesc");id("queue-title").textContent=t("queueTitle");id("queue-desc").textContent=t("queueDesc");["read","queue"].forEach(type=>{id("add-"+type).textContent=t("add");id(type+"-original-label").textContent=t("original");id(type+"-ru-label").textContent=t("ru");id(type+"-en-label").textContent=t("en");id(type+"-author-label").textContent=t("author");id(type+"-year-label").textContent=t("year");id(type+"-edition-year-label").textContent=t("editionYear");id("save-"+type).textContent=t("save");id("cancel-"+type).textContent=t("cancel");id(type+"-form-title").textContent=edit[type]?t("editBook"):t("newBook")});id("read-rating-label").textContent=t("rating");id("backup-title").textContent=t("backupTitle");id("backup-text").textContent=t("backupText");id("export-json").textContent=t("export");id("import-label").textContent=t("import");}function render(){labels();renderShelf("read");renderShelf("queue");id("total-count").textContent=state.read.length+state.queue.length}function clearForm(type){["original","ru","en","author","year","editionYear"].forEach(f=>id(type+"-"+(f==="editionYear"?"edition-year":f)).value="");if(type==="read")id("read-rating").value=""}function openForm(type){edit[type]=null;clearForm(type);id(type+"-form").classList.add("open");labels()}function closeForm(type){edit[type]=null;clearForm(type);id(type+"-form").classList.remove("open");labels()}function dataFrom(type){return{original:id(type+"-original").value.trim(),ru:id(type+"-ru").value.trim(),en:id(type+"-en").value.trim(),author:id(type+"-author").value.trim(),year:id(type+"-year").value.trim(),editionYear:id(type+"-edition-year").value.trim(),rating:type==="read"?Number(id("read-rating").value):null}}async function saveBook(type){
+let state={read:[],queue:[]};function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}function resetOrder(){order.read=shuffle(state.read.map(b=>b.id));order.queue=shuffle(state.queue.map(b=>b.id))}function ordered(type){let ids=new Set(state[type].map(b=>b.id));order[type]=order[type].filter(x=>ids.has(x));state[type].forEach(b=>{if(!order[type].includes(b.id))order[type].push(b.id)});let map=new Map(state[type].map(b=>[b.id,b]));return order[type].map(x=>map.get(x)).filter(Boolean)}function title(b){return lang==="ru"?(b.ru||b.original||b.en||"—"):(b.en||b.original||b.ru||"—")}function card(b,type){let displayTitle=title(b);let first=Array.from(displayTitle.trim())[0]||"✦";let orig=b.original&&b.original!==displayTitle?`<div class="book-original">${esc(t("originalWord"))}: ${esc(b.original)}</div>`:"";let badge=type==="read"?`<span class="rating">${esc(t("rated"))}: <strong>${esc(b.rating)}/10</strong></span>`:`<span class="queue-label">${esc(t("queued"))}</span>`;let move=type==="queue"?`<button class="btn" data-a="move" data-id="${esc(b.id)}">${esc(t("move"))}</button>`:"";return`<article class="book"><div class="book-cover" aria-hidden="true"><span class="cover-ornament">✧</span><span class="cover-letter">${esc(first.toUpperCase())}</span><span class="cover-line"></span></div><div class="book-content"><div class="book-title-row"><h4 class="book-title">${esc(displayTitle)}</h4>${badge}</div>${orig}<div class="book-meta"><span><b>${esc(t("author"))}:</b> ${esc(b.author||"—")}</span><span><b>${esc(t("yearWord"))}:</b> ${esc(b.year||"—")}</span><span><b>${esc(t("editionYearWord"))}:</b> ${esc(b.editionYear||"—")}</span></div><div class="book-actions"><button class="btn" data-a="edit" data-id="${esc(b.id)}">${esc(t("edit"))}</button>${move}<button class="btn danger" data-a="del" data-id="${esc(b.id)}">${esc(t("remove"))}</button></div></div></article>`}let searchText="";function renderShelf(type){let all=ordered(type),books=searchText?all.filter(b=>[b.original,b.ru,b.en,b.author,b.year,b.editionYear].some(v=>String(v||"").toLocaleLowerCase().includes(searchText))):all;id(type+"-count").textContent=all.length;let box=id(type+"-list");box.innerHTML=books.length?books.map(b=>card(b,type)).join(""):`<div class="empty"><div class="empty-symbol" aria-hidden="true">◇</div><p>${esc(searchText?t("noMatches"):(type==="read"?t("emptyRead"):t("emptyQueue")))}</p></div>`;box.querySelectorAll("[data-a]").forEach(btn=>btn.onclick=()=>{let a=btn.dataset.a,bid=btn.dataset.id;if(a==="edit")editBook(type,bid);if(a==="del")delBook(type,bid);if(a==="move")moveBook(bid)})}function labels(){id("app-title").textContent=t("appTitle");id("app-subtitle").textContent=t("subtitle");id("random-note").textContent=t("random");id("catalog-search").placeholder=t("search");id("total-label").textContent=t("total");id("read-title").textContent=t("readTitle");id("read-desc").textContent=t("readDesc");id("queue-title").textContent=t("queueTitle");id("queue-desc").textContent=t("queueDesc");["read","queue"].forEach(type=>{id("add-"+type).textContent=t("add");id(type+"-original-label").textContent=t("original");id(type+"-ru-label").textContent=t("ru");id(type+"-en-label").textContent=t("en");id(type+"-author-label").textContent=t("author");id(type+"-year-label").textContent=t("year");id(type+"-edition-year-label").textContent=t("editionYear");id("save-"+type).textContent=t("save");id("cancel-"+type).textContent=t("cancel");id(type+"-form-title").textContent=edit[type]?t("editBook"):t("newBook")});id("read-rating-label").textContent=t("rating");id("backup-title").textContent=t("backupTitle");id("backup-text").textContent=t("backupText");id("export-json").textContent=t("export");id("import-label").textContent=t("import");}function render(){labels();renderShelf("read");renderShelf("queue");id("total-count").textContent=state.read.length+state.queue.length}function clearForm(type){["original","ru","en","author","year","editionYear"].forEach(f=>id(type+"-"+(f==="editionYear"?"edition-year":f)).value="");if(type==="read")id("read-rating").value=""}function openForm(type){edit[type]=null;clearForm(type);id(type+"-form").classList.add("open");labels()}function closeForm(type){edit[type]=null;clearForm(type);id(type+"-form").classList.remove("open");labels()}function dataFrom(type){return{original:id(type+"-original").value.trim(),ru:id(type+"-ru").value.trim(),en:id(type+"-en").value.trim(),author:id(type+"-author").value.trim(),year:id(type+"-year").value.trim(),editionYear:id(type+"-edition-year").value.trim(),rating:type==="read"?Number(id("read-rating").value):null}}async function saveBook(type){
   if(!adminToken){adminMessage(adminText("required"),true);id("admin-panel").open=true;return}
   const b=dataFrom(type);
   if(!b.original&&!b.ru&&!b.en)return alert(t("needTitle"));
@@ -397,17 +384,14 @@ id("import-json").onchange=async e=>{
     try{text=await file.text();}catch(error){alert(t("importReadError"));return;}
     let imported;
     try{imported=validateImport(JSON.parse(text));}catch(error){alert(t("badJson"));return;}
-    if((state.read.length||state.queue.length)&&!confirm(t("confirmImport")))return;
-    // localStorage.setItem is atomic. Do not change live data until persistence succeeds.
-    try{localStorage.setItem(KEY,JSON.stringify(imported));}
-    catch(error){alert(t("importSaveError"));return;}
-    // Explicit import restores the selected backup, including previously hidden books.
-    deletedIds.clear();
-    localStorage.removeItem(DELETED_KEY);
-    state=imported;
-    edit={read:null,queue:null};
-    closeForm("read");closeForm("queue");
-    resetOrder();render();
+    if(!adminToken){adminMessage(adminText("required"),true);id("admin-panel").open=true;return;}
+    if(!confirm(t("confirmImport")))return;
+    // Manual recovery only: submit the backup to GitHub for the owner's review.
+    // Do not replace the currently published books until the Pull Request is merged.
+    await publishChange("Restore library JSON backup",catalog=>{
+      catalog.read=imported.read;
+      catalog.queue=imported.queue;
+    });
   }finally{
     input.value="";
     input.disabled=false;
@@ -420,54 +404,31 @@ id("admin-sign-in").onclick=async()=>{
   try{
     const user=await adminRequest("https://api.github.com/user");
     if(String(user.login||"").toLowerCase()!==ADMIN_OWNER)throw new Error(adminText("owner"));
-    const snapshot=await adminSnapshot();
-    state=snapshot.catalog;resetOrder();render();
+    // Authorization must not reload or replace books; it only unlocks actions.
     adminMessage(adminText("connected"));
   }catch(error){adminToken="";adminMessage(error.message||adminText("failed"),true)}
   finally{id("admin-github-token").value="";adminBusy=false;adminInterface()}
 };
 id("admin-sign-out").onclick=()=>{adminToken="";closeForm("read");closeForm("queue");adminMessage(adminText("logout"));adminInterface();};
 adminInterface();
-// The public JSON is the shared catalogue for every visitor. Existing browser
-// records are kept; the published entry wins on an identical book ID.
+// Single source of truth: the published JSON only. Browser history and the
+// backup JSON are never merged into the displayed catalogue.
 async function loadPublishedCatalogue(){
+  const status=id("library-load-error");
+  status.hidden=true;
   try{
-    const response=await fetch("data/open-online-library.json",{cache:"no-cache"});
+    const response=await fetch("data/open-online-library.json",{cache:"no-store"});
     if(!response.ok)throw new Error("Published catalogue unavailable");
-    const published=validateImport(await response.json());
-    const normalized=book=>[book.original,book.en,book.ru].filter(Boolean).map(x=>x.trim().toLocaleLowerCase());
-    const matched=(a,b)=>normalized(a).some(x=>normalized(b).includes(x));
-    const publishedIds=new Set([...published.read,...published.queue].map(book=>book.id));
-    const retiredIds=new Set([...storedIds(PUBLISHED_KEY)].filter(bookId=>!publishedIds.has(bookId)));
-    // Keep visitor-created books, but remove withdrawn published entries from old
-    // browser copies. "ool-" IDs were issued by the shared catalogue before
-    // published-ID tracking was introduced.
-    const keepLocal=book=>!deletedIds.has(book.id)&&!retiredIds.has(book.id)&&
-      !(book.id.startsWith("ool-")&&!publishedIds.has(book.id));
-    const merged={read:state.read.filter(keepLocal),queue:state.queue.filter(keepLocal)};
-    for(const shelf of ["read","queue"]){
-      for(const book of published[shelf]){
-        if(deletedIds.has(book.id))continue;
-        // Do not duplicate a book already present in this browser, even if
-        // it has a different local ID. A completed local book stays completed.
-        if(shelf==="queue"&&merged.read.some(x=>x.id===book.id||matched(x,book)))continue;
-        // The repository is authoritative, but do not lose a previously
-        // entered edition year if the published entry has no edition date.
-        const local=merged.read.concat(merged.queue).find(x=>x.id===book.id||matched(x,book));
-        const item={...book,editionYear:book.editionYear||(local&&local.editionYear)||""};
-        for(const key of ["read","queue"])
-          merged[key]=merged[key].filter(x=>x.id!==book.id&&!matched(x,book));
-        merged[shelf].push(item);
-      }
-    }
-    state=merged;
-    // Remember what GitHub published so later removals are recognized on reload.
-    try{localStorage.setItem(PUBLISHED_KEY,JSON.stringify([...publishedIds]));}catch(e){}
+    state=validateImport(await response.json());
     resetOrder();
     render();
   }catch(error){
-    // Keep the existing local catalogue usable if public JSON cannot load.
-    console.warn("Shared library catalogue could not be loaded:",error);
+    state={read:[],queue:[]};
+    resetOrder();
+    render();
+    status.textContent=t("loadError");
+    status.hidden=false;
+    console.error("Published library catalogue could not be loaded:",error);
   }
 }
 loadPublishedCatalogue();})();
