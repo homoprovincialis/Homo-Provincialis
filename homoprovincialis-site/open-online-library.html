@@ -208,16 +208,16 @@ a{color:inherit}
     <details class="admin-panel" id="admin-panel">
       <summary><span class="lang-en">Catalogue administration (GitHub authorization)</span><span class="lang-ru" hidden>Управление каталогом (авторизация GitHub)</span></summary>
       <div class="admin-panel-body">
-        <p class="lang-en">Only the repository owner can publish changes. Use a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">fine-grained GitHub token</a> limited to the Homo-Provincialis repository, with Contents: Read and write. Do not enter your GitHub account password. Your token is kept only in this open page and is forgotten when you close or reload it.</p>
-        <p class="lang-ru" hidden>Только владелец репозитория может публиковать изменения. Создай <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">токен GitHub с ограниченными правами</a>: только репозиторий Homo-Provincialis, разрешение Contents: Read and write. Не вводи пароль от аккаунта GitHub. Токен хранится только в открытой странице и забывается после её закрытия или обновления.</p>
+        <p class="lang-en">Only the repository owner can publish changes. Use a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">fine-grained GitHub token</a> limited to the Homo-Provincialis repository, with Contents: Read and write and Pull requests: Read and write. Do not enter your GitHub account password. Your token is kept only in this open page and is forgotten when you close or reload it.</p>
+        <p class="lang-ru" hidden>Только владелец репозитория может публиковать изменения. Создай <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">токен GitHub с ограниченными правами</a>: только репозиторий Homo-Provincialis, разрешения Contents: Read and write и Pull requests: Read and write. Не вводи пароль от аккаунта GitHub. Токен хранится только в открытой странице и забывается после её закрытия или обновления.</p>
         <div class="admin-login">
           <input id="admin-github-token" type="password" autocomplete="off" spellcheck="false" aria-label="GitHub fine-grained personal access token" placeholder="github_pat_…">
           <button class="btn primary" type="button" id="admin-sign-in"><span class="lang-en">Unlock editing</span><span class="lang-ru" hidden>Открыть редактирование</span></button>
           <button class="btn" type="button" id="admin-sign-out" hidden><span class="lang-en">Sign out</span><span class="lang-ru" hidden>Выйти</span></button>
         </div>
         <p class="admin-message" id="admin-message" role="status" aria-live="polite"></p>
-        <p class="lang-en">After authorization, Add, Edit, Move and Delete update the published JSON on GitHub for everyone. Import JSON affects this browser only; it never publishes automatically.</p>
-        <p class="lang-ru" hidden>После авторизации добавление, изменение, перенос и удаление книг обновляют общий JSON на GitHub для всех. Импорт JSON меняет только этот браузер и не публикуется автоматически.</p>
+        <p class="lang-en">After authorization, Add, Edit, Move and Delete create a GitHub Pull Request to change the shared JSON. Merge it manually to publish. Import JSON affects this browser only.</p>
+        <p class="lang-ru" hidden>После авторизации добавление, изменение, перенос и удаление книг создают Pull Request с правками общего JSON. Ты публикуешь изменения вручную через Merge. Импорт JSON меняет только этот браузер.</p>
       </div>
     </details>
   </div>
@@ -231,8 +231,8 @@ const ADMIN_API="https://api.github.com/repos/homoprovincialis/Homo-Provincialis
 const ADMIN_OWNER="homoprovincialis";
 let adminToken="",adminBusy=false;
 const ADMIN_TEXT={
-  en:{required:"Unlock editing with your GitHub token first.",connected:"Connected as repository owner. Your changes will be published to GitHub.",connecting:"Checking GitHub authorization…",saving:"Saving catalogue to GitHub…",saved:"Saved on GitHub. The public site will update after deployment.",failed:"Could not complete the GitHub operation.",invalid:"Invalid or expired token.",forbidden:"This token cannot edit the catalogue. Check repository selection and Contents: Read and write.",owner:"This GitHub token does not belong to the repository owner.",conflict:"The catalogue changed on GitHub. Reload the page and try again.",notFound:"The book is no longer in the published catalogue.",logout:"Editing locked. GitHub token cleared.",loginNeeded:"Enter the fine-grained GitHub token.",malformed:"GitHub returned an invalid catalogue."},
-  ru:{required:"Сначала открой редактирование с помощью токена GitHub.",connected:"Авторизация владельца подтверждена. Изменения будут опубликованы на GitHub.",connecting:"Проверка авторизации GitHub…",saving:"Сохранение каталога на GitHub…",saved:"Сохранено на GitHub. Публичный сайт обновится после публикации.",failed:"Не удалось выполнить операцию с GitHub.",invalid:"Неверный токен или срок его действия истёк.",forbidden:"Этот токен не может изменять каталог. Проверь выбор репозитория и разрешение Contents: Read and write.",owner:"Этот токен не принадлежит владельцу репозитория.",conflict:"Каталог изменился на GitHub. Обнови страницу и повтори действие.",notFound:"Этой книги уже нет в опубликованном каталоге.",logout:"Редактирование закрыто. Токен удалён из памяти.",loginNeeded:"Введи токен GitHub с ограниченными правами.",malformed:"GitHub вернул неправильный каталог."}
+  en:{required:"Unlock editing with your GitHub token first.",connected:"Connected as repository owner. Edits create Pull Requests for your approval.",connecting:"Checking GitHub authorization…",saving:"Creating GitHub Pull Request…",saved:"Pull Request created. Merge it manually to publish.",failed:"Could not complete the GitHub operation.",invalid:"Invalid or expired token.",forbidden:"This token cannot edit the catalogue. Check repository selection and Contents: Read and write.",owner:"This GitHub token does not belong to the repository owner.",conflict:"The catalogue changed on GitHub. Reload the page and try again.",notFound:"The book is no longer in the published catalogue.",logout:"Editing locked. GitHub token cleared.",loginNeeded:"Enter the fine-grained GitHub token.",malformed:"GitHub returned an invalid catalogue."},
+  ru:{required:"Сначала открой редактирование с помощью токена GitHub.",connected:"Авторизация владельца подтверждена. Для изменений будут созданы Pull Request.",connecting:"Проверка авторизации GitHub…",saving:"Создание Pull Request на GitHub…",saved:"Pull Request создан. Выполни слияние вручную для публикации.",failed:"Не удалось выполнить операцию с GitHub.",invalid:"Неверный токен или срок его действия истёк.",forbidden:"Этот токен не может изменять каталог. Проверь выбор репозитория и разрешение Contents: Read and write.",owner:"Этот токен не принадлежит владельцу репозитория.",conflict:"Каталог изменился на GitHub. Обнови страницу и повтори действие.",notFound:"Этой книги уже нет в опубликованном каталоге.",logout:"Редактирование закрыто. Токен удалён из памяти.",loginNeeded:"Введи токен GitHub с ограниченными правами.",malformed:"GitHub вернул неправильный каталог."}
 };
 function adminText(k){return ADMIN_TEXT[lang][k]}
 function adminMessage(message,isError=false){const el=id("admin-message");el.textContent=message;el.classList.toggle("error",isError)}
@@ -278,11 +278,23 @@ async function publishChange(label,modifier){
     const updated=snapshot.catalog;
     modifier(updated);
     validateImport(updated);
+    // Owner approval remains mandatory: create a new branch and Pull Request.
+    const root="https://api.github.com/repos/homoprovincialis/Homo-Provincialis";
+    const mainRef=await adminRequest(root+"/git/ref/heads/main");
+    const newBranch="ool/browser-edit-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
+    await adminRequest(root+"/git/refs",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({ref:"refs/heads/"+newBranch,sha:mainRef.object.sha})});
     await adminRequest(ADMIN_API,{method:"PUT",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({message:"OOL: "+label,content:encodeBookJSON(updated),sha:snapshot.sha,branch:"main"})});
-    state=updated;
-    try{save();localStorage.setItem(PUBLISHED_KEY,JSON.stringify([...updated.read,...updated.queue].map(b=>b.id)))}catch(e){}
-    resetOrder();render();adminMessage(adminText("saved"));
+      body:JSON.stringify({message:"OOL: "+label,content:encodeBookJSON(updated),sha:snapshot.sha,branch:newBranch})});
+    const proposal=await adminRequest(root+"/pulls",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({title:"OOL: "+label,head:newBranch,base:"main",
+        body:"Изменение каталога OOL через защищённую панель владельца. Публикация только после ручного слияния."})});
+    // Preview changes in this tab. Public changes await manual merge of the PR.
+    state=updated;resetOrder();render();
+    const target=id("admin-message");
+    target.textContent=lang==="ru"?"Изменение отправлено на проверку. ":"Change submitted for review. ";
+    const link=document.createElement("a");link.href=proposal.html_url;link.target="_blank";
+    link.rel="noopener noreferrer";link.textContent="Pull Request #"+proposal.number;target.append(link);
     return true;
   }catch(error){adminMessage(error.message||adminText("failed"),true);return false}
   finally{adminBusy=false;adminInterface()}
