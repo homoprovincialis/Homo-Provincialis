@@ -1301,6 +1301,16 @@
       "year": "2004",
       "editionYear": "2015",
       "rating": null
+    },
+    {
+      "id": "hume-enquiry-human-understanding-1748",
+      "original": "An Enquiry Concerning Human Understanding",
+      "ru": "Исследование о человеческом разумении",
+      "en": "An Enquiry Concerning Human Understanding",
+      "author": "Дэвид Юм (David Hume)",
+      "year": "1748",
+      "editionYear": "1995",
+      "rating": null
     }
   ]
 }
