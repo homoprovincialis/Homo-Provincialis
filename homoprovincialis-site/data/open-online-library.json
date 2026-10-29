@@ -1,337 +1,394 @@
 {
   "read": [
     {
+      "id": "b_mvgzwgm9_279um",
       "original": "Maitreyi.",
       "ru": "Майтрейи",
       "en": "Maitreyi",
       "author": "Mircea Eliade",
       "year": "1933",
-      "rating": 9,
-      "id": "b_mvgzwgm9_279um"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvh0i8d4_tpn51",
       "original": "Robinson Crusoe",
       "ru": "Робинзон Крузо",
       "en": "Robinson Crusoe",
       "author": "Daniel Defoe",
       "year": "1719",
-      "rating": 9,
-      "id": "b_mvh0i8d4_tpn51"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvh0kcj8_2xpfb",
       "original": "Одноэтажная Америка",
       "ru": "Одноэтажная Америка",
       "en": "One-storied America",
       "author": "Илья Ильф, Евгений Петров",
       "year": "1937",
-      "rating": 9,
-      "id": "b_mvh0kcj8_2xpfb"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvh0nwko_utdzd",
       "original": "Моя жизнь: Опыт автобиографии",
       "ru": "Моя жизнь: Опыт автобиографии",
       "en": "My Life: An Attempt at an Autobiography",
       "author": "Троцкий Л. Д.",
       "year": "1930",
-      "rating": 9,
-      "id": "b_mvh0nwko_utdzd"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvh0qnb4_ubp3l",
       "original": "My Life and Work",
       "ru": "Моя жизнь, мои достижения",
       "en": "My Life and Work",
       "author": "Henry Ford",
       "year": "1922",
-      "rating": 9,
-      "id": "b_mvh0qnb4_ubp3l"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvh1vess_ye4nu",
       "original": "Elemente de economie politică",
       "ru": "Элементы политической экономии",
       "en": "Elements of Political Economy",
       "author": "Gheorghe Tașcă",
       "year": "1936",
-      "rating": 9,
-      "id": "b_mvh1vess_ye4nu"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvif7zu1_nopct",
       "original": "Диоген. Переоценка ценностей",
       "ru": "Диоген. Переоценка ценностей",
       "en": "Diogenes of Sinope: Revaluation of Values",
       "author": "Диоген Синопский - И. М. Нахов",
       "year": "2007",
-      "rating": 9,
-      "id": "b_mvif7zu1_nopct"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvifftac_ne588",
       "original": "Les Essais",
       "ru": "Опыты",
       "en": "Essays",
       "author": "Michel de Montaigne",
       "year": "1588",
-      "rating": 10,
-      "id": "b_mvifftac_ne588"
+      "editionYear": "",
+      "rating": 10
     },
     {
+      "id": "b_mvifz9it_zd5rk",
       "original": "El ingenioso hidalgo don Quixote de la Mancha",
       "ru": "Хитроумный идальго Дон Кихот Ламанчский",
       "en": "The Ingenious Gentleman Don Quixote of La Mancha",
       "author": "Miguel de Cervantes Saavedra",
       "year": "1605",
-      "rating": 7,
-      "id": "b_mvifz9it_zd5rk"
+      "editionYear": "",
+      "rating": 7
     },
     {
+      "id": "b_mvig0tw0_gcjhw",
       "original": "Segunda parte del ingenioso caballero don Quijote de la Mancha",
       "ru": "Вторая часть хитроумного кабальеро Дон Кихота Ламанчского",
       "en": "Second Part of the Ingenious Knight Don Quixote of La Mancha",
       "author": "Miguel de Cervantes Saavedra",
       "year": "1615",
-      "rating": 10,
-      "id": "b_mvig0tw0_gcjhw"
+      "editionYear": "",
+      "rating": 10
     },
     {
+      "id": "b_mvig5ij4_qcsq1",
       "original": "The Headless Horseman: A Strange Tale of Texas",
       "ru": "Всадник без головы",
       "en": "The Headless Horseman",
       "author": "Thomas Mayne Reid",
       "year": "1866",
-      "rating": 7,
-      "id": "b_mvig5ij4_qcsq1"
+      "editionYear": "",
+      "rating": 7
     },
     {
+      "id": "b_mvig7s5c_o4joj",
       "original": "L’Homme qui rit",
       "ru": "Человек, который смеётся",
       "en": "The Man Who Laughs",
       "author": "Victor Hugo",
       "year": "1869",
-      "rating": 10,
-      "id": "b_mvig7s5c_o4joj"
+      "editionYear": "",
+      "rating": 10
     },
     {
+      "id": "b_mvigevtw_6ubvu",
       "original": "О сопротивлении злу силою",
       "ru": "О сопротивлении злу силою",
       "en": "On Resistance to Evil by Force",
       "author": "Иван Александрович Ильин",
       "year": "1925",
-      "rating": 8,
-      "id": "b_mvigevtw_6ubvu"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvigib1w_tna2o",
       "original": "Leviathan or The Matter, Forme and Power of a Common-Wealth Ecclesiasticall and Civil",
       "ru": "Левиафан",
       "en": "Leviathan",
       "author": "Thomas Hobbes",
       "year": "1651",
-      "rating": 9,
-      "id": "b_mvigib1w_tna2o"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvigkqyk_gtgb6",
       "original": "Дубровский",
       "ru": "Дубровский",
       "en": "Dubrovsky",
       "author": "Александр Сергеевич Пушкин",
       "year": "1841",
-      "rating": 9,
-      "id": "b_mvigkqyk_gtgb6"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvjqurke_dnicu",
       "original": "Vom Kriege",
       "ru": "О войне",
       "en": "On War",
       "author": "Carl von Clausewitz",
       "year": "1832",
-      "rating": 9,
-      "id": "b_mvjqurke_dnicu"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvjqw1na_sct0k",
       "original": "Die Räuber",
       "ru": "Разбойники",
       "en": "The Robbers",
       "author": "Friedrich Schiller",
       "year": "1781",
-      "rating": 10,
-      "id": "b_mvjqw1na_sct0k"
+      "editionYear": "",
+      "rating": 10
     },
     {
+      "id": "b_mvjqxnzq_g7150",
       "original": "Der abentheuerliche Simplicissimus Teutsch",
       "ru": "Симплициссимус",
       "en": "Simplicius Simplicissimus",
       "author": "Hans Jakob Christoffel von Grimmelshausen",
       "year": "1668",
-      "rating": 10,
-      "id": "b_mvjqxnzq_g7150"
+      "editionYear": "",
+      "rating": 10
     },
     {
+      "id": "b_mvjqzldi_tmzte",
       "original": "Gli uomini e le rovine",
       "ru": "Люди и руины",
       "en": "Men Among the Ruins",
       "author": "Julius Evola",
       "year": "1953",
-      "rating": 8,
-      "id": "b_mvjqzldi_tmzte"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjr0mom_5gin0",
       "original": "Captain Blood: His Odyssey",
       "ru": "Одиссея капитана Блада",
       "en": "Captain Blood: His Odyssey",
       "author": "Rafael Sabatini",
       "year": "1922",
-      "rating": 8,
-      "id": "b_mvjr0mom_5gin0"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjr2sle_jcaa9",
       "original": "A General History of the Robberies and Murders of the Most Notorious Pyrates",
       "ru": "Всеобщая история пиратов",
       "en": "A General History of the Pyrates",
       "author": "Daniel Defoe",
       "year": "1724",
-      "rating": 8,
-      "id": "b_mvjr2sle_jcaa9"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjr48cm_oyewx",
       "original": "Walden; or, Life in the Woods",
       "ru": "Уолден, или Жизнь в лесу",
       "en": "Walden; or, Life in the Woods",
       "author": "Henry David Thoreau",
       "year": "1854",
-      "rating": 9,
-      "id": "b_mvjr48cm_oyewx"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvjr67ra_jbn2u",
       "original": "Перманентная революция",
       "ru": "Перманентная революция",
       "en": "The Permanent Revolution",
       "author": "Лев Давидович Троцкий",
       "year": "1930",
-      "rating": 7,
-      "id": "b_mvjr67ra_jbn2u"
+      "editionYear": "",
+      "rating": 7
     },
     {
+      "id": "b_mvjr901x_bgnn8",
       "original": "Ten Days That Shook the World",
       "ru": "Десять дней, которые потрясли мир",
       "en": "Ten Days That Shook the World",
       "author": "John Reed",
       "year": "1919",
-      "rating": 8,
-      "id": "b_mvjr901x_bgnn8"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjrahq5_svnt7",
       "original": "The Call of the Wild",
       "ru": "Зов предков",
       "en": "The Call of the Wild",
       "author": "Jack London",
       "year": "1903",
-      "rating": 7,
-      "id": "b_mvjrahq5_svnt7"
+      "editionYear": "",
+      "rating": 7
     },
     {
+      "id": "b_mvjrd0cy_n6l6w",
       "original": "Взаимопомощь как фактор эволюции",
       "ru": "Взаимопомощь как фактор эволюции",
       "en": "Mutual Aid: A Factor of Evolution",
       "author": "Пётр Алексеевич Кропоткин",
       "year": "1902",
-      "rating": 9,
-      "id": "b_mvjrd0cy_n6l6w"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvjrfl9l_b7vbn",
       "original": "On Liberty",
       "ru": "О свободе",
       "en": "On Liberty",
       "author": "John Stuart Mill",
       "year": "1859",
-      "rating": 8,
-      "id": "b_mvjrfl9l_b7vbn"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjrhhju_elr6g",
       "original": "Aphorismen zur Lebensweisheit",
       "ru": "Афоризмы житейской мудрости",
       "en": "Aphorisms on the Wisdom of Life",
       "author": "Arthur Schopenhauer",
       "year": "1851",
-      "rating": 9,
-      "id": "b_mvjrhhju_elr6g"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvjrjpml_1op52",
       "original": "The Templars: The Rise and Spectacular Fall of God's Holy Warriors",
       "ru": "Тамплиеры: Рождение и гибель великого ордена",
       "en": "The Templars: The Rise and Spectacular Fall of God's Holy Warriors",
       "author": "Dan Jones",
       "year": "2017",
-      "rating": 8,
-      "id": "b_mvjrjpml_1op52"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjrlhju_wuk6j",
       "original": "La société de consommation: ses mythes et ses structures",
       "ru": "Общество потребления. Его мифы и структуры",
       "en": "The Consumer Society: Myths and Structures",
       "author": "Jean Baudrillard",
       "year": "1970",
-      "rating": 10,
-      "id": "b_mvjrlhju_wuk6j"
+      "editionYear": "",
+      "rating": 10
     },
     {
+      "id": "b_mvjrow6m_l7lv4",
       "original": "Воспоминания",
       "ru": "Воспоминания",
       "en": "The Memoirs of Nestor Makhno",
       "author": "Нестор Иванович Махно",
       "year": "1929",
-      "rating": 9,
-      "id": "b_mvjrow6m_l7lv4"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvjrqxxm_0eg9r",
       "original": "Das sogenannte Böse. Zur Naturgeschichte der Aggression",
       "ru": "Агрессия, или Так называемое зло",
       "en": "On Aggression",
       "author": "Konrad Lorenz",
       "year": "1963",
-      "rating": 9,
-      "id": "b_mvjrqxxm_0eg9r"
+      "editionYear": "",
+      "rating": 9
     },
     {
+      "id": "b_mvjrsspy_ua1vm",
       "original": "Metaphysik der Geschlechtsliebe",
       "ru": "Метафизика половой любви",
       "en": "The Metaphysics of Sexual Love",
       "author": "Arthur Schopenhauer",
       "year": "1844",
-      "rating": 10,
-      "id": "b_mvjrsspy_ua1vm"
+      "editionYear": "",
+      "rating": 10
     },
     {
+      "id": "b_mvjtj99a_qyrhw",
       "original": "Der Ursprung der Familie, des Privateigenthums und des Staats",
       "ru": "Происхождение семьи, частной собственности и государства",
       "en": "The Origin of the Family, Private Property and the State",
       "author": "Friedrich Engels",
       "year": "1884",
-      "rating": 8,
-      "id": "b_mvjtj99a_qyrhw"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjtly4y_u0tc4",
       "original": "Die protestantische Ethik und der Geist des Kapitalismus",
       "ru": "Протестантская этика и дух капитализма",
       "en": "The Protestant Ethic and the Spirit of Capitalism",
       "author": "Max Weber",
       "year": "1905",
-      "rating": 7,
-      "id": "b_mvjtly4y_u0tc4"
+      "editionYear": "",
+      "rating": 7
     },
     {
+      "id": "b_mvjtodka_djc73",
       "original": "Propaganda",
       "ru": "Пропаганда",
       "en": "Propaganda",
       "author": "Edward Bernays",
       "year": "1928",
-      "rating": 8,
-      "id": "b_mvjtodka_djc73"
+      "editionYear": "",
+      "rating": 8
     },
     {
+      "id": "b_mvjuuy52_iiacr",
       "original": "Made in America — My Story",
       "ru": "Сделано в Америке",
       "en": "Made in America",
       "author": "Sam Walton",
       "year": "1992",
-      "rating": 8,
-      "id": "b_mvjuuy52_iiacr"
+      "editionYear": "",
+      "rating": 8
+    },
+    {
+      "id": "krotov-praktika-volnykh-puteshestviy-1995",
+      "original": "Практика вольных путешествий",
+      "ru": "Практика вольных путешествий",
+      "en": "The Practice of Independent Travel",
+      "author": "Антон Кротов",
+      "year": "1995",
+      "editionYear": "",
+      "rating": 7
+    },
+    {
+      "id": "bob-black-the-abolition-of-work-1985",
+      "original": "The Abolition of Work",
+      "ru": "Упразднение работы",
+      "en": "The Abolition of Work",
+      "author": "Bob Black",
+      "year": "1985",
+      "editionYear": "",
+      "rating": 10
     }
   ],
   "queue": [
@@ -342,6 +399,7 @@
       "en": "A Treatise of Human Nature",
       "author": "Дэвид Юм (David Hume)",
       "year": "1739–1740",
+      "editionYear": "",
       "rating": null
     }
   ]
