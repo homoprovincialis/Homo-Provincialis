@@ -553,6 +553,16 @@
       "rating": null
     },
     {
+      "id": "ool-edition-18-20261029",
+      "original": "Beyond Freedom and Dignity",
+      "ru": "По ту сторону свободы и достоинства",
+      "en": "Beyond Freedom and Dignity",
+      "author": "B. F. Skinner",
+      "year": "1971",
+      "editionYear": "2015",
+      "rating": null
+    },
+    {
       "id": "ool-edition-19-20261029",
       "original": "Между войной и миром: мирные процессы и вооружённое насилие",
       "ru": "Между войной и миром: мирные процессы и вооружённое насилие",
@@ -763,6 +773,16 @@
       "rating": null
     },
     {
+      "id": "ool-edition-40-20261029",
+      "original": "De iure belli ac pacis",
+      "ru": "О праве войны и мира",
+      "en": "On the Law of War and Peace",
+      "author": "Hugo Grotius",
+      "year": "1625",
+      "editionYear": "1994",
+      "rating": null
+    },
+    {
       "id": "ool-edition-41-20261029",
       "original": "Les grands systèmes de droit contemporains",
       "ru": "Основные правовые системы современности",
@@ -790,6 +810,26 @@
       "author": "Ямамото Цунэтомо",
       "year": "1906",
       "editionYear": "2004",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-44-20261029",
+      "original": "Some Problems of Philosophy",
+      "ru": "Введение в философию",
+      "en": "Some Problems of Philosophy",
+      "author": "William James",
+      "year": "1911",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-45-20261029",
+      "original": "The Problems of Philosophy",
+      "ru": "Проблемы философии",
+      "en": "The Problems of Philosophy",
+      "author": "Bertrand Russell",
+      "year": "1912",
+      "editionYear": "2000",
       "rating": null
     },
     {
