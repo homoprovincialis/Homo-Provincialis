@@ -1201,6 +1201,126 @@
       "year": "2011",
       "editionYear": "2011",
       "rating": null
+    },
+    {
+      "id": "ool-final-01-20261029",
+      "original": "Individuals: An Essay in Descriptive Metaphysics",
+      "ru": "Индивиды. Опыт дескриптивной метафизики",
+      "en": "Individuals: An Essay in Descriptive Metaphysics",
+      "author": "Peter Frederick Strawson",
+      "year": "1959",
+      "editionYear": "2009",
+      "rating": null
+    },
+    {
+      "id": "ool-final-02-20261029",
+      "original": "Computer Networks",
+      "ru": "Компьютерные сети",
+      "en": "Computer Networks",
+      "author": "Эндрю Таненбаум и соавторы",
+      "year": "1981",
+      "editionYear": "2023",
+      "rating": null
+    },
+    {
+      "id": "ool-final-03-20261029",
+      "original": "The Second World War, 1939–45: A Strategical and Tactical History",
+      "ru": "Вторая мировая война 1939–1945 гг. Стратегический и тактический обзор",
+      "en": "The Second World War, 1939–45: A Strategical and Tactical History",
+      "author": "J. F. C. Fuller",
+      "year": "1948",
+      "editionYear": "2005",
+      "rating": null
+    },
+    {
+      "id": "ool-final-04-20261029",
+      "original": "Qu'est-ce que la propriété ? ou Recherches sur le principe du droit et du gouvernement",
+      "ru": "Что такое собственность? или Исследование о принципе права и власти",
+      "en": "What Is Property? Or, an Inquiry into the Principle of Right and of Government",
+      "author": "Pierre-Joseph Proudhon",
+      "year": "1840",
+      "editionYear": "1907",
+      "rating": null
+    },
+    {
+      "id": "ool-final-05-20261029",
+      "original": "Введение в политическую философию",
+      "ru": "Введение в политическую философию",
+      "en": "Introduction to Political Philosophy",
+      "author": "Лео Штраус",
+      "year": "2000",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-final-06-20261029",
+      "original": "Краткий курс истории философии",
+      "ru": "Краткий курс истории философии",
+      "en": "A Short Course in the History of Philosophy",
+      "author": "Артур Шопенгауэр",
+      "year": "2018",
+      "editionYear": "2018",
+      "rating": null
+    },
+    {
+      "id": "ool-final-07-20261029",
+      "original": "Учебник сержанта Сухопутных войск. Для сержантов войск ПВО СВ — командиров отделений и начальников установок ЗАК",
+      "ru": "Учебник сержанта Сухопутных войск. Для сержантов войск ПВО СВ — командиров отделений и начальников установок ЗАК",
+      "en": "Ground Forces Sergeant's Manual: For Air Defence Sergeants, Squad Commanders and Antiaircraft Gun Installation Chiefs",
+      "author": "Коллектив авторов; под ред. Б. Ф. Кузьмина",
+      "year": "1991",
+      "editionYear": "1991",
+      "rating": null
+    },
+    {
+      "id": "ool-final-08-20261029",
+      "original": "La Pensée sauvage",
+      "ru": "Первобытное мышление",
+      "en": "The Savage Mind",
+      "author": "Claude Lévi-Strauss",
+      "year": "1962",
+      "editionYear": "1994",
+      "rating": null
+    },
+    {
+      "id": "ool-final-09-20261029",
+      "original": "Мафия. Новые мировые тенденции",
+      "ru": "Мафия. Новые мировые тенденции",
+      "en": "Mafia: New Global Trends",
+      "author": "Владимир Овчинский",
+      "year": "2016",
+      "editionYear": "2016",
+      "rating": null
+    },
+    {
+      "id": "ool-final-10-20261029",
+      "original": "Die Welt als Wille und Vorstellung",
+      "ru": "Мир как воля и представление",
+      "en": "The World as Will and Representation",
+      "author": "Arthur Schopenhauer",
+      "year": "1819",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-final-11-20261029",
+      "original": "Λακεδαιμονίων Πολιτεία",
+      "ru": "Лакедемонская полития",
+      "en": "Constitution of the Lacedaemonians",
+      "author": "Ксенофонт",
+      "year": "380 до н. э.",
+      "editionYear": "2014",
+      "rating": null
+    },
+    {
+      "id": "ool-final-12-20261029",
+      "original": "Избранное. Динамика культуры",
+      "ru": "Избранное. Динамика культуры",
+      "en": "Selected Works: Dynamics of Culture",
+      "author": "Бронислав Малиновский",
+      "year": "2004",
+      "editionYear": "2015",
+      "rating": null
     }
   ]
 }
