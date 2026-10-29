@@ -389,6 +389,16 @@
       "year": "1985",
       "editionYear": "2004",
       "rating": 10
+    },
+    {
+      "id": "ool-edition-43-20261029",
+      "original": "葉隠 (Hagakure)",
+      "ru": "Хагакурэ. Сокрытое в листве",
+      "en": "Hagakure",
+      "author": "Ямамото Цунэтомо",
+      "year": "1716",
+      "editionYear": "2004",
+      "rating": 8
     }
   ],
   "queue": [
@@ -779,16 +789,6 @@
       "en": "The Warrior's Primer",
       "author": "Дайдодзи Юдзан",
       "year": "1725",
-      "editionYear": "2004",
-      "rating": null
-    },
-    {
-      "id": "ool-edition-43-20261029",
-      "original": "葉隠 (Hagakure)",
-      "ru": "Хагакурэ. Сокрытое в листве",
-      "en": "Hagakure",
-      "author": "Ямамото Цунэтомо",
-      "year": "1906",
       "editionYear": "2004",
       "rating": null
     },
