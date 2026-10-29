@@ -8,7 +8,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const {chromium}=require('playwright');
 const html=fs.readFileSync(path.join(__dirname,'../homoprovincialis-site/open-online-library.html'),'utf8');
-const backup=JSON.parse(fs.readFileSync(path.join(__dirname,'../homoprovincialis-site/documents/open-online-library-backup.json'),'utf8'));
+const backup=JSON.parse(fs.readFileSync(path.join(__dirname,'../homoprovincialis-site/data/open-online-library.json'),'utf8'));
 const KEY='hp_open_online_library_v1';
 const sample={read:[backup.read[0]],queue:[{...backup.read[1],id:'queue-book',rating:null}]};
 const copy=value=>JSON.parse(JSON.stringify(value));
@@ -152,10 +152,10 @@ for(const lang of ['en','ru']){
       assert.equal(await page.locator('#read-list img').count(),0);
       assert.equal(await page.evaluate(()=>window.__xss),undefined);
     });
-    await t.test('existing 37-book backup imports and exports without data loss',async()=>{
+    await t.test('published catalog imports and exports without data loss',async()=>{
       await importObject(backup);
-      assert.equal(await page.locator('#read-count').textContent(),'37');
-      assert.equal(await page.locator('#queue-count').textContent(),'0');
+      assert.equal(await page.locator('#read-count').textContent(),String(backup.read.length));
+      assert.equal(await page.locator('#queue-count').textContent(),String(backup.queue.length));
       assert.deepEqual(await exported(),backup);
       await page.reload();
       await page.locator(`[data-language="${lang}"]`).click();
@@ -163,7 +163,7 @@ for(const lang of ['en','ru']){
       await page.locator('#catalog-search').fill('Robinson');
       assert.equal(await page.locator('#read-list .book').count(),1);
       await page.locator('#catalog-search').fill('');
-      assert.equal(await page.locator('#read-list .book').count(),37);
+      assert.equal(await page.locator('#read-list .book').count(),backup.read.length);
     });
     await t.test('add, edit, move and re-import exported books still work',async()=>{
       await page.locator('#add-queue').click();
@@ -179,8 +179,8 @@ for(const lang of ['en','ru']){
       const promptHandler=async dialog=>{dialogs.push({type:dialog.type(),message:dialog.message()});await dialog.accept('8');};
       page.removeAllListeners('dialog');page.on('dialog',promptHandler);
       await page.locator('#queue-list [data-a="move"]').click();
-      assert.equal(await page.locator('#queue-count').textContent(),'0');
-      assert.equal(await page.locator('#read-count').textContent(),'38');
+      assert.equal(await page.locator('#queue-count').textContent(),String(backup.queue.length));
+      assert.equal(await page.locator('#read-count').textContent(),String(backup.read.length+1));
       const moved=await exported();
       assert.equal(moved.read.find(b=>b.original==='New <book> & "notes"').rating,8);
     });
