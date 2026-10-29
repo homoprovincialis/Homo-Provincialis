@@ -401,6 +401,426 @@
       "year": "1739–1740",
       "editionYear": "",
       "rating": null
+    },
+    {
+      "id": "ool-edition-01-20261029",
+      "original": "Les Structures du quotidien : le possible et l'impossible",
+      "ru": "Структуры повседневности: возможное и невозможное. Том 1",
+      "en": "The Structures of Everyday Life",
+      "author": "Fernand Braudel",
+      "year": "1979",
+      "editionYear": "1986",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-02-20261029",
+      "original": "Les Jeux de l'échange",
+      "ru": "Игры обмена. Том 2",
+      "en": "The Wheels of Commerce",
+      "author": "Fernand Braudel",
+      "year": "1979",
+      "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-03-20261029",
+      "original": "Le Temps du monde",
+      "ru": "Время мира. Том 3",
+      "en": "The Perspective of the World",
+      "author": "Fernand Braudel",
+      "year": "1979",
+      "editionYear": "1992",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-04-20261029",
+      "original": "Природа моральной философии (сборник)",
+      "ru": "Природа моральной философии",
+      "en": "The Nature of Moral Philosophy (collection)",
+      "author": "George Edward Moore",
+      "year": "Разные годы",
+      "editionYear": "1999",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-05-20261029",
+      "original": "Архаическая Спарта: искусство и политика",
+      "ru": "Архаическая Спарта: искусство и политика",
+      "en": "Archaic Sparta: Art and Politics",
+      "author": "Юрий Андреев",
+      "year": "2008",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-06-20261029",
+      "original": "Атеизм и другие работы (сборник)",
+      "ru": "Атеизм и другие работы",
+      "en": "Atheism and Other Writings",
+      "author": "Alexandre Kojève",
+      "year": "Разные годы",
+      "editionYear": "2007",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-07-20261029",
+      "original": "The Coming Defeat of Communism",
+      "ru": "Грядущее поражение коммунизма",
+      "en": "The Coming Defeat of Communism",
+      "author": "James Burnham",
+      "year": "1950",
+      "editionYear": "1951",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-10-20261029",
+      "original": "Die Grundlagen der Arithmetik",
+      "ru": "Основоположения арифметики",
+      "en": "The Foundations of Arithmetic",
+      "author": "Gottlob Frege",
+      "year": "1884",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-11-20261029",
+      "original": "Логика и логическая семантика (сборник)",
+      "ru": "Логика и логическая семантика",
+      "en": "Logic and Logical Semantics (collection)",
+      "author": "Gottlob Frege",
+      "year": "Разные годы",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-14-20261029",
+      "original": "Этика. Происхождение и развитие нравственности",
+      "ru": "Этика. Происхождение и развитие нравственности",
+      "en": "Ethics: Origin and Development",
+      "author": "Пётр Кропоткин",
+      "year": "1922",
+      "editionYear": "1991",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-19-20261029",
+      "original": "Между войной и миром: мирные процессы и вооружённое насилие",
+      "ru": "Между войной и миром: мирные процессы и вооружённое насилие",
+      "en": "Between War and Peace: Peace Processes and Armed Violence",
+      "author": "Екатерина Степанова",
+      "year": "2023",
+      "editionYear": "2023",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-20-20261029",
+      "original": "An Inquiry into the Human Mind on the Principles of Common Sense",
+      "ru": "Исследование человеческого ума на принципах здравого смысла",
+      "en": "An Inquiry into the Human Mind on the Principles of Common Sense",
+      "author": "Thomas Reid",
+      "year": "1764",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-21-20261029",
+      "original": "Metafisica della guerra (raccolta di articoli)",
+      "ru": "Метафизика войны",
+      "en": "Metaphysics of War",
+      "author": "Julius Evola",
+      "year": "Статьи разных лет, с 1935",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-22-20261029",
+      "original": "Kritik der reinen Erfahrung",
+      "ru": "Критика чистого опыта",
+      "en": "Critique of Pure Experience",
+      "author": "Richard Avenarius",
+      "year": "1888–1890",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-23-20261029",
+      "original": "Language, Truth and Logic",
+      "ru": "Язык, истина и логика",
+      "en": "Language, Truth and Logic",
+      "author": "A. J. Ayer",
+      "year": "1936",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-24-20261029",
+      "original": "L'Homme révolté",
+      "ru": "Бунтующий человек",
+      "en": "The Rebel",
+      "author": "Albert Camus",
+      "year": "1951",
+      "editionYear": "2017",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-25-20261029",
+      "original": "Le Malentendu",
+      "ru": "Недоразумение",
+      "en": "The Misunderstanding",
+      "author": "Albert Camus",
+      "year": "1944",
+      "editionYear": "2017",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-26-20261029",
+      "original": "Философские трактаты (сборник)",
+      "ru": "Философские трактаты",
+      "en": "Philosophical Treatises (collection)",
+      "author": "Аль-Фараби",
+      "year": "Нет единого года",
+      "editionYear": "1972",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-27-20261029",
+      "original": "Сочинения Лукиана (сборник), том 1",
+      "ru": "Сочинения. Том 1",
+      "en": "Collected Works. Volume 1",
+      "author": "Лукиан Самосатский",
+      "year": "Нет единого года",
+      "editionYear": "2001",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-28-20261029",
+      "original": "Сочинения Лукиана (сборник), том 2",
+      "ru": "Сочинения. Том 2",
+      "en": "Collected Works. Volume 2",
+      "author": "Лукиан Самосатский",
+      "year": "Нет единого года",
+      "editionYear": "2001",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-29-20261029",
+      "original": "Только анархизм: антология анархистских текстов после 1945 года",
+      "ru": "Только анархизм: антология анархистских текстов после 1945 года",
+      "en": "Only Anarchism: Anthology of Anarchist Texts after 1945",
+      "author": "Боб Блэк (составитель)",
+      "year": "2020",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-30-20261029",
+      "original": "Сочинения Боэция Дакийского (сборник)",
+      "ru": "Сочинения",
+      "en": "Collected Works",
+      "author": "Боэций Дакийский",
+      "year": "Нет единого года",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-31-20261029",
+      "original": "Компьютерные сети: принципы, технологии, протоколы",
+      "ru": "Компьютерные сети: принципы, технологии, протоколы",
+      "en": "Computer Networks: Principles, Technologies and Protocols",
+      "author": "Виктор Олифер, Наталья Олифер",
+      "year": "1999",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-32-20261029",
+      "original": "Основы философии",
+      "ru": "Основы философии",
+      "en": "Fundamentals of Philosophy",
+      "author": "Виктор Канке",
+      "year": "1999",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-33-20261029",
+      "original": "Философские сочинения (сборник)",
+      "ru": "Философские сочинения",
+      "en": "Philosophical Writings",
+      "author": "Вольтер",
+      "year": "Нет единого года",
+      "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-34-20261029",
+      "original": "Логико-философские исследования. Избранные труды (сборник)",
+      "ru": "Логико-философские исследования. Избранные труды",
+      "en": "Logico-Philosophical Studies: Selected Works",
+      "author": "Georg Henrik von Wright",
+      "year": "Разные годы",
+      "editionYear": "1986",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-35-20261029",
+      "original": "Сочинения Пьера Гассенди (сборник), том 1",
+      "ru": "Сочинения. Том 1",
+      "en": "Collected Works. Volume 1",
+      "author": "Pierre Gassendi",
+      "year": "Нет единого года",
+      "editionYear": "1966",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-36-20261029",
+      "original": "Сочинения Пьера Гассенди (сборник), том 2",
+      "ru": "Сочинения. Том 2",
+      "en": "Collected Works. Volume 2",
+      "author": "Pierre Gassendi",
+      "year": "Нет единого года",
+      "editionYear": "1968",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-37-20261029",
+      "original": "Resistance to Civil Government",
+      "ru": "О гражданском неповиновении",
+      "en": "Civil Disobedience",
+      "author": "Henry David Thoreau",
+      "year": "1849",
+      "editionYear": "2021",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-38-20261029",
+      "original": "La Société du spectacle",
+      "ru": "Общество спектакля",
+      "en": "The Society of the Spectacle",
+      "author": "Guy Debord",
+      "year": "1967",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-39-20261029",
+      "original": "Логико-философские труды (сборник)",
+      "ru": "Логико-философские труды",
+      "en": "Logico-Philosophical Writings",
+      "author": "Gottlob Frege",
+      "year": "Разные годы",
+      "editionYear": "2017",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-41-20261029",
+      "original": "Les grands systèmes de droit contemporains",
+      "ru": "Основные правовые системы современности",
+      "en": "Major Legal Systems in the World Today",
+      "author": "René David",
+      "year": "1964",
+      "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-42-20261029",
+      "original": "武道初心集 (Budō Shoshinshū)",
+      "ru": "Кодекс бусидо",
+      "en": "The Warrior's Primer",
+      "author": "Дайдодзи Юдзан",
+      "year": "1834",
+      "editionYear": "2004",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-43-20261029",
+      "original": "葉隠 (Hagakure)",
+      "ru": "Хагакурэ. Сокрытое в листве",
+      "en": "Hagakure",
+      "author": "Ямамото Цунэтомо",
+      "year": "1906",
+      "editionYear": "2004",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-46-20261029",
+      "original": "Дмитрий Кантемир",
+      "ru": "Дмитрий Кантемир",
+      "en": "Dimitrie Cantemir",
+      "author": "А. И. Бабий",
+      "year": "1984",
+      "editionYear": "1984",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-47-20261029",
+      "original": "Ценность и экзистенция: основоположения исторической аксиологии культуры",
+      "ru": "Ценность и экзистенция: основоположения исторической аксиологии культуры",
+      "en": "Value and Existence",
+      "author": "Илья Докучаев",
+      "year": "2009",
+      "editionYear": "2009",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-48-20261029",
+      "original": "Дэвид Юм и современная философия (сборник)",
+      "ru": "Дэвид Юм и современная философия",
+      "en": "David Hume and Contemporary Philosophy",
+      "author": "под ред. Ильи Касавина",
+      "year": "2012",
+      "editionYear": "2012",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-49-20261029",
+      "original": "Civitas Solis / La città del Sole",
+      "ru": "Город Солнца",
+      "en": "The City of the Sun",
+      "author": "Tommaso Campanella",
+      "year": "1623",
+      "editionYear": "1954",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-50-20261029",
+      "original": "Zum ewigen Frieden",
+      "ru": "К вечному миру",
+      "en": "Perpetual Peace",
+      "author": "Immanuel Kant",
+      "year": "1795",
+      "editionYear": "2019",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-51-20261029",
+      "original": "Die Tyrannei der Werte",
+      "ru": "Тирания ценностей",
+      "en": "The Tyranny of Values",
+      "author": "Carl Schmitt",
+      "year": "1960",
+      "editionYear": "2014",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-52-20261029",
+      "original": "Пословицы русского народа",
+      "ru": "Пословицы и поговорки русского народа",
+      "en": "Russian Proverbs and Sayings",
+      "author": "Владимир Даль; ред. Б. П. Кирдан",
+      "year": "1862",
+      "editionYear": "1987",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-53-20261029",
+      "original": "La Notion de l'autorité",
+      "ru": "Понятие власти",
+      "en": "The Notion of Authority",
+      "author": "Alexandre Kojève",
+      "year": "2004",
+      "editionYear": "2006",
+      "rating": null
     }
   ]
 }
