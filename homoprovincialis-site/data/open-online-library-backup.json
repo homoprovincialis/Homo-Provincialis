@@ -1301,6 +1301,116 @@
       "year": "2004",
       "editionYear": "2015",
       "rating": null
+    },
+    {
+      "id": "hume-enquiry-human-understanding-1748",
+      "original": "An Enquiry Concerning Human Understanding",
+      "ru": "Исследование о человеческом разумении",
+      "en": "An Enquiry Concerning Human Understanding",
+      "author": "Дэвид Юм (David Hume)",
+      "year": "1748",
+      "editionYear": "2017",
+      "rating": null
+    },
+    {
+      "id": "hume-dialogues-concerning-natural-religion-1751",
+      "original": "Dialogues Concerning Natural Religion",
+      "ru": "Диалоги о естественной религии",
+      "en": "Dialogues Concerning Natural Religion",
+      "author": "Дэвид Юм",
+      "year": "1751",
+      "editionYear": "2007",
+      "rating": null
+    },
+    {
+      "id": "hume-enquiry-principles-morals-1751",
+      "original": "An Enquiry Concerning the Principles of Morals",
+      "ru": "Исследование о принципах морали",
+      "en": "An Enquiry Concerning the Principles of Morals",
+      "author": "Дэвид Юм",
+      "year": "1751",
+      "editionYear": "1996",
+      "rating": null
+    },
+    {
+      "id": "ool-wuthering-heights-1847-ed2020",
+      "original": "Wuthering Heights",
+      "ru": "Грозовой перевал",
+      "en": "Wuthering Heights",
+      "author": "Эмили Бронте",
+      "year": "1847",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-hamsun-sult-1890-ed2010",
+      "original": "Sult",
+      "ru": "Голод",
+      "en": "Hunger",
+      "author": "Кнут Гамсун",
+      "year": "1890",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "ool-goncharova-epicurus-1988",
+      "original": "Эпикур",
+      "ru": "Эпикур",
+      "en": "Epicurus",
+      "author": "Татьяна Гончарова",
+      "year": "1988",
+      "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "ool-leonhard-revolution-kinder-1955-ed1984",
+      "original": "Die Revolution entläßt ihre Kinder",
+      "ru": "Революция отвергает своих детей",
+      "en": "Child of the Revolution",
+      "author": "Вольфганг Леонгард",
+      "year": "1955",
+      "editionYear": "1984",
+      "rating": null
+    },
+    {
+      "id": "ool-paradiev-epicurus-1911",
+      "original": "Философ Эпикур и его проблема освобождения людей от богов",
+      "ru": "Философ Эпикур и его проблема освобождения людей от богов",
+      "en": "Epicurus the Philosopher and His Problem of Liberating People from the Gods",
+      "author": "Вениамин Парадиев",
+      "year": "1911",
+      "editionYear": "1911",
+      "rating": null
+    },
+    {
+      "id": "ool-epicurus-principal-doctrines-ed2022",
+      "original": "Κύριαι Δόξαι",
+      "ru": "Главные мысли",
+      "en": "Principal Doctrines",
+      "author": "Эпикур",
+      "year": "III век до н. э.",
+      "editionYear": "2022",
+      "rating": null
+    },
+    {
+      "id": "ool-dewitt-epicurus-philosophy-1954-ed1964",
+      "original": "Epicurus and His Philosophy",
+      "ru": "Эпикур и его философия",
+      "en": "Epicurus and His Philosophy",
+      "author": "Норман Уэнтуорт ДеВитт",
+      "year": "1954",
+      "editionYear": "1964",
+      "rating": null
+    },
+    {
+      "id": "ool-holderlin-hyperion-1797-ed1988",
+      "original": "Hyperion oder Der Eremit in Griechenland",
+      "ru": "Гиперион",
+      "en": "Hyperion, or The Hermit in Greece",
+      "author": "Фридрих Гёльдерлин",
+      "year": "1797–1799",
+      "editionYear": "1988",
+      "rating": null
     }
   ]
 }
