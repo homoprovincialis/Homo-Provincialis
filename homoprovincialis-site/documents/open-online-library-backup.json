@@ -398,7 +398,7 @@
       "author": "Ямамото Цунэтомо",
       "year": "1716",
       "editionYear": "2004",
-      "rating": 8
+      "rating": 7
     }
   ],
   "queue": [
@@ -1410,6 +1410,16 @@
       "author": "Фридрих Гёльдерлин",
       "year": "1797–1799",
       "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "carlyle-ethics-of-life-1902-ed2022",
+      "original": "Arbeiten und nicht verzweifeln",
+      "ru": "Этика жизни",
+      "en": "Work and Do Not Despair",
+      "author": "Томас Карлейль",
+      "year": "1902",
+      "editionYear": "2022",
       "rating": null
     }
   ]
