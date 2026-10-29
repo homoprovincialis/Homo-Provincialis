@@ -1,0 +1,1306 @@
+{
+  "read": [
+    {
+      "id": "ool-edition-43-20261029",
+      "original": "葉隠 (Hagakure)",
+      "ru": "Хагакурэ. Сокрытое в листве",
+      "en": "Hagakure",
+      "author": "Ямамото Цунэтомо",
+      "year": "1716",
+      "editionYear": "2004",
+      "rating": 8
+    },
+    {
+      "id": "b_mvgzwgm9_279um",
+      "original": "Maitreyi.",
+      "ru": "Майтрейи",
+      "en": "Maitreyi",
+      "author": "Mircea Eliade",
+      "year": "1933",
+      "editionYear": "2003",
+      "rating": 9
+    },
+    {
+      "id": "b_mvh0i8d4_tpn51",
+      "original": "Robinson Crusoe",
+      "ru": "Робинзон Крузо",
+      "en": "Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "year": "1719",
+      "editionYear": "2014",
+      "rating": 9
+    },
+    {
+      "id": "b_mvh0kcj8_2xpfb",
+      "original": "Одноэтажная Америка",
+      "ru": "Одноэтажная Америка",
+      "en": "One-storied America",
+      "author": "Илья Ильф, Евгений Петров",
+      "year": "1937",
+      "editionYear": "2017",
+      "rating": 9
+    },
+    {
+      "id": "b_mvh0nwko_utdzd",
+      "original": "Моя жизнь: Опыт автобиографии",
+      "ru": "Моя жизнь: Опыт автобиографии",
+      "en": "My Life: An Attempt at an Autobiography",
+      "author": "Троцкий Л. Д.",
+      "year": "1930",
+      "editionYear": "1991",
+      "rating": 9
+    },
+    {
+      "id": "b_mvh0qnb4_ubp3l",
+      "original": "My Life and Work",
+      "ru": "Моя жизнь, мои достижения",
+      "en": "My Life and Work",
+      "author": "Henry Ford",
+      "year": "1922",
+      "editionYear": "2023",
+      "rating": 9
+    },
+    {
+      "id": "b_mvh1vess_ye4nu",
+      "original": "Elemente de economie politică",
+      "ru": "Элементы политической экономии",
+      "en": "Elements of Political Economy",
+      "author": "Gheorghe Tașcă",
+      "year": "1936",
+      "editionYear": "1936",
+      "rating": 9
+    },
+    {
+      "id": "b_mvif7zu1_nopct",
+      "original": "Диоген. Переоценка ценностей",
+      "ru": "Диоген. Переоценка ценностей",
+      "en": "Diogenes of Sinope: Revaluation of Values",
+      "author": "Диоген Синопский - И. М. Нахов",
+      "year": "2007",
+      "editionYear": "2007",
+      "rating": 9
+    },
+    {
+      "id": "b_mvifftac_ne588",
+      "original": "Les Essais",
+      "ru": "Опыты",
+      "en": "Essays",
+      "author": "Michel de Montaigne",
+      "year": "1588",
+      "editionYear": "2017",
+      "rating": 10
+    },
+    {
+      "id": "b_mvifz9it_zd5rk",
+      "original": "El ingenioso hidalgo don Quixote de la Mancha",
+      "ru": "Хитроумный идальго Дон Кихот Ламанчский",
+      "en": "The Ingenious Gentleman Don Quixote of La Mancha",
+      "author": "Miguel de Cervantes Saavedra",
+      "year": "1605",
+      "editionYear": "2023",
+      "rating": 7
+    },
+    {
+      "id": "b_mvig0tw0_gcjhw",
+      "original": "Segunda parte del ingenioso caballero don Quijote de la Mancha",
+      "ru": "Вторая часть хитроумного кабальеро Дон Кихота Ламанчского",
+      "en": "Second Part of the Ingenious Knight Don Quixote of La Mancha",
+      "author": "Miguel de Cervantes Saavedra",
+      "year": "1615",
+      "editionYear": "2023",
+      "rating": 10
+    },
+    {
+      "id": "b_mvig5ij4_qcsq1",
+      "original": "The Headless Horseman: A Strange Tale of Texas",
+      "ru": "Всадник без головы",
+      "en": "The Headless Horseman",
+      "author": "Thomas Mayne Reid",
+      "year": "1866",
+      "editionYear": "2019",
+      "rating": 7
+    },
+    {
+      "id": "b_mvig7s5c_o4joj",
+      "original": "L’Homme qui rit",
+      "ru": "Человек, который смеётся",
+      "en": "The Man Who Laughs",
+      "author": "Victor Hugo",
+      "year": "1869",
+      "editionYear": "2019",
+      "rating": 10
+    },
+    {
+      "id": "b_mvigevtw_6ubvu",
+      "original": "О сопротивлении злу силою",
+      "ru": "О сопротивлении злу силою",
+      "en": "On Resistance to Evil by Force",
+      "author": "Иван Александрович Ильин",
+      "year": "1925",
+      "editionYear": "2005",
+      "rating": 8
+    },
+    {
+      "id": "b_mvigib1w_tna2o",
+      "original": "Leviathan or The Matter, Forme and Power of a Common-Wealth Ecclesiasticall and Civil",
+      "ru": "Левиафан",
+      "en": "Leviathan",
+      "author": "Thomas Hobbes",
+      "year": "1651",
+      "editionYear": "2001",
+      "rating": 9
+    },
+    {
+      "id": "b_mvigkqyk_gtgb6",
+      "original": "Дубровский",
+      "ru": "Дубровский",
+      "en": "Dubrovsky",
+      "author": "Александр Сергеевич Пушкин",
+      "year": "1841",
+      "editionYear": "2018",
+      "rating": 9
+    },
+    {
+      "id": "b_mvjqurke_dnicu",
+      "original": "Vom Kriege",
+      "ru": "О войне",
+      "en": "On War",
+      "author": "Carl von Clausewitz",
+      "year": "1832",
+      "editionYear": "2022",
+      "rating": 9
+    },
+    {
+      "id": "b_mvjqw1na_sct0k",
+      "original": "Die Räuber",
+      "ru": "Разбойники",
+      "en": "The Robbers",
+      "author": "Friedrich Schiller",
+      "year": "1781",
+      "editionYear": "2018",
+      "rating": 10
+    },
+    {
+      "id": "b_mvjqxnzq_g7150",
+      "original": "Der abentheuerliche Simplicissimus Teutsch",
+      "ru": "Симплициссимус",
+      "en": "Simplicius Simplicissimus",
+      "author": "Hans Jakob Christoffel von Grimmelshausen",
+      "year": "1668",
+      "editionYear": "1976",
+      "rating": 10
+    },
+    {
+      "id": "b_mvjqzldi_tmzte",
+      "original": "Gli uomini e le rovine",
+      "ru": "Люди и руины",
+      "en": "Men Among the Ruins",
+      "author": "Julius Evola",
+      "year": "1953",
+      "editionYear": "2007",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjr0mom_5gin0",
+      "original": "Captain Blood: His Odyssey",
+      "ru": "Одиссея капитана Блада",
+      "en": "Captain Blood: His Odyssey",
+      "author": "Rafael Sabatini",
+      "year": "1922",
+      "editionYear": "2022",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjr2sle_jcaa9",
+      "original": "A General History of the Robberies and Murders of the Most Notorious Pyrates",
+      "ru": "Всеобщая история пиратов",
+      "en": "A General History of the Pyrates",
+      "author": "Daniel Defoe",
+      "year": "1724",
+      "editionYear": "2014",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjr48cm_oyewx",
+      "original": "Walden; or, Life in the Woods",
+      "ru": "Уолден, или Жизнь в лесу",
+      "en": "Walden; or, Life in the Woods",
+      "author": "Henry David Thoreau",
+      "year": "1854",
+      "editionYear": "2019",
+      "rating": 9
+    },
+    {
+      "id": "b_mvjr67ra_jbn2u",
+      "original": "Перманентная революция",
+      "ru": "Перманентная революция",
+      "en": "The Permanent Revolution",
+      "author": "Лев Давидович Троцкий",
+      "year": "1930",
+      "editionYear": "2018",
+      "rating": 7
+    },
+    {
+      "id": "b_mvjr901x_bgnn8",
+      "original": "Ten Days That Shook the World",
+      "ru": "Десять дней, которые потрясли мир",
+      "en": "Ten Days That Shook the World",
+      "author": "John Reed",
+      "year": "1919",
+      "editionYear": "2018",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjrahq5_svnt7",
+      "original": "The Call of the Wild",
+      "ru": "Зов предков",
+      "en": "The Call of the Wild",
+      "author": "Jack London",
+      "year": "1903",
+      "editionYear": "2013",
+      "rating": 7
+    },
+    {
+      "id": "b_mvjrd0cy_n6l6w",
+      "original": "Взаимопомощь как фактор эволюции",
+      "ru": "Взаимопомощь как фактор эволюции",
+      "en": "Mutual Aid: A Factor of Evolution",
+      "author": "Пётр Алексеевич Кропоткин",
+      "year": "1902",
+      "editionYear": "2020",
+      "rating": 9
+    },
+    {
+      "id": "b_mvjrfl9l_b7vbn",
+      "original": "On Liberty",
+      "ru": "О свободе",
+      "en": "On Liberty",
+      "author": "John Stuart Mill",
+      "year": "1859",
+      "editionYear": "2010",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjrhhju_elr6g",
+      "original": "Aphorismen zur Lebensweisheit",
+      "ru": "Афоризмы житейской мудрости",
+      "en": "Aphorisms on the Wisdom of Life",
+      "author": "Arthur Schopenhauer",
+      "year": "1851",
+      "editionYear": "2022",
+      "rating": 9
+    },
+    {
+      "id": "b_mvjrjpml_1op52",
+      "original": "The Templars: The Rise and Spectacular Fall of God's Holy Warriors",
+      "ru": "Тамплиеры: Рождение и гибель великого ордена",
+      "en": "The Templars: The Rise and Spectacular Fall of God's Holy Warriors",
+      "author": "Dan Jones",
+      "year": "2017",
+      "editionYear": "2019",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjrlhju_wuk6j",
+      "original": "La société de consommation: ses mythes et ses structures",
+      "ru": "Общество потребления. Его мифы и структуры",
+      "en": "The Consumer Society: Myths and Structures",
+      "author": "Jean Baudrillard",
+      "year": "1970",
+      "editionYear": "2006",
+      "rating": 10
+    },
+    {
+      "id": "b_mvjrow6m_l7lv4",
+      "original": "Воспоминания",
+      "ru": "Воспоминания",
+      "en": "The Memoirs of Nestor Makhno",
+      "author": "Нестор Иванович Махно",
+      "year": "1929",
+      "editionYear": "1992",
+      "rating": 9
+    },
+    {
+      "id": "b_mvjrqxxm_0eg9r",
+      "original": "Das sogenannte Böse. Zur Naturgeschichte der Aggression",
+      "ru": "Агрессия, или Так называемое зло",
+      "en": "On Aggression",
+      "author": "Konrad Lorenz",
+      "year": "1963",
+      "editionYear": "1994",
+      "rating": 9
+    },
+    {
+      "id": "b_mvjrsspy_ua1vm",
+      "original": "Metaphysik der Geschlechtsliebe",
+      "ru": "Метафизика половой любви",
+      "en": "The Metaphysics of Sexual Love",
+      "author": "Arthur Schopenhauer",
+      "year": "1844",
+      "editionYear": "2015",
+      "rating": 10
+    },
+    {
+      "id": "b_mvjtj99a_qyrhw",
+      "original": "Der Ursprung der Familie, des Privateigenthums und des Staats",
+      "ru": "Происхождение семьи, частной собственности и государства",
+      "en": "The Origin of the Family, Private Property and the State",
+      "author": "Friedrich Engels",
+      "year": "1884",
+      "editionYear": "2020",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjtly4y_u0tc4",
+      "original": "Die protestantische Ethik und der Geist des Kapitalismus",
+      "ru": "Протестантская этика и дух капитализма",
+      "en": "The Protestant Ethic and the Spirit of Capitalism",
+      "author": "Max Weber",
+      "year": "1905",
+      "editionYear": "1990",
+      "rating": 7
+    },
+    {
+      "id": "b_mvjtodka_djc73",
+      "original": "Propaganda",
+      "ru": "Пропаганда",
+      "en": "Propaganda",
+      "author": "Edward Bernays",
+      "year": "1928",
+      "editionYear": "2010",
+      "rating": 8
+    },
+    {
+      "id": "b_mvjuuy52_iiacr",
+      "original": "Made in America — My Story",
+      "ru": "Сделано в Америке",
+      "en": "Made in America",
+      "author": "Sam Walton",
+      "year": "1992",
+      "editionYear": "2011",
+      "rating": 8
+    },
+    {
+      "id": "krotov-praktika-volnykh-puteshestviy-1995",
+      "original": "Практика вольных путешествий",
+      "ru": "Практика вольных путешествий",
+      "en": "The Practice of Independent Travel",
+      "author": "Антон Кротов",
+      "year": "1995",
+      "editionYear": "2015",
+      "rating": 7
+    },
+    {
+      "id": "bob-black-the-abolition-of-work-1985",
+      "original": "The Abolition of Work",
+      "ru": "Упразднение работы",
+      "en": "The Abolition of Work",
+      "author": "Bob Black",
+      "year": "1985",
+      "editionYear": "2004",
+      "rating": 10
+    }
+  ],
+  "queue": [
+    {
+      "id": "hume-treatise-human-nature-1739",
+      "original": "A Treatise of Human Nature",
+      "ru": "Трактат о человеческой природе",
+      "en": "A Treatise of Human Nature",
+      "author": "Дэвид Юм (David Hume)",
+      "year": "1740",
+      "editionYear": "2022",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-01-20261029",
+      "original": "Les Structures du quotidien : le possible et l'impossible",
+      "ru": "Структуры повседневности: возможное и невозможное. Том 1",
+      "en": "The Structures of Everyday Life",
+      "author": "Fernand Braudel",
+      "year": "1979",
+      "editionYear": "1986",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-02-20261029",
+      "original": "Les Jeux de l'échange",
+      "ru": "Игры обмена. Том 2",
+      "en": "The Wheels of Commerce",
+      "author": "Fernand Braudel",
+      "year": "1979",
+      "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-03-20261029",
+      "original": "Le Temps du monde",
+      "ru": "Время мира. Том 3",
+      "en": "The Perspective of the World",
+      "author": "Fernand Braudel",
+      "year": "1979",
+      "editionYear": "1992",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-04-20261029",
+      "original": "Природа моральной философии (сборник)",
+      "ru": "Природа моральной философии",
+      "en": "The Nature of Moral Philosophy (collection)",
+      "author": "George Edward Moore",
+      "year": "Разные годы",
+      "editionYear": "1999",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-05-20261029",
+      "original": "Архаическая Спарта: искусство и политика",
+      "ru": "Архаическая Спарта: искусство и политика",
+      "en": "Archaic Sparta: Art and Politics",
+      "author": "Юрий Андреев",
+      "year": "2008",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-06-20261029",
+      "original": "Атеизм и другие работы (сборник)",
+      "ru": "Атеизм и другие работы",
+      "en": "Atheism and Other Writings",
+      "author": "Alexandre Kojève",
+      "year": "Разные годы",
+      "editionYear": "2007",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-07-20261029",
+      "original": "The Coming Defeat of Communism",
+      "ru": "Грядущее поражение коммунизма",
+      "en": "The Coming Defeat of Communism",
+      "author": "James Burnham",
+      "year": "1950",
+      "editionYear": "1951",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-08-20261029",
+      "original": "Автобиография нейросети",
+      "ru": "Автобиография нейросети",
+      "en": "Autobiography of a Neural Network",
+      "author": "ChatGPT-4 (текст); М. Р. Брослав и О. А. Яблокова (составители)",
+      "year": "2023",
+      "editionYear": "2023",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-09-20261029",
+      "original": "Philosophie der Kunst",
+      "ru": "Философия искусства",
+      "en": "Philosophy of Art",
+      "author": "Friedrich Wilhelm Joseph Schelling",
+      "year": "1859",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-10-20261029",
+      "original": "Die Grundlagen der Arithmetik",
+      "ru": "Основоположения арифметики",
+      "en": "The Foundations of Arithmetic",
+      "author": "Gottlob Frege",
+      "year": "1884",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-11-20261029",
+      "original": "Логика и логическая семантика (сборник)",
+      "ru": "Логика и логическая семантика",
+      "en": "Logic and Logical Semantics (collection)",
+      "author": "Gottlob Frege",
+      "year": "Разные годы",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-13-20261029",
+      "original": "Kritik der reinen Vernunft",
+      "ru": "Критика чистого разума",
+      "en": "Critique of Pure Reason",
+      "author": "Immanuel Kant",
+      "year": "1781",
+      "editionYear": "1998",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-14-20261029",
+      "original": "Этика. Происхождение и развитие нравственности",
+      "ru": "Этика. Происхождение и развитие нравственности",
+      "en": "Ethics: Origin and Development",
+      "author": "Пётр Кропоткин",
+      "year": "1922",
+      "editionYear": "1991",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-15-20261029",
+      "original": "The Logic of Collective Action: Public Goods and the Theory of Groups",
+      "ru": "Логика коллективных действий. Общественные блага и теория групп",
+      "en": "The Logic of Collective Action: Public Goods and the Theory of Groups",
+      "author": "Mancur Olson",
+      "year": "1965",
+      "editionYear": "1995",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-17-20261029",
+      "original": "A Theory of Justice",
+      "ru": "Теория справедливости",
+      "en": "A Theory of Justice",
+      "author": "John Rawls",
+      "year": "1971",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-18-20261029",
+      "original": "Beyond Freedom and Dignity",
+      "ru": "По ту сторону свободы и достоинства",
+      "en": "Beyond Freedom and Dignity",
+      "author": "B. F. Skinner",
+      "year": "1971",
+      "editionYear": "2015",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-19-20261029",
+      "original": "Между войной и миром: мирные процессы и вооружённое насилие",
+      "ru": "Между войной и миром: мирные процессы и вооружённое насилие",
+      "en": "Between War and Peace: Peace Processes and Armed Violence",
+      "author": "Екатерина Степанова",
+      "year": "2023",
+      "editionYear": "2023",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-20-20261029",
+      "original": "An Inquiry into the Human Mind on the Principles of Common Sense",
+      "ru": "Исследование человеческого ума на принципах здравого смысла",
+      "en": "An Inquiry into the Human Mind on the Principles of Common Sense",
+      "author": "Thomas Reid",
+      "year": "1764",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-21-20261029",
+      "original": "Metafisica della guerra (raccolta di articoli)",
+      "ru": "Метафизика войны",
+      "en": "Metaphysics of War",
+      "author": "Julius Evola",
+      "year": "Статьи разных лет, с 1935",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-22-20261029",
+      "original": "Kritik der reinen Erfahrung",
+      "ru": "Критика чистого опыта",
+      "en": "Critique of Pure Experience",
+      "author": "Richard Avenarius",
+      "year": "1888–1890",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-23-20261029",
+      "original": "Language, Truth and Logic",
+      "ru": "Язык, истина и логика",
+      "en": "Language, Truth and Logic",
+      "author": "A. J. Ayer",
+      "year": "1936",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-24-20261029",
+      "original": "L'Homme révolté",
+      "ru": "Бунтующий человек",
+      "en": "The Rebel",
+      "author": "Albert Camus",
+      "year": "1951",
+      "editionYear": "2017",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-26-20261029",
+      "original": "Философские трактаты (сборник)",
+      "ru": "Философские трактаты",
+      "en": "Philosophical Treatises (collection)",
+      "author": "Аль-Фараби",
+      "year": "Нет единого года",
+      "editionYear": "1972",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-27-20261029",
+      "original": "Сочинения Лукиана (сборник), том 1",
+      "ru": "Сочинения. Том 1",
+      "en": "Collected Works. Volume 1",
+      "author": "Лукиан Самосатский",
+      "year": "Нет единого года",
+      "editionYear": "2001",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-28-20261029",
+      "original": "Сочинения Лукиана (сборник), том 2",
+      "ru": "Сочинения. Том 2",
+      "en": "Collected Works. Volume 2",
+      "author": "Лукиан Самосатский",
+      "year": "Нет единого года",
+      "editionYear": "2001",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-29-20261029",
+      "original": "Только анархизм: антология анархистских текстов после 1945 года",
+      "ru": "Только анархизм: антология анархистских текстов после 1945 года",
+      "en": "Only Anarchism: Anthology of Anarchist Texts after 1945",
+      "author": "Боб Блэк (составитель)",
+      "year": "2020",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-30-20261029",
+      "original": "Сочинения Боэция Дакийского (сборник)",
+      "ru": "Сочинения",
+      "en": "Collected Works",
+      "author": "Боэций Дакийский",
+      "year": "Нет единого года",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-31-20261029",
+      "original": "Компьютерные сети: принципы, технологии, протоколы",
+      "ru": "Компьютерные сети: принципы, технологии, протоколы",
+      "en": "Computer Networks: Principles, Technologies and Protocols",
+      "author": "Виктор Олифер, Наталья Олифер",
+      "year": "1999",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-32-20261029",
+      "original": "Основы философии",
+      "ru": "Основы философии",
+      "en": "Fundamentals of Philosophy",
+      "author": "Виктор Канке",
+      "year": "1999",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-33-20261029",
+      "original": "Философские сочинения (сборник)",
+      "ru": "Философские сочинения",
+      "en": "Philosophical Writings",
+      "author": "Вольтер",
+      "year": "Нет единого года",
+      "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-34-20261029",
+      "original": "Логико-философские исследования. Избранные труды (сборник)",
+      "ru": "Логико-философские исследования. Избранные труды",
+      "en": "Logico-Philosophical Studies: Selected Works",
+      "author": "Georg Henrik von Wright",
+      "year": "Разные годы",
+      "editionYear": "1986",
+      "rating": null
+    },
+    {
+      "id": "ool-gassendi-syntagma-philosophiae-epicuri-1649",
+      "original": "Syntagma philosophiae Epicuri",
+      "ru": "Свод философии Эпикура",
+      "en": "Compendium of the Philosophy of Epicurus",
+      "author": "Пьер Гассенди",
+      "year": "1649",
+      "editionYear": "1966",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-37-20261029",
+      "original": "Resistance to Civil Government",
+      "ru": "О гражданском неповиновении",
+      "en": "Civil Disobedience",
+      "author": "Henry David Thoreau",
+      "year": "1849",
+      "editionYear": "2021",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-38-20261029",
+      "original": "La Société du spectacle",
+      "ru": "Общество спектакля",
+      "en": "The Society of the Spectacle",
+      "author": "Guy Debord",
+      "year": "1967",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-39-20261029",
+      "original": "Логико-философские труды (сборник)",
+      "ru": "Логико-философские труды",
+      "en": "Logico-Philosophical Writings",
+      "author": "Gottlob Frege",
+      "year": "Разные годы",
+      "editionYear": "2017",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-40-20261029",
+      "original": "De iure belli ac pacis",
+      "ru": "О праве войны и мира",
+      "en": "On the Law of War and Peace",
+      "author": "Hugo Grotius",
+      "year": "1625",
+      "editionYear": "1994",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-41-20261029",
+      "original": "Les grands systèmes de droit contemporains",
+      "ru": "Основные правовые системы современности",
+      "en": "Major Legal Systems in the World Today",
+      "author": "René David",
+      "year": "1964",
+      "editionYear": "1988",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-42-20261029",
+      "original": "武道初心集 (Budō Shoshinshū)",
+      "ru": "Кодекс бусидо",
+      "en": "The Warrior's Primer",
+      "author": "Дайдодзи Юдзан",
+      "year": "1834",
+      "editionYear": "2004",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-44-20261029",
+      "original": "Some Problems of Philosophy",
+      "ru": "Введение в философию",
+      "en": "Some Problems of Philosophy",
+      "author": "William James",
+      "year": "1911",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-45-20261029",
+      "original": "The Problems of Philosophy",
+      "ru": "Проблемы философии",
+      "en": "The Problems of Philosophy",
+      "author": "Bertrand Russell",
+      "year": "1912",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-46-20261029",
+      "original": "Дмитрий Кантемир",
+      "ru": "Дмитрий Кантемир",
+      "en": "Dimitrie Cantemir",
+      "author": "А. И. Бабий",
+      "year": "1984",
+      "editionYear": "1984",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-47-20261029",
+      "original": "Ценность и экзистенция: основоположения исторической аксиологии культуры",
+      "ru": "Ценность и экзистенция: основоположения исторической аксиологии культуры",
+      "en": "Value and Existence",
+      "author": "Илья Докучаев",
+      "year": "2009",
+      "editionYear": "2009",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-48-20261029",
+      "original": "Дэвид Юм и современная философия (сборник)",
+      "ru": "Дэвид Юм и современная философия",
+      "en": "David Hume and Contemporary Philosophy",
+      "author": "под ред. Ильи Касавина",
+      "year": "2012",
+      "editionYear": "2012",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-49-20261029",
+      "original": "Civitas Solis / La città del Sole",
+      "ru": "Город Солнца",
+      "en": "The City of the Sun",
+      "author": "Tommaso Campanella",
+      "year": "1623",
+      "editionYear": "1954",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-50-20261029",
+      "original": "Zum ewigen Frieden",
+      "ru": "К вечному миру",
+      "en": "Perpetual Peace",
+      "author": "Immanuel Kant",
+      "year": "1795",
+      "editionYear": "2019",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-51-20261029",
+      "original": "Die Tyrannei der Werte",
+      "ru": "Тирания ценностей",
+      "en": "The Tyranny of Values",
+      "author": "Carl Schmitt",
+      "year": "1960",
+      "editionYear": "2014",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-52-20261029",
+      "original": "Пословицы русского народа",
+      "ru": "Пословицы и поговорки русского народа",
+      "en": "Russian Proverbs and Sayings",
+      "author": "Владимир Даль; ред. Б. П. Кирдан",
+      "year": "1862",
+      "editionYear": "1987",
+      "rating": null
+    },
+    {
+      "id": "ool-edition-53-20261029",
+      "original": "La Notion de l'autorité",
+      "ru": "Понятие власти",
+      "en": "The Notion of Authority",
+      "author": "Alexandre Kojève",
+      "year": "2004",
+      "editionYear": "2006",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-01-20261029",
+      "original": "Революцией устрашенные. Критический очерк буржуазных концепций социальной революции",
+      "ru": "Революцией устрашённые. Критический очерк буржуазных концепций социальной революции",
+      "en": "Frightened by Revolution: A Critical Essay on Bourgeois Concepts of Social Revolution",
+      "author": "Юрий Красин",
+      "year": "1975",
+      "editionYear": "1975",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-04-20261029",
+      "original": "Word and Object",
+      "ru": "Слово и объект",
+      "en": "Word and Object",
+      "author": "Willard Van Orman Quine",
+      "year": "1960",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-07-20261029",
+      "original": "Безмолвный террор. История политического преследования семьи в Соединенных Штатах",
+      "ru": "Безмолвный террор. История политического преследования семьи в Соединённых Штатах",
+      "en": "Silent Terror: The Political Persecution of a Family in the United States",
+      "author": "Арнольд Локшин, Лорен Локшина",
+      "year": "1989",
+      "editionYear": "1989",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-08-20261029",
+      "original": "Свобода воли",
+      "ru": "Свобода воли",
+      "en": "Freedom of the Will",
+      "author": "Николай Лосский",
+      "year": "1927",
+      "editionYear": "1927",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-09-20261029",
+      "original": "Argonauts of the Western Pacific",
+      "ru": "Аргонавты западной части Тихого океана",
+      "en": "Argonauts of the Western Pacific",
+      "author": "Bronisław Malinowski",
+      "year": "1922",
+      "editionYear": "2015",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-14-20261029",
+      "original": "Принцип сочувствия. Размышления об этике и научном познании",
+      "ru": "Принцип сочувствия. Размышления об этике и научном познании",
+      "en": "The Principle of Sympathy: Reflections on Ethics and Scientific Knowledge",
+      "author": "Сергей Мейен",
+      "year": "2006",
+      "editionYear": "2006",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-17-20261029",
+      "original": "Surveiller et punir : Naissance de la prison",
+      "ru": "Надзирать и наказывать. Рождение тюрьмы",
+      "en": "Discipline and Punish: The Birth of the Prison",
+      "author": "Michel Foucault",
+      "year": "1975",
+      "editionYear": "2018",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-18-20261029",
+      "original": "Storia delle dottrine politiche",
+      "ru": "История политических доктрин",
+      "en": "History of Political Doctrines",
+      "author": "Gaetano Mosca",
+      "year": "1933",
+      "editionYear": "2012",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-19-20261029",
+      "original": "Principia Ethica",
+      "ru": "Принципы этики",
+      "en": "Principia Ethica",
+      "author": "George Edward Moore",
+      "year": "1903",
+      "editionYear": "1984",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-20-20261029",
+      "original": "Social Origins of Dictatorship and Democracy: Lord and Peasant in the Making of the Modern World",
+      "ru": "Социальные истоки диктатуры и демократии. Роль помещика и крестьянина в создании современного мира",
+      "en": "Social Origins of Dictatorship and Democracy",
+      "author": "Barrington Moore Jr.",
+      "year": "1966",
+      "editionYear": "2016",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-23-20261029",
+      "original": "Compendio di sociologia generale",
+      "ru": "Компендиум по общей социологии",
+      "en": "Compendium of General Sociology",
+      "author": "Vilfredo Pareto",
+      "year": "1920",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-24-20261029",
+      "original": "Fools, Frauds and Firebrands: Thinkers of the New Left",
+      "ru": "Дураки, мошенники и поджигатели. Мыслители новых левых",
+      "en": "Fools, Frauds and Firebrands: Thinkers of the New Left",
+      "author": "Roger Scruton",
+      "year": "2015",
+      "editionYear": "2021",
+      "rating": null
+    },
+    {
+      "id": "ool-batch2-28-20261029",
+      "original": "Derviš i smrt",
+      "ru": "Дервиш и смерть",
+      "en": "Death and the Dervish",
+      "author": "Meša Selimović",
+      "year": "1966",
+      "editionYear": "1969",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-01-20261029",
+      "original": "Système des contradictions économiques ou Philosophie de la misère",
+      "ru": "Система экономических противоречий, или Философия нищеты. Том 1",
+      "en": "System of Economic Contradictions, or The Philosophy of Poverty",
+      "author": "Pierre-Joseph Proudhon",
+      "year": "1846",
+      "editionYear": "2021",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-02-20261029",
+      "original": "Introduction à l'économie moderne",
+      "ru": "Введение в изучение современного хозяйства",
+      "en": "Introduction to Modern Economics",
+      "author": "Georges Sorel",
+      "year": "1903",
+      "editionYear": "2011",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-03-20261029",
+      "original": "Réflexions sur la violence",
+      "ru": "Размышления о насилии",
+      "en": "Reflections on Violence",
+      "author": "Georges Sorel",
+      "year": "1908",
+      "editionYear": "2013",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-04-20261029",
+      "original": "Cours de linguistique générale",
+      "ru": "Курс общей лингвистики",
+      "en": "Course in General Linguistics",
+      "author": "Ferdinand de Saussure",
+      "year": "1916",
+      "editionYear": "1999",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-05-20261029",
+      "original": "Свобода воли как проблема европейского морального сознания. Очерки истории: от Гомера до Лютера",
+      "ru": "Свобода воли как проблема европейского морального сознания. Очерки истории: от Гомера до Лютера",
+      "en": "Free Will as a Problem of European Moral Consciousness",
+      "author": "А. А. Столяров",
+      "year": "1999",
+      "editionYear": "1999",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-08-20261029",
+      "original": "De la démocratie en Amérique",
+      "ru": "Демократия в Америке",
+      "en": "Democracy in America",
+      "author": "Alexis de Tocqueville",
+      "year": "1835–1840",
+      "editionYear": "1992",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-09-20261029",
+      "original": "L'Ancien Régime et la Révolution",
+      "ru": "Старый порядок и революция",
+      "en": "The Old Regime and the Revolution",
+      "author": "Alexis de Tocqueville",
+      "year": "1856",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-10-20261029",
+      "original": "The Theory of the Leisure Class",
+      "ru": "Теория праздного класса",
+      "en": "The Theory of the Leisure Class",
+      "author": "Thorstein Veblen",
+      "year": "1899",
+      "editionYear": "2021",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-12-20261029",
+      "original": "The Clash of Civilizations and the Remaking of World Order",
+      "ru": "Столкновение цивилизаций",
+      "en": "The Clash of Civilizations and the Remaking of World Order",
+      "author": "Samuel P. Huntington",
+      "year": "1996",
+      "editionYear": "2003",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-13-20261029",
+      "original": "What Is Anthropology?",
+      "ru": "Что такое антропология?",
+      "en": "What Is Anthropology?",
+      "author": "Thomas Hylland Eriksen",
+      "year": "2004",
+      "editionYear": "2014",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-15-20261029",
+      "original": "Probleme einer Soziologie des Wissens",
+      "ru": "Проблемы социологии знания",
+      "en": "Problems of a Sociology of Knowledge",
+      "author": "Max Scheler",
+      "year": "1924",
+      "editionYear": "2011",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-16-20261029",
+      "original": "Die Diktatur",
+      "ru": "Диктатура",
+      "en": "Dictatorship",
+      "author": "Carl Schmitt",
+      "year": "1921",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-18-20261029",
+      "original": "Rivolta contro il mondo moderno",
+      "ru": "Восстание против современного мира",
+      "en": "Revolt Against the Modern World",
+      "author": "Julius Evola",
+      "year": "1934",
+      "editionYear": "2016",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-19-20261029",
+      "original": "Der Waldgang",
+      "ru": "Уход в лес",
+      "en": "The Forest Passage",
+      "author": "Ernst Jünger",
+      "year": "1951",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-20-20261029",
+      "original": "История политических и правовых учений",
+      "ru": "История политических и правовых учений",
+      "en": "History of Political and Legal Doctrines",
+      "author": "Коллектив авторов; под ред. В. С. Нерсесянца",
+      "year": "2000",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-list3-21-20261029",
+      "original": "Лингвистика и аксиология: этносемиометрия ценностных смыслов",
+      "ru": "Лингвистика и аксиология: этносемиометрия ценностных смыслов",
+      "en": "Linguistics and Axiology: Ethnosemiometry of Value Meanings",
+      "author": "Коллектив авторов; под руководством Е. Ф. Серебренниковой, отв. ред. Л. Г. Викулова",
+      "year": "2011",
+      "editionYear": "2011",
+      "rating": null
+    },
+    {
+      "id": "ool-final-01-20261029",
+      "original": "Individuals: An Essay in Descriptive Metaphysics",
+      "ru": "Индивиды. Опыт дескриптивной метафизики",
+      "en": "Individuals: An Essay in Descriptive Metaphysics",
+      "author": "Peter Frederick Strawson",
+      "year": "1959",
+      "editionYear": "2009",
+      "rating": null
+    },
+    {
+      "id": "ool-final-02-20261029",
+      "original": "Computer Networks",
+      "ru": "Компьютерные сети",
+      "en": "Computer Networks",
+      "author": "Эндрю Таненбаум и соавторы",
+      "year": "1981",
+      "editionYear": "2023",
+      "rating": null
+    },
+    {
+      "id": "ool-final-03-20261029",
+      "original": "The Second World War, 1939–45: A Strategical and Tactical History",
+      "ru": "Вторая мировая война 1939–1945 гг. Стратегический и тактический обзор",
+      "en": "The Second World War, 1939–45: A Strategical and Tactical History",
+      "author": "J. F. C. Fuller",
+      "year": "1948",
+      "editionYear": "2005",
+      "rating": null
+    },
+    {
+      "id": "ool-final-04-20261029",
+      "original": "Qu'est-ce que la propriété ? ou Recherches sur le principe du droit et du gouvernement",
+      "ru": "Что такое собственность? или Исследование о принципе права и власти",
+      "en": "What Is Property? Or, an Inquiry into the Principle of Right and of Government",
+      "author": "Pierre-Joseph Proudhon",
+      "year": "1840",
+      "editionYear": "1907",
+      "rating": null
+    },
+    {
+      "id": "ool-final-05-20261029",
+      "original": "Введение в политическую философию",
+      "ru": "Введение в политическую философию",
+      "en": "Introduction to Political Philosophy",
+      "author": "Лео Штраус",
+      "year": "2000",
+      "editionYear": "2000",
+      "rating": null
+    },
+    {
+      "id": "ool-final-06-20261029",
+      "original": "Краткий курс истории философии",
+      "ru": "Краткий курс истории философии",
+      "en": "A Short Course in the History of Philosophy",
+      "author": "Артур Шопенгауэр",
+      "year": "2018",
+      "editionYear": "2018",
+      "rating": null
+    },
+    {
+      "id": "ool-final-07-20261029",
+      "original": "Учебник сержанта Сухопутных войск. Для сержантов войск ПВО СВ — командиров отделений и начальников установок ЗАК",
+      "ru": "Учебник сержанта Сухопутных войск. Для сержантов войск ПВО СВ — командиров отделений и начальников установок ЗАК",
+      "en": "Ground Forces Sergeant's Manual: For Air Defence Sergeants, Squad Commanders and Antiaircraft Gun Installation Chiefs",
+      "author": "Коллектив авторов; под ред. Б. Ф. Кузьмина",
+      "year": "1991",
+      "editionYear": "1991",
+      "rating": null
+    },
+    {
+      "id": "ool-final-08-20261029",
+      "original": "La Pensée sauvage",
+      "ru": "Первобытное мышление",
+      "en": "The Savage Mind",
+      "author": "Claude Lévi-Strauss",
+      "year": "1962",
+      "editionYear": "1994",
+      "rating": null
+    },
+    {
+      "id": "ool-final-09-20261029",
+      "original": "Мафия. Новые мировые тенденции",
+      "ru": "Мафия. Новые мировые тенденции",
+      "en": "Mafia: New Global Trends",
+      "author": "Владимир Овчинский",
+      "year": "2016",
+      "editionYear": "2016",
+      "rating": null
+    },
+    {
+      "id": "ool-final-10-20261029",
+      "original": "Die Welt als Wille und Vorstellung",
+      "ru": "Мир как воля и представление",
+      "en": "The World as Will and Representation",
+      "author": "Arthur Schopenhauer",
+      "year": "1819",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "ool-final-11-20261029",
+      "original": "Λακεδαιμονίων Πολιτεία",
+      "ru": "Лакедемонская полития",
+      "en": "Constitution of the Lacedaemonians",
+      "author": "Ксенофонт",
+      "year": "380 до н. э.",
+      "editionYear": "2014",
+      "rating": null
+    },
+    {
+      "id": "ool-final-12-20261029",
+      "original": "Избранное. Динамика культуры",
+      "ru": "Избранное. Динамика культуры",
+      "en": "Selected Works: Dynamics of Culture",
+      "author": "Бронислав Малиновский",
+      "year": "2004",
+      "editionYear": "2015",
+      "rating": null
+    }
+  ]
+}
