@@ -332,6 +332,24 @@
       "year": "1992",
       "rating": 8,
       "id": "b_mvjuuy52_iiacr"
+    },
+    {
+      "id": "krotov-praktika-volnykh-puteshestviy-1995",
+      "original": "Практика вольных путешествий",
+      "ru": "Практика вольных путешествий",
+      "en": "The Practice of Independent Travel",
+      "author": "Антон Кротов",
+      "year": "1995",
+      "rating": 7
+    },
+    {
+      "id": "bob-black-the-abolition-of-work-1985",
+      "original": "The Abolition of Work",
+      "ru": "Упразднение работы",
+      "en": "The Abolition of Work",
+      "author": "Bob Black",
+      "year": "1985",
+      "rating": 10
     }
   ],
   "queue": [
