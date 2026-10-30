@@ -1421,6 +1421,26 @@
       "year": "1884",
       "editionYear": "2023",
       "rating": null
+    },
+    {
+      "id": "more-utopia-1516",
+      "original": "Utopia",
+      "ru": "Утопия",
+      "en": "Utopia",
+      "author": "Томас Мор",
+      "year": "1516",
+      "editionYear": "2012",
+      "rating": null
+    },
+    {
+      "id": "carlyle-ethics-of-life-1902-ed2022",
+      "original": "Arbeiten und nicht verzweifeln",
+      "ru": "Этика жизни",
+      "en": "Work and Do Not Despair",
+      "author": "Томас Карлейль",
+      "year": "1902",
+      "editionYear": "2022",
+      "rating": null
     }
   ]
 }
