@@ -1401,6 +1401,16 @@
       "year": "1971",
       "editionYear": "2017",
       "rating": null
+    },
+    {
+      "id": "renan-vie-de-jesus-1863-ed1991",
+      "original": "Vie de Jésus",
+      "ru": "Жизнь Иисуса",
+      "en": "Life of Jesus",
+      "author": "Эрнест Ренан",
+      "year": "1863",
+      "editionYear": "1991",
+      "rating": null
     }
   ]
 }
