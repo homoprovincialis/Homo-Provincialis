@@ -1421,6 +1421,26 @@
       "year": "1863",
       "editionYear": "1991",
       "rating": null
+    },
+    {
+      "id": "feuerbach-principles-philosophy-future-1843-ed1995",
+      "original": "Grundsätze der Philosophie der Zukunft",
+      "ru": "Основные положения философии будущего",
+      "en": "Principles of Philosophy of the Future",
+      "author": "Людвиг Фейербах",
+      "year": "1843",
+      "editionYear": "1995",
+      "rating": null
+    },
+    {
+      "id": "feuerbach-essence-christianity-1841-ed1995",
+      "original": "Das Wesen des Christentums",
+      "ru": "Сущность христианства",
+      "en": "The Essence of Christianity",
+      "author": "Людвиг Фейербах",
+      "year": "1841",
+      "editionYear": "1995",
+      "rating": null
     }
   ]
 }
