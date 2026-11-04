@@ -1441,6 +1441,16 @@
       "year": "1841",
       "editionYear": "1995",
       "rating": null
+    },
+    {
+      "id": "voltaire-traite-tolerance-1763-ed2016",
+      "original": "Traité sur la tolérance",
+      "ru": "Трактат о терпимости",
+      "en": "Treatise on Toleration",
+      "author": "Вольтер",
+      "year": "1763",
+      "editionYear": "2016",
+      "rating": null
     }
   ]
 }
