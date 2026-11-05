@@ -399,6 +399,26 @@
       "year": "1716",
       "editionYear": "2004",
       "rating": 7
+    },
+    {
+      "id": "sombart-die-juden-und-das-wirtschaftsleben-1911-ed2004",
+      "original": "Die Juden und das Wirtschaftsleben",
+      "ru": "Евреи и хозяйственная жизнь",
+      "en": "The Jews and Modern Capitalism",
+      "author": "Вернер Зомбарт",
+      "year": "1911",
+      "editionYear": "2004",
+      "rating": 8
+    },
+    {
+      "id": "schmitt-land-und-meer-1942-ed2013",
+      "original": "Land und Meer. Eine weltgeschichtliche Betrachtung",
+      "ru": "Земля и море",
+      "en": "Land and Sea: A World-Historical Meditation",
+      "author": "Карл Шмитт",
+      "year": "1942",
+      "editionYear": "2013",
+      "rating": 8
     }
   ],
   "queue": [
