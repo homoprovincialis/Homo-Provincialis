@@ -1501,6 +1501,176 @@
       "year": "1844",
       "editionYear": "2017",
       "rating": null
+    },
+    {
+      "id": "la-boetie-voluntary-servitude",
+      "original": "Discours de la servitude volontaire",
+      "ru": "Рассуждение о добровольном рабстве",
+      "en": "Discourse on Voluntary Servitude",
+      "author": "Этьен де Ла Боэси",
+      "year": "1576",
+      "editionYear": "1952",
+      "rating": null
+    },
+    {
+      "id": "goldman-anarchism-essays",
+      "original": "Anarchism and Other Essays",
+      "ru": "Анархизм и другие эссе",
+      "en": "Anarchism and Other Essays",
+      "author": "Эмма Гольдман",
+      "year": "1910",
+      "editionYear": "2026",
+      "rating": null
+    },
+    {
+      "id": "malatesta-anarchy",
+      "original": "L'Anarchia",
+      "ru": "Анархия",
+      "en": "Anarchy",
+      "author": "Эррико Малатеста",
+      "year": "1891",
+      "editionYear": "",
+      "rating": null
+    },
+    {
+      "id": "ostrom-governing-commons",
+      "original": "Governing the Commons",
+      "ru": "Управляя общим. Эволюция институтов коллективной деятельности",
+      "en": "Governing the Commons",
+      "author": "Элинор Остром",
+      "year": "1990",
+      "editionYear": "2011",
+      "rating": null
+    },
+    {
+      "id": "scott-seeing-like-state",
+      "original": "Seeing Like a State",
+      "ru": "Благими намерениями государства",
+      "en": "Seeing Like a State",
+      "author": "Джеймс Скотт",
+      "year": "1998",
+      "editionYear": "2005",
+      "rating": null
+    },
+    {
+      "id": "lucretius-de-rerum-natura",
+      "original": "De rerum natura",
+      "ru": "О природе вещей",
+      "en": "On the Nature of Things",
+      "author": "Тит Лукреций Кар",
+      "year": "I век до н. э.",
+      "editionYear": "1983",
+      "rating": null
+    },
+    {
+      "id": "smith-moral-sentiments",
+      "original": "The Theory of Moral Sentiments",
+      "ru": "Теория нравственных чувств",
+      "en": "The Theory of Moral Sentiments",
+      "author": "Адам Смит",
+      "year": "1759",
+      "editionYear": "1997",
+      "rating": null
+    },
+    {
+      "id": "graeber-bullshit-jobs",
+      "original": "Bullshit Jobs: A Theory",
+      "ru": "Бредовая работа. Трактат о распространении бессмысленного труда",
+      "en": "Bullshit Jobs",
+      "author": "Дэвид Гребер",
+      "year": "2018",
+      "editionYear": "2020",
+      "rating": null
+    },
+    {
+      "id": "graeber-debt",
+      "original": "Debt: The First 5,000 Years",
+      "ru": "Долг: первые 5000 лет истории",
+      "en": "Debt: The First 5,000 Years",
+      "author": "Дэвид Гребер",
+      "year": "2011",
+      "editionYear": "2014",
+      "rating": null
+    },
+    {
+      "id": "polanyi-great-transformation",
+      "original": "The Great Transformation",
+      "ru": "Великая трансформация",
+      "en": "The Great Transformation",
+      "author": "Карл Поланьи",
+      "year": "1944",
+      "editionYear": "2002",
+      "rating": null
+    },
+    {
+      "id": "fromm-have-or-be",
+      "original": "To Have or to Be?",
+      "ru": "Иметь или быть?",
+      "en": "To Have or to Be?",
+      "author": "Эрих Фромм",
+      "year": "1976",
+      "editionYear": "2010",
+      "rating": null
+    },
+    {
+      "id": "milgram-obedience",
+      "original": "Obedience to Authority: An Experimental View",
+      "ru": "Подчинение авторитету. Научный взгляд на власть и мораль",
+      "en": "Obedience to Authority",
+      "author": "Стэнли Милгрэм",
+      "year": "1974",
+      "editionYear": "2016",
+      "rating": null
+    },
+    {
+      "id": "hugo-les-miserables",
+      "original": "Les Misérables",
+      "ru": "Отверженные",
+      "en": "Les Misérables",
+      "author": "Виктор Гюго",
+      "year": "1862",
+      "editionYear": "2018",
+      "rating": null
+    },
+    {
+      "id": "dostoevsky-karamazov",
+      "original": "Братья Карамазовы",
+      "ru": "Братья Карамазовы",
+      "en": "The Brothers Karamazov",
+      "author": "Фёдор Достоевский",
+      "year": "1879–1880",
+      "editionYear": "2023",
+      "rating": null
+    },
+    {
+      "id": "ibsen-en-folkefiende",
+      "original": "En folkefiende",
+      "ru": "Враг народа",
+      "en": "An Enemy of the People",
+      "author": "Генрик Ибсен",
+      "year": "1882",
+      "editionYear": "1931",
+      "rating": null
+    },
+    {
+      "id": "leguin-dispossessed",
+      "original": "The Dispossessed",
+      "ru": "Обделённые",
+      "en": "The Dispossessed",
+      "author": "Урсула Ле Гуин",
+      "year": "1974",
+      "editionYear": "2016",
+      "rating": null
+    },
+    {
+      "id": "camus-plague",
+      "original": "La Peste",
+      "ru": "Чума",
+      "en": "The Plague",
+      "author": "Альбер Камю",
+      "year": "1947",
+      "editionYear": "2022",
+      "rating": null
     }
   ]
 }
