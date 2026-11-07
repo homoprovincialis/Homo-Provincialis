@@ -1481,6 +1481,26 @@
       "year": "1991",
       "editionYear": "2023",
       "rating": null
+    },
+    {
+      "id": "nozick-anarchy-state-utopia-1974-ed2008",
+      "original": "Anarchy, State, and Utopia",
+      "ru": "Анархия, государство и утопия",
+      "en": "Anarchy, State, and Utopia",
+      "author": "Роберт Нозик",
+      "year": "1974",
+      "editionYear": "2008",
+      "rating": null
+    },
+    {
+      "id": "stirner-der-einzige-1844-ed2017",
+      "original": "Der Einzige und sein Eigenthum",
+      "ru": "Единственный и его собственность",
+      "en": "The Ego and Its Own",
+      "author": "Макс Штирнер",
+      "year": "1844",
+      "editionYear": "2017",
+      "rating": null
     }
   ]
 }
