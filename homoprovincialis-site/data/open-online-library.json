@@ -419,6 +419,36 @@
       "year": "1942",
       "editionYear": "2013",
       "rating": 8
+    },
+    {
+      "id": "shakespeare-hamlet-1603-ed2018",
+      "original": "The Tragedy of Hamlet, Prince of Denmark",
+      "ru": "Гамлет",
+      "en": "Hamlet",
+      "author": "Уильям Шекспир",
+      "year": "1603",
+      "editionYear": "2018",
+      "rating": 7
+    },
+    {
+      "id": "peskov-taezhny-tupik-1983-ed1990",
+      "original": "Таёжный тупик",
+      "ru": "Таёжный тупик",
+      "en": "Lost in the Taiga",
+      "author": "Василий Песков",
+      "year": "1983",
+      "editionYear": "1990",
+      "rating": 8
+    },
+    {
+      "id": "huxley-brave-new-world-1932-ed2013",
+      "original": "Brave New World",
+      "ru": "О дивный новый мир",
+      "en": "Brave New World",
+      "author": "Олдос Хаксли",
+      "year": "1932",
+      "editionYear": "2013",
+      "rating": 6
     }
   ],
   "queue": [
