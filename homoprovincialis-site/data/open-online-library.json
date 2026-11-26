@@ -1711,6 +1711,26 @@
       "year": "1740",
       "editionYear": "2013",
       "rating": null
+    },
+    {
+      "id": "turgenev-ottsy-i-deti-1862-ed2018",
+      "original": "Отцы и дети",
+      "ru": "Отцы и дети",
+      "en": "Fathers and Sons",
+      "author": "Иван Тургенев",
+      "year": "1862",
+      "editionYear": "2018",
+      "rating": null
+    },
+    {
+      "id": "milton-paradise-lost-1667-ed2023",
+      "original": "Paradise Lost",
+      "ru": "Потерянный рай",
+      "en": "Paradise Lost",
+      "author": "Джон Мильтон",
+      "year": "1667",
+      "editionYear": "2023",
+      "rating": null
     }
   ]
 }
